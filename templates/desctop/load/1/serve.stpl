@@ -1,5 +1,5 @@
 <% let (__t, __s, __l) = match linguage {
-        2 => ("Web-service", "Application language / technology", "complexity"), 
+        2 => ("Code Tesla Labs", "Application language / technology", "complexity"), 
         1 | _ => ("Веб-сервис", "Язык / технология приложения", "сложность"),
     };
 %>

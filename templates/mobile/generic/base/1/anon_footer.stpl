@@ -10,7 +10,7 @@
     _wikis, _tags, _orders, _helps, _stats, _design,
     _pages, _history, _folders, _desc) = match linguage {
         2 => (  
-            "Web-services", "Home", "Services", 
+            "Code Tesla Labs", "Home", "Services", 
             "Works", "Blog", "Stores", "Info", "Search", 
             "Wiki", "Tags", "Orders", "Helps", "Statistics", 
             "Background", "Pages", "History", 

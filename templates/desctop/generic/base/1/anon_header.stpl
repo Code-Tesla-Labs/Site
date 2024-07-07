@@ -3,7 +3,7 @@
     _search_pl, _wikis, _tags, _orders, _helps, _stats, _design,
     _pages, _history, _settings, _languages, _currency) = match linguage {
         2 => (  
-            "Web-services", "Home", "Uniform", "Services", 
+            "Code Tesla Labs", "Home", "Uniform", "Services", 
             "Works", "Blog", "Stores", "Info", "Search", 
             "Search from 3 letters", "Wiki", "Tags", "Orders",
             "Helps", "Statistics", "Background", "Pages", "You watched",

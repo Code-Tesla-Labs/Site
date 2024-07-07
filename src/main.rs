@@ -12,7 +12,7 @@ pub mod schema;
 pub mod models;
 pub mod routes;
 pub mod websocket;
-mod errors;
+mod errors; 
 mod vars;
  
 use actix_web::{
@@ -55,7 +55,7 @@ async fn main() -> std::io::Result<()> {
         let messages = Arc::new(Mutex::new(vec![]));
 
 
-        App::new()  
+        App::new()
             .data(AppState {
                 server_id: SERVER_COUNTER.fetch_add(1, Ordering::SeqCst),
                 request_count: Cell::new(0),
@@ -74,8 +74,7 @@ async fn main() -> std::io::Result<()> {
             .configure(routes)
     })
 
-    //.bind("89.108.82.212:9001")?   // порт для разработки
-    .bind("89.111.170.120:9009")?     // порт для автоматической доставки
+    .bind("89.111.170.120:9109")?
     .run()
     .await
 }

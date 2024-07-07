@@ -30,10 +30,36 @@
         <div class="col-md-3 mb-xs-30">
             <div class="team-item">
                 <div class="team-item-image">
+                <img class="team_image" src="/static/images/team/erika.jpg" alt="img">
+                <div class="team-item-detail">
+                    <p> 
+                        Erika Bergen is a seasoned leader with a proven track record in developing and managing startups. As the head of Cod Tesla Lab, 
+                        she brings extensive expertise in IT and innovation.
+                    </p>
+                    <div class="team-social-links">
+                        <a href="https://www.facebook.com/ecostart.eb.9/" target="_blank">
+                            <span class="sr-only">Facebook</span>
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <div class="team-item-descr" style="line-height: 15px;">
+                <div class="team-item-name font-alt" style="margin-top: 10px;">
+                    Erika Bergen
+                </div>
+                <div class="team-item-role">
+                    The Head
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-xs-30">
+            <div class="team-item">
+                <div class="team-item-image">
                 <img class="team_image" src="/static/images/team/zubarev.png" alt="img">
                 <div class="team-item-detail">
                     <p>
-                        Director of Web Services LLC. An experienced senior developer, mentor, leader of public and business projects and startups.
+                        An experienced senior developer, mentor, leader of public and business projects and startups.
                     </p>
                     <p>
                         The creator of a number of creative and technological software solutions for companies in Russia, Europe, and the USA.
@@ -50,7 +76,7 @@
                 </div>
                 <div class="team-item-descr" style="line-height: 15px;">
                 <div class="team-item-name font-alt" style="margin-top: 10px;">
-                    Sergey Zubarev
+                    Serge Zubareff
                 </div>
                 <div class="team-item-role">
                     Fullstack developer, team leader, architect
@@ -65,7 +91,7 @@
                 <img class="team_image" src="/static/images/team/goldobin.jpg" alt="img">
                 <div class="team-item-detail">
                     <p>
-                        The main ideologue in technical, business. blockchain, finance spheres. An irreplaceable leader is an order provider.
+                        The main Analyst in technical, business. blockchain, finance spheres. An irreplaceable leader is an order provider.
                     </p>
                     <p>
                         He is able to think through and structure any question.
@@ -79,10 +105,10 @@
                 </div>
                 <div class="team-item-descr" style="line-height: 15px;">
                 <div class="team-item-name font-alt" style="margin-top: 10px;">
-                    Alexander Goldobin
+                    Alex Goldberg
                 </div>
                 <div class="team-item-role">
-                    Technical, product and business ideologist
+                    Technical, product and business Analyst
                 </div>
                 </div>
             </div>
@@ -111,7 +137,7 @@
                     Dmitry Rayevsky
                 </div>
                 <div class="team-item-role">
-                    Ideologist, product manager, public data
+                    Analyst, product manager, public data
                 </div>
                 </div>
             </div>
@@ -138,7 +164,7 @@
                 </div>
                 <div class="team-item-descr" style="line-height: 15px;">
                 <div class="team-item-name font-alt" style="margin-top: 10px;">
-                    Valentin Belikov
+                    Valenti Belikoff
                 </div>
                 <div class="team-item-role">
                     Designer
@@ -146,9 +172,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row" style="margin-top:30px">
-        <div class="col-md-3 mb-xs-30"></div>
+
         <div class="col-md-3 mb-xs-30">
             <div class="team-item">
                 <div class="team-item-image">
@@ -159,25 +183,15 @@
                         and practice in computer science.
                     </p>
                     <div class="team-social-links">
-                        <!--
-                        <a href="#" target="_blank">
-                            <span class="sr-only">Git</span>
-                        </a>
-                        -->
                         <a href="https://vk.com/id16747157" target="_blank">
                             <span class="sr-only">Vk</span>
                         </a>
-                        <!--
-                        <a href="#" target="_blank">
-                            <span class="sr-only">Pinterest</span>
-                        </a>
-                        -->
                     </div>
                 </div>
                 </div>
                 <div class="team-item-descr" style="line-height: 15px;">
                 <div class="team-item-name font-alt" style="margin-top: 10px;">
-                    Andrey Perminov
+                    Andre Perminoff
                 </div>
                 <div class="team-item-role">
                     Engineer, Embedded software developer
@@ -202,7 +216,7 @@
                 </div>
                 <div class="team-item-descr" style="line-height: 15px;">
                 <div class="team-item-name font-alt" style="margin-top: 10px;">
-                    Margarita Khrustaleva
+                    Margo Khrustalevi
                 </div>
                 <div class="team-item-role">
                     Copywriter, SEO, marketer
@@ -210,6 +224,51 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 mb-xs-30"></div>
+        <div class="col-md-3 mb-xs-30">
+            <div class="team-item">
+                <div class="team-item-image">
+                    <img class="team_image" src="/static/images/team/perminova.jpg" alt="img">
+                    <div class="team-item-detail">
+                        <p>
+                            Tester
+                        </p>
+                        <div class="team-social-links">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="team-item-descr" style="line-height: 15px;">
+                    <div class="team-item-name font-alt" style="margin-top: 10px;">
+                        Lubov Star
+                    </div>
+                    <div class="team-item-role">
+                        Tester
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-xs-30">
+            <div class="team-item">
+                <div class="team-item-image">
+                    <img class="team_image" src="/static/images/team/vasilieva.jpg" alt="img">
+                    <div class="team-item-detail">
+                        <p>
+                            Personnel selection and training specialist.
+                        </p>
+                        <div class="team-social-links">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="team-item-descr" style="line-height: 15px;">
+                    <div class="team-item-name font-alt" style="margin-top: 10px;">
+                        Oksy Vasil
+                    </div>
+                    <div class="team-item-role">
+                        Hr
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
