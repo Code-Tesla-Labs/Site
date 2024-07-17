@@ -74,7 +74,7 @@ async fn main() -> std::io::Result<()> {
             .configure(routes)
     })
 
-    .bind("89.111.170.120:9109")?
+    .bind("89.111.170.120:9333")?
     .run()
     .await
 }
