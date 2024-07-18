@@ -38,11 +38,11 @@ pub async fn empty_search_page(conn: ConnectionInfo, req: HttpRequest, session: 
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "General search".to_string();
-        description = "Web-services - General search".to_string();
+        description = "Code Tesla Labs - General search".to_string();
     }
     else {
         title = "Общий поиск".to_string();
-        description = "вебсервисы.рф - Общий поиск".to_string();
+        description = "Code Tesla Labs - Общий поиск".to_string();
     }
 
     if is_ajax == 0 {
@@ -187,11 +187,11 @@ pub async fn search_page(conn: ConnectionInfo, session: Session, req: HttpReques
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Search for all by fragment ".to_string() + &q;
-        description = "Web-services: Search for all by fragment ".to_string() + &q;
+        description = "Code Tesla Labs: Search for all by fragment ".to_string() + &q;
     }
     else {
         title = "Общий поиск по фрагменту ".to_string() + &q;
-        description = "вебсервисы.рф: Общий поиск по фрагменту ".to_string() + &q;
+        description = "Code Tesla Labs: Общий поиск по фрагменту ".to_string() + &q;
     }
 
     if is_ajax == 0 {
@@ -446,11 +446,11 @@ pub async fn search_blogs_page(conn: ConnectionInfo, session: Session, req: Http
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Search for articles by fragment ".to_string() + &q;
-        description = "Web-services: Search for articles by fragment ".to_string() + &q;
+        description = "Code Tesla Labs: Search for articles by fragment ".to_string() + &q;
     }
     else {
         title = "Поиск статей по фрагменту ".to_string() + &q;
-        description = "вебсервисы.рф: Поиск статей по фрагменту ".to_string() + &q;
+        description = "Code Tesla Labs: Поиск статей по фрагменту ".to_string() + &q;
     }
 
     if is_ajax == 0 {
@@ -657,11 +657,11 @@ pub async fn search_services_page(conn: ConnectionInfo, session: Session, req: H
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Search for services by fragment ".to_string() + &q;
-        description = "Web-services: Search for services by fragment ".to_string() + &q;
+        description = "Code Tesla Labs: Search for services by fragment ".to_string() + &q;
     }
     else {
         title = "Поиск услуг по фрагменту ".to_string() + &q;
-        description = "вебсервисы.рф: Поиск услуг по фрагменту ".to_string() + &q;
+        description = "Code Tesla Labs: Поиск услуг по фрагменту ".to_string() + &q;
     }
 
     if is_ajax == 0 {
@@ -869,11 +869,11 @@ pub async fn search_stores_page(conn: ConnectionInfo, session: Session, req: Htt
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Search for market by fragment ".to_string() + &q;
-        description = "Web-services: Search for market by fragment ".to_string() + &q;
+        description = "Code Tesla Labs: Search for market by fragment ".to_string() + &q;
     }
     else {
         title = "Поиск товаров по фрагменту ".to_string() + &q;
-        description = "вебсервисы.рф: Поиск товаров по фрагменту ".to_string() + &q;
+        description = "Code Tesla Labs: Поиск товаров по фрагменту ".to_string() + &q;
     }
 
     if is_ajax == 0 {
@@ -1083,11 +1083,11 @@ pub async fn search_wikis_page(conn: ConnectionInfo, session: Session, req: Http
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Search for wiki by fragment ".to_string() + &q;
-        description = "Web-services: Search for wiki by fragment ".to_string() + &q;
+        description = "Code Tesla Labs: Search for wiki by fragment ".to_string() + &q;
     }
     else {
         title = "Поиск статей по фрагменту ".to_string() + &q;
-        description = "вебсервисы.рф: Поиск статей по фрагменту ".to_string() + &q;
+        description = "Code Tesla Labs: Поиск статей по фрагменту ".to_string() + &q;
     }
 
     if is_ajax == 0 {
@@ -1295,11 +1295,11 @@ pub async fn search_works_page(conn: ConnectionInfo, session: Session, req: Http
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Search for works by fragment ".to_string() + &q;
-        description = "Web-services: Search for works by fragment ".to_string() + &q;
+        description = "Code Tesla Labs: Search for works by fragment ".to_string() + &q;
     }
     else {
         title = "Поиск работ по фрагменту ".to_string() + &q;
-        description = "вебсервисы.рф: Поиск работ по фрагменту ".to_string() + &q;
+        description = "Code Tesla Labs: Поиск работ по фрагменту ".to_string() + &q;
     }
 
     if is_ajax == 0 {
@@ -1508,11 +1508,11 @@ pub async fn search_help_page(conn: ConnectionInfo, session: Session, req: HttpR
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Search for help by fragment ".to_string() + &q;
-        description = "Web-services: Search for help by fragment ".to_string() + &q;
+        description = "Code Tesla Labs: Search for help by fragment ".to_string() + &q;
     }
     else {
         title = "Поиск помощи по фрагменту ".to_string() + &q;
-        description = "вебсервисы.рф: Поиск помощи по фрагменту ".to_string() + &q;
+        description = "Code Tesla Labs: Поиск помощи по фрагменту ".to_string() + &q;
     }
 
     if is_ajax == 0 {

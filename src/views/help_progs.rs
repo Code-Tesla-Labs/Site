@@ -43,11 +43,11 @@ pub async fn help_category_page(conn: ConnectionInfo, session: Session, req: Htt
     let image = _category.get_image();
     if l == 2 {
         title = String::new() + &_category.name + &" | Category of the help".to_string();
-        description = String::new() + &_category.name + &" | Category of the help: Web-services".to_string();
+        description = String::new() + &_category.name + &" | Category of the help: Code Tesla Labs".to_string();
     }
     else {
         title = String::new() + &_category.name + &" | Категория помощи".to_string();
-        description = String::new() + &_category.name + &" | Категория помощи: вебсервисы.рф".to_string();
+        description = String::new() + &_category.name + &" | Категория помощи: Code Tesla Labs".to_string();
     }
     
     if is_ajax == 0 {

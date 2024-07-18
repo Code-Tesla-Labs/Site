@@ -1,3 +1,3 @@
 # getnetwork_site
 
-https://вебсервисы.рф/
+https://codtesla.com/

@@ -49,11 +49,11 @@ pub async fn get_orders_page(conn: ConnectionInfo, req: HttpRequest, session: Se
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Orders".to_string();
-        description = "Web-services: Orders".to_string();
+        description = "Code Tesla Labs: Orders".to_string();
     }
     else {
         title = "Заказы".to_string();
-        description = "вебсервисы.рф: Заказы".to_string();
+        description = "Code Tesla Labs: Заказы".to_string();
     }
 
     if is_ajax == 0 {
@@ -154,11 +154,11 @@ pub async fn get_user_orders_page(conn: ConnectionInfo, session: Session, req: H
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Your orders".to_string();
-        description = "Web-services: Your orders".to_string();
+        description = "Code Tesla Labs: Your orders".to_string();
     }
     else {
         title = "Ваши заказы".to_string();
-        description = "вебсервисы.рф: Ваши заказы".to_string();
+        description = "Code Tesla Labs: Ваши заказы".to_string();
     }
 
     if is_ajax == 0 {
@@ -326,11 +326,11 @@ pub async fn get_order_page(conn: ConnectionInfo, session: Session, req: HttpReq
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Order ".to_string() + &_order.title;
-        description = "Web-services: Order ".to_string() + &_order.title;
+        description = "Code Tesla Labs: Order ".to_string() + &_order.title;
     }
     else {
         title = "Заказ ".to_string() + &_order.title;
-        description = "вебсервисы.рф: Заказ ".to_string() + &_order.title;
+        description = "Code Tesla Labs: Заказ ".to_string() + &_order.title;
     }
     
     if is_ajax == 0 {
@@ -493,11 +493,11 @@ pub async fn create_order_page(conn: ConnectionInfo, req: HttpRequest) -> actix_
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Create order".to_string();
-        description = "Web-services: Create order".to_string();
+        description = "Code Tesla Labs: Create order".to_string();
     }
     else { 
         title = "Создание заказа".to_string();
-        description = "вебсервисы.рф: Создание заказа".to_string();
+        description = "Code Tesla Labs: Создание заказа".to_string();
     }
 
     #[derive(TemplateOnce)]

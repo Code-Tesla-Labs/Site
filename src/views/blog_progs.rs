@@ -46,11 +46,11 @@ pub async fn get_blog_page(conn: ConnectionInfo, session: Session, req: HttpRequ
     let image = _item.get_image();
     if l == 2 {
         title = String::new() + &_item.title_en + &" | Article ".to_string();
-        description = String::new() + &_item.title_en + &" | Article: Web-services".to_string();
+        description = String::new() + &_item.title_en + &" | Article: Code Tesla Labs".to_string();
     }
     else {
         title = String::new() + &_item.title + &" | Статья ".to_string();
-        description = String::new() + &_item.title + &" | Статья: вебсервисы.рф".to_string();
+        description = String::new() + &_item.title + &" | Статья: Code Tesla Labs".to_string();
     }
     if is_ajax == 0 {
         crate::utils::get_first_load_page (
@@ -277,11 +277,11 @@ pub async fn blog_category_page(conn: ConnectionInfo, session: Session, req: Htt
     let image = _category.get_image();
     if l == 2 {
         title = String::new() + &_category.name + &" | Category of the blog".to_string();
-        description = String::new() + &_category.name + &" | Category of the blog: Web-services".to_string();
+        description = String::new() + &_category.name + &" | Category of the blog: Code Tesla Labs".to_string();
     }
     else {
         title = String::new() + &_category.name + &" | Категория блога".to_string();
-        description = String::new() + &_category.name + &" | Категория блога: вебсервисы.рф".to_string();
+        description = String::new() + &_category.name + &" | Категория блога: Code Tesla Labs".to_string();
     }
 
     let (is_desctop, is_ajax) = crate::utils::get_device_and_ajax(&req);
@@ -486,11 +486,11 @@ pub async fn blog_categories_page(conn: ConnectionInfo, session: Session, req: H
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Blog Categories".to_string();
-        description = "Web-services: Blog Categories".to_string();
+        description = "Code Tesla Labs: Blog Categories".to_string();
     }
     else {
         title = "Категории блога".to_string();
-        description = "вебсервисы.рф: Категории блога".to_string();
+        description = "Code Tesla Labs: Категории блога".to_string();
     }
 
     if is_ajax == 0 {

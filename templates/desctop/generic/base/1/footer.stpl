@@ -12,7 +12,7 @@
         <div class="footer-text" style="margin-top: 10px">
             <% if linguage == 2 { %>
                 <div class="footer-copy font-alt">
-                    <a href="/" class="ajax">&copy;web-services.top 2023</a>.
+                    <a href="/" class="ajax">&copy;Code Tesla Labs 2024</a>.
                 </div>
                 <!--
                 <div class="footer-made">
@@ -26,7 +26,7 @@
                 </p>
             <% } else if linguage == 1 { %>
                 <div class="footer-copy font-alt">
-                    <a href="/" class="ajax">&copy;вебсервисы.рф 2023</a>.
+                    <a href="/" class="ajax">&copy;codtesla.com 2024</a>.
                 </div>
                 <!--
                 <div class="footer-made">

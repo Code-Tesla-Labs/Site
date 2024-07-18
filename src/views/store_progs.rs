@@ -45,11 +45,11 @@ pub async fn get_store_page(conn: ConnectionInfo, session: Session, req: HttpReq
     let image = _item.get_image();
     if l == 2 {
         title = String::new() + &_item.title_en + &" | Product ".to_string();
-        description = String::new() + &_item.title_en + &" | Product: Web-services".to_string();
+        description = String::new() + &_item.title_en + &" | Product: Code Tesla Labs".to_string();
     }
     else {
         title = String::new() + &_item.title + &" | Товар ".to_string();
-        description = String::new() + &_item.title + &" | Товар: вебсервисы.рф".to_string();
+        description = String::new() + &_item.title + &" | Товар: Code Tesla Labs".to_string();
     }
 
     if is_ajax == 0 {
@@ -279,11 +279,11 @@ pub async fn store_category_page(conn: ConnectionInfo, session: Session, req: Ht
     let image = _category.get_image();
     if l == 2 {
         title = String::new() + &_category.name + &" | Category of the market".to_string();
-        description = String::new() + &_category.name + &" | Category of the market: Web-services".to_string();
+        description = String::new() + &_category.name + &" | Category of the market: Code Tesla Labs".to_string();
     }
     else {
         title = String::new() + &_category.name + &" | Категория товаров".to_string();
-        description = String::new() + &_category.name + &" | Категория товаров: вебсервисы.рф".to_string();
+        description = String::new() + &_category.name + &" | Категория товаров: Code Tesla Labs".to_string();
     }
 
     if is_ajax == 0 {
@@ -495,11 +495,11 @@ pub async fn store_categories_page(conn: ConnectionInfo, session: Session, req: 
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Categories of market".to_string();
-        description = "Web-services - Categories of market".to_string();
+        description = "Code Tesla Labs - Categories of market".to_string();
     }
     else {
         title = "Категории услуг".to_string();
-        description = "вебсервисы.рф - Категории услуг".to_string();
+        description = "Code Tesla Labs - Категории услуг".to_string();
     }
     
     if is_ajax == 0 {

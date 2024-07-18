@@ -59,11 +59,11 @@ pub async fn create_tag_page(conn: ConnectionInfo, session: Session, req: HttpRe
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Creating a tag".to_string();
-        description = "Web-services - Creating a tag".to_string();
+        description = "Code Tesla Labs - Creating a tag".to_string();
     }
     else {
         title = "Создание тега".to_string();
-        description = "вебсервисы.рф - Создание тега".to_string();
+        description = "Code Tesla Labs - Создание тега".to_string();
     }
 
     if is_ajax == 0 {
@@ -161,11 +161,11 @@ pub async fn tag_page(conn: ConnectionInfo, req: HttpRequest, session: Session, 
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = String::new() + &_tag.name_en + &" | Tag".to_string();
-        description = String::new() + &_tag.name_en + &" | Web-services: Tag".to_string();
+        description = String::new() + &_tag.name_en + &" | Code Tesla Labs: Tag".to_string();
     }
     else {
         title = String::new() + &_tag.name + &" | Тег".to_string();
-        description = String::new() + &_tag.name + &" | вебсервисы.рф:Тег".to_string();
+        description = String::new() + &_tag.name + &" | Code Tesla Labs:Тег".to_string();
     }
 
     if is_ajax == 0 {
@@ -441,11 +441,11 @@ pub async fn tag_blogs_page(conn: ConnectionInfo, session: Session, req: HttpReq
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = String::new() + &_tag.name_en + &" | Articles of the tag".to_string();
-        description = String::new() + &_tag.name_en + &" | Web-services: Articles of the tag".to_string();
+        description = String::new() + &_tag.name_en + &" | Code Tesla Labs: Articles of the tag".to_string();
     }
     else {
         title = String::new() + &_tag.name + &" | Статьи тега".to_string();
-        description = String::new() + &_tag.name + &" | вебсервисы.рф:Статьи тега".to_string();
+        description = String::new() + &_tag.name + &" | Code Tesla Labs: Статьи тега".to_string();
     }
 
     if is_ajax == 0 {
@@ -647,11 +647,11 @@ pub async fn tag_services_page(conn: ConnectionInfo, session: Session, req: Http
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = String::new() + &_tag.name_en + &" | Services of the tag".to_string();
-        description = String::new() + &_tag.name_en + &" | Web-services: Services of the tag".to_string();
+        description = String::new() + &_tag.name_en + &" | Code Tesla Labs: Services of the tag".to_string();
     }
     else {
         title = String::new() + &_tag.name + &" | Услуги тега".to_string();
-        description = String::new() + &_tag.name + &" | вебсервисы.рф: Услуги тега".to_string();
+        description = String::new() + &_tag.name + &" | Code Tesla Labs: Услуги тега".to_string();
     }
 
     if is_ajax == 0 {
@@ -851,11 +851,11 @@ pub async fn tag_stores_page(conn: ConnectionInfo, session: Session, req: HttpRe
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = String::new() + &_tag.name_en + &" | Goods of the tag".to_string();
-        description = String::new() + &_tag.name_en + &" | Web-services: Goods of the tag".to_string();
+        description = String::new() + &_tag.name_en + &" | Code Tesla Labs: Goods of the tag".to_string();
     }
     else {
         title = String::new() + &_tag.name + &" | Товары тега".to_string();
-        description = String::new() + &_tag.name + &" | вебсервисы.рф: Товары тега".to_string();
+        description = String::new() + &_tag.name + &" | Code Tesla Labs: Товары тега".to_string();
     }
 
     if is_ajax == 0 {
@@ -1056,11 +1056,11 @@ pub async fn tag_wikis_page(conn: ConnectionInfo, session: Session, req: HttpReq
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = String::new() + &_tag.name_en + &" | Wiki of the tag".to_string();
-        description = String::new() + &_tag.name_en + &" | Web-services: Wiki of the tag".to_string();
+        description = String::new() + &_tag.name_en + &" | Code Tesla Labs: Wiki of the tag".to_string();
     }
     else {
         title = String::new() + &_tag.name + &" | Статьи тега".to_string();
-        description = String::new() + &_tag.name + &" | вебсервисы.рф: Статьи тега".to_string();
+        description = String::new() + &_tag.name + &" | Code Tesla Labs: Статьи тега".to_string();
     }
 
     if is_ajax == 0 {
@@ -1261,11 +1261,11 @@ pub async fn tag_works_page(conn: ConnectionInfo, session: Session, req: HttpReq
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = String::new() + &_tag.name_en + &" | Works of the tag".to_string();
-        description = String::new() + &_tag.name_en + &" | Web-services: Works of the tag".to_string();
+        description = String::new() + &_tag.name_en + &" | Code Tesla Labs: Works of the tag".to_string();
     }
     else {
         title = String::new() + &_tag.name + &" | Работы тега".to_string();
-        description = String::new() + &_tag.name + &" | вебсервисы.рф: Работы тега".to_string();
+        description = String::new() + &_tag.name + &" | Code Tesla Labs: Работы тега".to_string();
     }
 
     if is_ajax == 0 {
@@ -1465,11 +1465,11 @@ pub async fn tag_helps_page(conn: ConnectionInfo, session: Session, req: HttpReq
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = String::new() + &_tag.name_en + &" | Help of the tag".to_string();
-        description = String::new() + &_tag.name_en + &" | Web-services: Help of the tag".to_string();
+        description = String::new() + &_tag.name_en + &" | Code Tesla Labs: Help of the tag".to_string();
     }
     else {
         title = String::new() + &_tag.name + &" | Справки тега".to_string();
-        description = String::new() + &_tag.name + &" | вебсервисы.рф: Справки тега".to_string();
+        description = String::new() + &_tag.name + &" | Code Tesla Labs: Справки тега".to_string();
     }
 
     if is_ajax == 0 {
@@ -1667,11 +1667,11 @@ pub async fn tags_page(conn: ConnectionInfo, session: Session, req: HttpRequest)
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Tags".to_string();
-        description = "Web-services - Tags".to_string();
+        description = "Code Tesla Labs - Tags".to_string();
     }
     else {
         title = "Ключевые слова".to_string();
-        description = "вебсервисы.рф - Ключевые слова".to_string();
+        description = "Code Tesla Labs - Ключевые слова".to_string();
     }
 
     if is_ajax == 0 {
@@ -1862,11 +1862,11 @@ pub async fn edit_tag_page(conn: ConnectionInfo, session: Session, req: HttpRequ
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Update tag ".to_string() + &_tag.name_en;
-        description = "Web-services: Update tag ".to_string() + &_tag.name_en;
+        description = "Code Tesla Labs: Update tag ".to_string() + &_tag.name_en;
     }
     else {
         title = "Изменение тега ".to_string() + &_tag.name;
-        description = "вебсервисы.рф - Изменение тега ".to_string() + &_tag.name;
+        description = "Code Tesla Labs - Изменение тега ".to_string() + &_tag.name;
     }
 
     if is_ajax == 0 {

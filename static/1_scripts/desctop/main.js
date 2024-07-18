@@ -205,9 +205,9 @@ function ajax_get_reload(url, history_enable, ajax) {
       try {
         _meta = rtr.querySelector(".doc_title");
         _title = _meta.getAttribute("data-title");
-        _uri = "http://вебсервисы.рф" + _meta.getAttribute("data-uri");
+        _uri = "https://codtesla.com" + _meta.getAttribute("data-uri");
         _description = _meta.getAttribute("data-description");
-        _image = "http://вебсервисы.рф" + _meta.getAttribute("data-image");
+        _image = "https://codtesla.com" + _meta.getAttribute("data-image");
         document.title = _title;
         document.querySelector('meta[name="url"]').setAttribute("content", _uri);
         document.querySelector('meta[name="title"]').setAttribute("content", _title);

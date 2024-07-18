@@ -75,11 +75,11 @@ pub async fn not_found(conn: ConnectionInfo, req: HttpRequest, session: Session)
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Page not found".to_string();
-        description = "Web-services: Page not found".to_string();
+        description = "Code Tesla Labs: Page not found".to_string();
     }
     else {
         title = "Страница не найдена".to_string();
-        description = "вебсервисы.рф: Страница не найдена".to_string();
+        description = "Code Tesla Labs: Страница не найдена".to_string();
     }
 
     if is_ajax == 0 {
@@ -244,11 +244,11 @@ pub async fn index_page (
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Home".to_string();
-        description = "Web-services - Comprehensive, expert creation and development of highly loaded web resources".to_string();
+        description = "Code Tesla Labs - Comprehensive, expert creation and development of highly loaded web resources".to_string();
     }
     else {
         title = "Главная страница".to_string();
-        description = "вебсервисы.рф - Комплексное, экспертное создание и развитие высоконагруженных веб-ресурсов".to_string();
+        description = "Code Tesla Labs - Комплексное, экспертное создание и развитие высоконагруженных веб-ресурсов".to_string();
     }
 
     if is_ajax == 0 {
@@ -499,11 +499,11 @@ pub async fn info_page(conn: ConnectionInfo, req: HttpRequest, session: Session)
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Info".to_string();
-        description = "Web-services - Info".to_string();
+        description = "Code Tesla Labs - Info".to_string();
     }
     else {
         title = "Информация".to_string();
-        description = "вебсервисы.рф - Информация о нас, о сайте, контакты, вкладка помощи".to_string();
+        description = "Code Tesla Labs - Информация о нас, о сайте, контакты, вкладка помощи".to_string();
     }
 
     if is_ajax == 0 {
@@ -664,11 +664,11 @@ pub async fn history_page(conn: ConnectionInfo, req: HttpRequest, session: Sessi
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Your browsing history".to_string();
-        description = "Web-services - Your browsing history".to_string();
+        description = "Code Tesla Labs - Your browsing history".to_string();
     }
     else {
         title = "История просмотров".to_string();
-        description = "вебсервисы.рф - История просмотров".to_string();
+        description = "Code Tesla Labs - История просмотров".to_string();
     }
 
     if is_ajax == 0 {
@@ -852,11 +852,11 @@ pub async fn feedback_list_page(conn: ConnectionInfo, req: HttpRequest, session:
             let image = "/static/images/dark/store.jpg".to_string();
             if l == 2 {
                 title = "Feedback list".to_string();
-                description = "Web-services: Feedback list".to_string();
+                description = "Code Tesla Labs: Feedback list".to_string();
             }
             else { 
                 title = "Письма пользователей".to_string();
-                description = "вебсервисы.рф: Письма пользователей".to_string();
+                description = "Code Tesla Labs: Письма пользователей".to_string();
             }
 
             let _feedbacks = Feedback::get_all();
@@ -942,11 +942,11 @@ pub async fn serve_list_page(conn: ConnectionInfo, req: HttpRequest, session: Se
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "List of options and services".to_string();
-        description = "Web-services - List of options and services".to_string();
+        description = "Code Tesla Labs - List of options and services".to_string();
     }
     else {
         title = "Список опций и услуг".to_string();
-        description = "вебсервисы.рф - Список опций и услуг".to_string();
+        description = "Code Tesla Labs - Список опций и услуг".to_string();
     }
 
     if is_ajax == 0 {
@@ -1099,11 +1099,11 @@ pub async fn get_web_service_page(req: HttpRequest, conn: ConnectionInfo, _id: w
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Web service ".to_string() + &_web_service.name_en;
-        description = "Web service ".to_string() + &_web_service.name_en + &" : Web-services".to_string();
+        description = "Web service ".to_string() + &_web_service.name_en + &" : Code Tesla Labs".to_string();
     }
     else {
         title = "Веб-сервис ".to_string() + &_web_service.name_en;
-        description = "Веб-сервис ".to_string() + &_web_service.name_en + &" : вебсервисы.рф".to_string();
+        description = "Веб-сервис ".to_string() + &_web_service.name_en + &" : Code Tesla Labs".to_string();
     }
 
     #[derive(TemplateOnce)]
@@ -1145,11 +1145,11 @@ pub async fn get_serve_category_page(req: HttpRequest, conn: ConnectionInfo, _id
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Category of serve ".to_string() + &serve_category.name_en;
-        description = "Category of serve ".to_string() + &serve_category.name_en + &" : Web-services".to_string();
+        description = "Category of serve ".to_string() + &serve_category.name_en + &" : Code Tesla Labs".to_string();
     }
     else {
         title = "Опция ".to_string() + &serve_category.name_en;
-        description = "Опция ".to_string() + &serve_category.name_en + &" : вебсервисы.рф".to_string();
+        description = "Опция ".to_string() + &serve_category.name_en + &" : Code Tesla Labs".to_string();
     }
 
     #[derive(TemplateOnce)]
@@ -1191,11 +1191,11 @@ pub async fn get_serve_page(req: HttpRequest, conn: ConnectionInfo, _id: web::Pa
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Serve ".to_string() + &_serve.name_en;
-        description = "Serve ".to_string() + &_serve.name_en + &" : Web-services".to_string();
+        description = "Serve ".to_string() + &_serve.name_en + &" : Code Tesla Labs".to_string();
     }
     else {
         title = "Опция ".to_string() + &_serve.name_en;
-        description = "Опция ".to_string() + &_serve.name_en + &" : вебсервисы.рф".to_string();
+        description = "Опция ".to_string() + &_serve.name_en + &" : Code Tesla Labs".to_string();
     }
 
     #[derive(TemplateOnce)]
@@ -1233,11 +1233,11 @@ pub async fn get_feedback_page(req: HttpRequest, conn: ConnectionInfo) -> actix_
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Load feedback list".to_string();
-        description = "Web-services - Load feedback list".to_string();
+        description = "Code Tesla Labs - Load feedback list".to_string();
     }
     else {
         title = "Письма пользователей".to_string();
-        description = "вебсервисы.рф - Письма пользователей".to_string();
+        description = "Code Tesla Labs - Письма пользователей".to_string();
     }
 
     #[derive(TemplateOnce)]
@@ -1278,11 +1278,11 @@ pub async fn cookie_users_list_page(conn: ConnectionInfo, session: Session, req:
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "General site statistics".to_string();
-        description = "Web-services - General site statistics".to_string();
+        description = "Code Tesla Labs - General site statistics".to_string();
     }
     else {
         title = "Общая статистика сайта".to_string();
-        description = "вебсервисы.рф - Общая статистика сайта".to_string();
+        description = "Code Tesla Labs - Общая статистика сайта".to_string();
     }
 
     if is_ajax == 0 {
@@ -1451,11 +1451,11 @@ pub async fn get_user_history_page(conn: ConnectionInfo, session: Session, req: 
             let image = "/static/images/dark/store.jpg".to_string();
             if l == 2 {
                 title = "User history ".to_string() + &user_id_str;
-                description = "User history ".to_string() + &user_id_str + &" : Web-services".to_string();
+                description = "User history ".to_string() + &user_id_str + &" : Code Tesla Labs".to_string();
             }
             else {
                 title = "История просмотров пользователя ".to_string() + &user_id_str;
-                description = "Веб-сервис ".to_string() + &user_id_str + &" : вебсервисы.рф".to_string();
+                description = "Веб-сервис ".to_string() + &user_id_str + &" : Code Tesla Labs".to_string();
             }
 
 
@@ -1517,11 +1517,11 @@ pub async fn get_web_objects_page(req: HttpRequest, conn: ConnectionInfo, sessio
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Web-service ".to_string() + &_cat.name_en.to_string();
-        description = "Web-service ".to_string() + &_cat.name_en + &" : Web-services".to_string();
+        description = "Web-service ".to_string() + &_cat.name_en + &" : Code Tesla Labs".to_string();
     }
     else {
         title = "Веб-сервис ".to_string() + &_cat.name;
-        description = "Веб-сервис ".to_string() + &_cat.name + &" : вебсервисы.рф".to_string();
+        description = "Веб-сервис ".to_string() + &_cat.name + &" : Code Tesla Labs".to_string();
     }
 
 
@@ -1614,11 +1614,11 @@ pub async fn create_category_page(conn: ConnectionInfo, session: Session, req: H
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Creating a category".to_string();
-        description = "Web-services - Creating a category".to_string();
+        description = "Code Tesla Labs - Creating a category".to_string();
     }
     else {
         title = "Создание категории".to_string();
-        description = "вебсервисы.рф - Создание категории".to_string();
+        description = "Code Tesla Labs - Создание категории".to_string();
     }
 
     if is_ajax == 0 {
@@ -1718,11 +1718,11 @@ pub async fn edit_category_page(conn: ConnectionInfo, session: Session, req: Htt
     let image = _cat.get_image();
     if l == 2 {
         title = "Creating a category ".to_string() + &_cat.name_en;
-        description = "Web-services - Creating a category ".to_string() + &_cat.name_en;
+        description = "Code Tesla Labs - Creating a category ".to_string() + &_cat.name_en;
     }
     else {
         title = "Изменение категории ".to_string() + &_cat.name;
-        description = "вебсервисы.рф: Изменение категории ".to_string() + &_cat.name;
+        description = "Code Tesla Labs: Изменение категории ".to_string() + &_cat.name;
     }
 
     if is_ajax == 0 {
@@ -1825,11 +1825,11 @@ pub async fn create_item_page(conn: ConnectionInfo, session: Session, req: HttpR
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Creating a object".to_string();
-        description = "Web-services - Creating a object".to_string();
+        description = "Code Tesla Labs - Creating a object".to_string();
     }
     else {
         title = "Создание объекта".to_string();
-        description = "вебсервисы.рф - Создание объекта".to_string();
+        description = "Code Tesla Labs - Создание объекта".to_string();
     }
 
     if is_ajax == 0 {
@@ -1932,11 +1932,11 @@ pub async fn edit_item_page(conn: ConnectionInfo, session: Session, req: HttpReq
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Update a object ".to_string() + &_item.title_en;
-        description = "Web-services - Update a object ".to_string() + &_item.title_en;
+        description = "Code Tesla Labs - Update a object ".to_string() + &_item.title_en;
     }
     else {
         title = "Изменение объекта ".to_string() + &_item.title;
-        description = "вебсервисы.рф - Изменение объекта ".to_string() + &_item.title;
+        description = "Code Tesla Labs - Изменение объекта ".to_string() + &_item.title;
     }
 
     if is_ajax == 0 {
@@ -2081,11 +2081,11 @@ pub async fn edit_content_item_page(conn: ConnectionInfo, session: Session, req:
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Update a object content ".to_string() + &_item.title_en;
-        description = "Web-services - Update a object content ".to_string() + &_item.title_en;
+        description = "Code Tesla Labs - Update a object content ".to_string() + &_item.title_en;
     }
     else {
         title = "Изменение текста объекта ".to_string() + &_item.title;
-        description = "вебсервисы.рф - Изменение текста объекта ".to_string() + &_item.title;
+        description = "Code Tesla Labs - Изменение текста объекта ".to_string() + &_item.title;
     }
 
     if is_ajax == 0 {
@@ -2185,11 +2185,11 @@ pub async fn edit_file_page(conn: ConnectionInfo, session: Session, req: HttpReq
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Update file #".to_string() + &id_str;
-        description = "Web-services: Update file #".to_string() + &id_str;
+        description = "Code Tesla Labs: Update file #".to_string() + &id_str;
     }
     else {
         title = "Изменение файла ".to_string() + &id_str;
-        description = "вебсервисы.рф: Изменение файла ".to_string() + &id_str;
+        description = "Code Tesla Labs: Изменение файла ".to_string() + &id_str;
     }
 
     let (is_desctop, is_ajax) = get_device_and_ajax(&req);
@@ -2296,11 +2296,11 @@ pub async fn image_page(req: HttpRequest, conn: ConnectionInfo, _id: web::Path<i
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Image #".to_string() + &_file.id.to_string();
-        description = "Изображение #".to_string() + &_file.id.to_string() + &" : Web-services".to_string();
+        description = "Изображение #".to_string() + &_file.id.to_string() + &" : Code Tesla Labs".to_string();
     }
     else {
         title = "Изображение №".to_string() + &_file.id.to_string();
-        description = "Изображение №".to_string() + &_file.id.to_string() + &" : вебсервисы.рф".to_string();
+        description = "Изображение №".to_string() + &_file.id.to_string() + &" : Code Tesla Labs".to_string();
     }
 
     for (i, obj) in _images.iter().enumerate().rev() {

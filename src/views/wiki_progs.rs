@@ -45,11 +45,11 @@ pub async fn get_wiki_page(conn: ConnectionInfo, session: Session, req: HttpRequ
     let image = _item.get_image();
     if l == 2 {
         title = String::new() + &_item.title_en + &" | Wiki ".to_string();
-        description = String::new() + &_item.title_en + &" | Wiki: Web-services".to_string();
+        description = String::new() + &_item.title_en + &" | Wiki: Code Tesla Labs".to_string();
     }
     else {
         title = String::new() + &_item.title + &" | Статья ".to_string();
-        description = String::new() + &_item.title + &" | Статья: вебсервисы.рф".to_string();
+        description = String::new() + &_item.title + &" | Статья: Code Tesla Labs".to_string();
     }
 
     if is_ajax == 0 {
@@ -281,11 +281,11 @@ pub async fn wiki_category_page(conn: ConnectionInfo, session: Session, req: Htt
     let image = _category.get_image();
     if l == 2 {
         title = String::new() + &_category.name + &" | Category of the wiki".to_string();
-        description = String::new() + &_category.name + &" | Category of the wiki: Web-services".to_string();
+        description = String::new() + &_category.name + &" | Category of the wiki: Code Tesla Labs".to_string();
     }
     else {
         title = String::new() + &_category.name + &" | Категория обучения".to_string();
-        description = String::new() + &_category.name + &" | Категория обучения: вебсервисы.рф".to_string();
+        description = String::new() + &_category.name + &" | Категория обучения: Code Tesla Labs".to_string();
     }
 
     if is_ajax == 0 {
@@ -487,11 +487,11 @@ pub async fn wiki_categories_page(conn: ConnectionInfo, session: Session, req: H
     let image = "/static/images/dark/store.jpg".to_string();
     if l == 2 {
         title = "Categories of wiki".to_string();
-        description = "Web-services - Categories of wiki".to_string();
+        description = "Code Tesla Labs - Categories of wiki".to_string();
     }
     else {
         title = "Категории обучения".to_string();
-        description = "вебсервисы.рф - Категории обучения".to_string();
+        description = "Code Tesla Labs - Категории обучения".to_string();
     }
     
     if is_ajax == 0 {

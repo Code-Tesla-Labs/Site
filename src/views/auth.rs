@@ -49,11 +49,11 @@ pub async fn signup_page(req: HttpRequest, session: Session) -> actix_web::Resul
         let image = "/static/images/dark/store.jpg".to_string();
         if l == 2 {
             title = "Signup".to_string();
-            description = "Web-services: Signup".to_string();
+            description = "Code Tesla Labs: Signup".to_string();
         }
         else { 
             title = "Регистрация".to_string();
-            description = "вебсервисы.рф: Регистрация".to_string();
+            description = "Code Tesla Labs: Регистрация".to_string();
         }
 
         if is_ajax == 0 {
@@ -144,11 +144,11 @@ pub async fn login_page(conn: ConnectionInfo, req: HttpRequest, session: Session
         let image = "/static/images/dark/store.jpg".to_string();
         if l == 2 {
             title = "Login".to_string();
-            description = "Web-services: Login".to_string();
+            description = "Code Tesla Labs: Login".to_string();
         }
         else {
             title = "Вход".to_string();
-            description = "вебсервисы.рф: Вход".to_string();
+            description = "Code Tesla Labs: Вход".to_string();
         }
 
         if is_ajax == 0 {
@@ -242,11 +242,11 @@ pub async fn logout_page(req: HttpRequest, session: Session) -> actix_web::Resul
         let image = "/static/images/dark/store.jpg".to_string();
         if l == 2 {
             title = "Logout".to_string();
-            description = "Web-services: Logout".to_string();
+            description = "Code Tesla Labs: Logout".to_string();
         }
         else { 
             title = "Выход".to_string();
-            description = "вебсервисы.рф: Выход".to_string();
+            description = "Code Tesla Labs: Выход".to_string();
         }
 
         if crate::utils::is_desctop(&req) {
