@@ -643,13 +643,13 @@ pub async fn serve_category_form(payload: &mut Multipart, _owner_id: i32) -> Ser
                 if let Ok(s) = str::from_utf8(&data) {
                     let data_string = s.to_string();
                     if field.name() == "name" {
-                        form.name = data_string
+                        form.name = data_string.clone()
                     } if field.name() == "name_en" {
-                        form.name_en = data_string
+                        form.name_en = data_string.clone()
                     } else if field.name() == "description" {
-                        form.description = data_string
+                        form.description = data_string.clone()
                     } else if field.name() == "description_en" {
-                        form.description_en = data_string
+                        form.description_en = data_string.clone()
                     }
                 }
             }
