@@ -3,6 +3,6 @@
 <script type="text/javascript" src="/static/2_scripts/dsn-grid.min.js?ver1"></script>
 <script type="text/javascript" src="/static/2_scripts/reload.js?ver1"></script>
 <% if request_user.is_superuser() { %> 
-    <script id="is_superuser" defer type="text/javascript" src="/static/1_scripts/admin.js?ver14"></script>
+    <script id="is_superuser" defer type="text/javascript" src="/static/1_scripts/admin2.js"></script>
 <% } %>
 <script defer type="text/javascript" src="/static/1_scripts/progressive-image.js"></script>
