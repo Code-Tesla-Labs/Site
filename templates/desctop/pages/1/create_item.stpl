@@ -13,10 +13,13 @@
     <div class="row container relative">
         <form class="col-md-8 form" enctype="multipart/form-data">
             <div class="mb-20 mb-md-10">
-                <input class="form_title input-md form-control" type="text" name="title" placeholder="Название" />
+                <input class="form_title input-md form-control" type="text" name="title" placeholder="Название по-русски" />
             </div>
             <div class="mb-20 mb-md-10">
-                <input class="form_title input-md form-control" type="text" name="slug" placeholder="Slug" />
+                <input class="form_title_2 input-md form-control" type="text" name="title_en" placeholder="Название по-английски" />
+            </div>
+            <div class="mb-20 mb-md-10">
+                <input class="form_title_3 input-md form-control" type="text" name="slug" placeholder="Slug" />
             </div>
 
             <div class="mb-20 mb-md-10">
@@ -34,7 +37,10 @@
             <span></span>
 
             <div class="mb-20 mb-md-10">
-                <input class="input-md form-control" type="text" name="description" placeholder="Описание" />
+                <input class="input-md form-control" type="text" name="description" placeholder="Описание по-русски" />
+            </div>
+            <div class="mb-20 mb-md-10">
+                <input class="input-md form-control" type="text" name="description_en" placeholder="Описание по-английски" />
             </div>
             <div class="mb-20 mb-md-10">
                 <input class="input-md form-control" type="text" name="link" placeholder="Ссылка" />

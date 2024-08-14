@@ -363,8 +363,8 @@ impl Categories {
             .filter(schema::categories::id.eq(id)) 
             .first::<Categories>(&_connection)
             .expect("E.");
-    } 
-    pub fn update_category_with_id(user: User, id: i32, form: CategoriesForm, l: i16) -> i16 {
+    }  
+    pub fn update_category_with_id(user: User, id: i32, form: CategoriesForm) -> i16 {
         let _connection = establish_connection();
         let cat = schema::categories::table
             .filter(schema::categories::id.eq(id))
@@ -373,74 +373,41 @@ impl Categories {
         if user.perm < 60 {
             return 0;
         }
-        if l == 1 { 
-            diesel::update(&cat)
-                .set((
-                    schema::categories::name.eq(&form.name),
-                    schema::categories::description.eq(&form.description),
-                    schema::categories::position.eq(form.position),
-                    schema::categories::image.eq(&form.image),
-                    schema::categories::slug.eq(&form.slug),
-                ))
-                .execute(&_connection)
-                .expect("E");
-        }
-        else if l == 2 {
-            diesel::update(&cat)
-                .set((
-                    schema::categories::name_en.eq(&form.name),
-                    schema::categories::description_en.eq(&form.description),
-                    schema::categories::position.eq(form.position),
-                    schema::categories::image.eq(&form.image),
-                    schema::categories::slug.eq(&form.slug),
-                ))
-                .execute(&_connection)
-                .expect("E");
-        }
+
+        diesel::update(&cat)
+            .set((
+                schema::categories::name.eq(&form.name),
+                schema::categories::name_en.eq(&form.name_en),
+                schema::categories::description.eq(&form.description),
+                schema::categories::description_en.eq(&form.description_en),
+                schema::categories::position.eq(form.position),
+                schema::categories::image.eq(&form.image),
+                schema::categories::slug.eq(&form.slug),
+            ))
+            .execute(&_connection)
+            .expect("E");
         return 1;
     }
-    pub fn create(form: CategoriesForm, l: i16) -> i16 {
+    pub fn create(form: CategoriesForm) -> i16 {
         let _connection = establish_connection();
-        if l == 1 {
-            let new_cat = NewCategories {
-                name:           form.name.clone(),
-                name_en:        "".to_string(),
-                description:    Some(form.description.clone()),
-                description_en: None,
-                position:       form.position,
-                image:          Some(form.image.clone()),
-                count:          0,
-                view:           0,
-                height:         0.0,
-                seconds:        0,
-                types:          form.types,
-                slug:           form.slug,
-            };
-            diesel::insert_into(schema::categories::table)
-                .values(&new_cat)
-                .execute(&_connection)
-                .expect("E.");
-        }
-        else if l == 2 {
-            let new_cat = NewCategories {
-                name:           "".to_string(),
-                name_en:        form.name.clone(),
-                description:    None,
-                description_en: Some(form.description.clone()),
-                position:       form.position,
-                image:          Some(form.image.clone()),
-                count:          0,
-                view:           0,
-                height:         0.0,
-                seconds:        0,
-                types:          form.types,
-                slug:           form.slug,
-            };
-            diesel::insert_into(schema::categories::table)
-                .values(&new_cat)
-                .execute(&_connection)
-                .expect("E.");
-        }
+        let new_cat = NewCategories {
+            name:           form.name.clone(),
+            name_en:        form.name_en.clone(),
+            description:    Some(form.description.clone()),
+            description_en: Some(form.description_en.clone()),
+            position:       form.position,
+            image:          Some(form.image.clone()),
+            count:          0,
+            view:           0,
+            height:         0.0,
+            seconds:        0,
+            types:          form.types,
+            slug:           form.slug,
+        };
+        diesel::insert_into(schema::categories::table)
+            .values(&new_cat)
+            .execute(&_connection)
+            .expect("E.");
         return 1;
     }
     pub fn get_tags(types: i16, l: i16) -> Vec<SmallTag> {
@@ -1497,7 +1464,7 @@ impl Item {
         }
         return 1;
     }
-    pub fn create(user_id: i32, form: crate::utils::ItemForms, l: i16) -> i16 {
+    pub fn create(user_id: i32, form: crate::utils::ItemForms) -> i16 {
         use crate::models::{
             NewWebServicesItem,
             NewServeItems,
@@ -1507,47 +1474,25 @@ impl Item {
         let _connection = establish_connection();
         let types = form.types;
         let _item: Item;
-        if l == 1 {
-            let new_item = NewItem::create ( 
-                form.title.clone(),
-                "".to_string(),
-                form.description.clone(),
-                None,
-                form.link.clone(),
-                form.main_image.clone(),
-                user_id,
-                form.position,
-                types,
-                form.slug.clone(),
-            );
 
-            _item = diesel::insert_into(schema::items::table)
-                .values(&new_item)
-                .get_result::<Item>(&_connection)
-                .expect("E.");
-        }
-        else if l == 2 {
-            let new_item = NewItem::create ( 
-                "".to_string(),
-                form.title.clone(),
-                None,
-                form.description.clone(),
-                form.link.clone(),
-                form.main_image.clone(),
-                user_id,
-                form.position,
-                types,
-                form.slug.clone(),
-            );
+        let new_item = NewItem::create ( 
+            form.title.clone(),
+            form.title_en.clone(),
+            form.description.clone(),
+            form.description_en.clone(),
+            None,
+            form.link.clone(),
+            form.main_image.clone(),
+            user_id,
+            form.position,
+            types,
+            form.slug.clone(),
+        );
 
-            _item = diesel::insert_into(schema::items::table)
-                .values(&new_item)
-                .get_result::<Item>(&_connection)
-                .expect("E.");
-        }
-        else {
-            return 0;
-        }
+         _item = diesel::insert_into(schema::items::table)
+            .values(&new_item)
+            .get_result::<Item>(&_connection)
+            .expect("E.");
 
         for category_id in form.category_list.into_iter() {
             let new_category = NewCategory {
@@ -1646,7 +1591,7 @@ impl Item {
         
         return 1;
     }
-    pub fn update_content_with_id(user: User, item_id: i32, form: crate::utils::ContentForm, l: i16) -> i16 {
+    pub fn update_content_with_id(user: User, item_id: i32, form: crate::utils::ContentForm) -> i16 {
         let _connection = establish_connection();
         let _item = schema::items::table
             .filter(schema::items::id.eq(item_id))
@@ -1655,21 +1600,17 @@ impl Item {
         if user.perm < 60 && user.id != _item.user_id {
             return 0;
         }
-        if l == 1 { 
-            diesel::update(&_item)
-                .set(schema::items::content.eq(form.content.clone()))
-                .execute(&_connection)
-                .expect("E");
-        }
-        else if l == 2 { 
-            diesel::update(&_item)
-                .set(schema::items::content_en.eq(form.content.clone()))
-                .execute(&_connection)
-                .expect("E");
-        }
+
+        diesel::update(&_item)
+            .set((
+                schema::items::content.eq(form.content.clone()),
+                schema::items::content_en.eq(form.content_en.clone()),
+            ))
+            .execute(&_connection)
+            .expect("E");
         return 0;
     }
-    pub fn update_item_with_id(id: i32, form: crate::utils::ItemForms, l: i16) -> i16 {
+    pub fn update_item_with_id(id: i32, form: crate::utils::ItemForms) -> i16 {
         let _connection = establish_connection();
 
         let _item = items
@@ -1677,39 +1618,21 @@ impl Item {
             .first::<Item>(&_connection)
             .expect("E");
 
-        if l == 1 {
-            let _new_item = EditRuItem {
-                title:       form.title.clone(),
-                description: form.description.clone(),
-                link:        form.link.clone(),
-                image:       form.main_image.clone(),
-                position:    form.position,
-                slug:        form.slug.clone(),
-            };
+        let _new_item = EditItem {
+            title:          form.title.clone(),
+            title_en:       form.title_en.clone(),
+            description:    form.description.clone(),
+            description_en: form.description_en.clone(),
+            link:           form.link.clone(),
+            image:          form.main_image.clone(),
+            position:       form.position,
+            slug:           form.slug.clone(),
+        };
 
-            diesel::update(&_item)
-                .set(_new_item)
-                .execute(&_connection)
-                .expect("E");
-        }
-        else if l == 2 {
-            let _new_item = EditEnItem {
-                title_en:       form.title.clone(),
-                description_en: form.description.clone(),
-                link:           form.link.clone(),
-                image:          form.main_image.clone(),
-                position:       form.position,
-                slug:           form.slug.clone(),
-            };
-
-            diesel::update(&_item)
-                .set(_new_item)
-                .execute(&_connection)
-                .expect("E");
-        }
-        else {
-            return 0;
-        }
+        diesel::update(&_item)
+            .set(_new_item)
+            .execute(&_connection)
+            .expect("E");
 
         use crate::schema::{
             tags::dsl::tags,
@@ -4345,25 +4268,16 @@ impl NewItem {
 
 #[derive(Queryable, Serialize, Deserialize, AsChangeset, Debug)]
 #[table_name="items"]
-pub struct EditRuItem {
-    pub title:       String,
-    pub description: Option<String>,
-    pub link:        Option<String>,
-    pub image:       Option<String>,
-    pub position:    i16,
-    pub slug:        String,
-}
-#[derive(Queryable, Serialize, Deserialize, AsChangeset, Debug)]
-#[table_name="items"]
-pub struct EditEnItem {
+pub struct EditItem {
+    pub title:          String,
     pub title_en:       String,
+    pub description:    Option<String>,
     pub description_en: Option<String>,
     pub link:           Option<String>,
     pub image:          Option<String>,
     pub position:       i16,
     pub slug:           String,
 }
-
 
 ///////////
 // types:

@@ -103,6 +103,9 @@ function format_text(text) {
 on('body', 'input', '.smile_supported', function() {
     this.previousElementSibling.innerHTML = this.innerHTML.length
 });
+on('body', 'input', '.smile_supported_en', function() {
+    this.previousElementSibling.innerHTML = this.innerHTML.length
+});
 
 function get_and_change_btn(_this, url, is_hide) {
   form_data = new FormData(form);
@@ -128,18 +131,29 @@ function get_and_change_btn(_this, url, is_hide) {
 function send_category_data(form, url) {
   if (!form.querySelector(".form_title").value) {
     form.querySelector(".form_title").style.setProperty('border', '1px #FF0000 solid', 'important');
-    return
+    return 
   }
-  text_val1 = form.querySelector(".content_1");
-  _val1 = format_text(text_val1);
-  _text1 = _val1.innerHTML;
 
+  text_val_ru = form.querySelector(".content_ru");
+  _val_ru = format_text(text_val_ru);
+  _text_ru = _val_ru.innerHTML;
   $input = document.createElement("input");
   $input.setAttribute("name", "description");
   $input.setAttribute("type", "hidden");
   $input.classList.add("input_text");
-  $input.value = _text1;
+  $input.value = _text_ru;
   form.append($input);
+
+  text_val_en = form.querySelector(".content_en");
+  _val_en = format_text(text_val_en);
+  _text_en = _val_en.innerHTML;
+  $input = document.createElement("input");
+  $input.setAttribute("name", "description_en");
+  $input.setAttribute("type", "hidden");
+  $input.classList.add("input_text");
+  $input.value = _text_en;
+  form.append($input);
+
   form_data = new FormData(form);
 
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
@@ -152,15 +166,34 @@ function send_category_data(form, url) {
 };
 
 function send_content_data(url, field) {
-  text_field = document.body.querySelector(".smile_supported");
+
   form = text_field.parentElement.parentElement;
   if (!text_field.innerHTML) {
     text_field.style.setProperty('border', '1px #FF0000 solid', 'important');
     return
-  }
-  _val1 = format_text(text_field);
+  } 
+
+  text_val_ru = form.querySelector(".content_ru");
+  _val_ru = format_text(text_val_ru);
+  _text_ru = _val_ru.innerHTML;
+  $input = document.createElement("input");
+  $input.setAttribute("name", "content");
+  $input.setAttribute("type", "hidden");
+  $input.classList.add("input_text");
+  $input.value = _text_ru; 
+  form.append($input);
+
+  text_val_en = form.querySelector(".content_en");
+  _val_en = format_text(text_val_en);
+  _text_en = _val_en.innerHTML;
+  $input = document.createElement("input");
+  $input.setAttribute("name", "content_en");
+  $input.setAttribute("type", "hidden");
+  $input.classList.add("input_text");
+  $input.value = _text_en;
+  form.append($input);
+
   form_data = new FormData(form);
-  form_data.append(field, _val1.innerHTML);
 
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   link.open( 'POST', url, true );
@@ -176,14 +209,32 @@ on('body', 'click', '#edit_file_btn', function() {
 });
 
 function send_serve_data(form, url) {
-  text_field = form.querySelector(".smile_supported");
   if (!text_field.innerHTML) {
     text_field.style.setProperty('border', '1px #FF0000 solid', 'important');
     return
-  }
-  _val1 = format_text(text_field);
+  } 
+  
+  text_val_ru = form.querySelector(".content_ru");
+  _val_ru = format_text(text_val_ru);
+  _text_ru = _val_ru.innerHTML;
+  $input = document.createElement("input");
+  $input.setAttribute("name", "description");
+  $input.setAttribute("type", "hidden");
+  $input.classList.add("input_text");
+  $input.value = _text_ru; 
+  form.append($input);
+
+  text_val_en = form.querySelector(".content_en");
+  _val_en = format_text(text_val_en);
+  _text_en = _val_en.innerHTML;
+  $input = document.createElement("input");
+  $input.setAttribute("name", "description_en");
+  $input.setAttribute("type", "hidden");
+  $input.classList.add("input_text");
+  $input.value = _text_en;
+  form.append($input);
+
   form_data = new FormData(form);
-  form_data.append("description", _val1.innerHTML);
 
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   link.open( 'POST', url, true );

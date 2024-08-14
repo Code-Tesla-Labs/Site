@@ -327,7 +327,7 @@ pub struct HistoryResponse {
     pub seconds:  i32,
 }
 
-impl CookieStat {
+impl CookieStat { 
     pub fn create (
         data: Json<crate::utils::HistoryData>,
         user: CookieUser,

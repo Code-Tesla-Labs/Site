@@ -40,37 +40,28 @@ impl UploadedFiles {
 }
 
 #[derive(Deserialize, Serialize, Debug)]
-pub struct FeedbackForm {
-    pub username: String,
-    pub email:    String,
-    pub message:  String,
-}
-#[derive(Deserialize, Serialize, Debug)]
 pub struct CategoriesForm {
-    pub name:        String,
-    pub description: String,
-    pub position:    i16,
-    pub image:       String,
-    pub level:       i16,
-    pub types:       i16,
-    pub slug:        String,
+    pub name:           String,
+    pub name_en:        String,
+    pub description:    String,
+    pub description_en: String,
+    pub position:       i16,
+    pub image:          String,
+    pub level:          i16,
+    pub types:          i16,
+    pub slug:           String,
 }
-
-
-#[derive(Deserialize, Serialize, Debug)]
-pub struct ContentForm {
-    pub content:    Option<String>,
-}
-
 pub async fn category_form(payload: &mut Multipart, owner_id: i32) -> CategoriesForm {
     let mut form: CategoriesForm = CategoriesForm {
-        name:        "".to_string(),
-        description: "".to_string(),
-        position:    0,
-        image:       "".to_string(),
-        level:       0,
-        types:       0,
-        slug:        "".to_string(),
+        name:           "".to_string(),
+        name_en:        "".to_string(),
+        description:    "".to_string(),
+        description_en: "".to_string(),
+        position:       0,
+        image:          "".to_string(),
+        level:          0,
+        types:          0,
+        slug:           "".to_string(),
     };
 
     while let Some(item) = payload.next().await {
@@ -130,7 +121,11 @@ pub async fn category_form(payload: &mut Multipart, owner_id: i32) -> Categories
                     let data_string = s.to_string();
                     if field.name() == "name" {
                         form.name = data_string
+                    } else if field.name() == "name_en" {
+                        form.name_en = data_string 
                     } else if field.name() == "description" {
+                        form.description_en = data_string
+                    } else if field.name() == "description_en" {
                         form.description = data_string
                     } else if field.name() == "slug" {
                         form.slug = data_string
@@ -142,9 +137,17 @@ pub async fn category_form(payload: &mut Multipart, owner_id: i32) -> Categories
     form
 }
 
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct ContentForm {
+    pub content:    Option<String>,
+    pub content_en: Option<String>,
+}
+
 pub async fn content_form(payload: &mut Multipart) -> ContentForm {
     let mut form: ContentForm = ContentForm {
-        content: None,
+        content:   None,
+        content_en: None,
     };
 
     while let Some(item) = payload.next().await {
@@ -157,6 +160,9 @@ pub async fn content_form(payload: &mut Multipart) -> ContentForm {
                 if field.name() == "content" {
                     form.content = Some(data_string)
                 }
+                else if field.name() == "content_en" {
+                    form.content_en = Some(data_string)
+                }
             }
         }
     }
@@ -167,7 +173,9 @@ pub async fn content_form(payload: &mut Multipart) -> ContentForm {
 #[derive(Deserialize, Serialize, Debug)]
 pub struct ItemForms {
     pub title:                   String,
+    pub title_en:                String,
     pub description:             Option<String>,
+    pub description_en:          Option<String>,
     pub link:                    Option<String>,
     pub main_image:              Option<String>,
     pub category_list:           Vec<i32>,
@@ -183,7 +191,9 @@ pub struct ItemForms {
 pub async fn item_form(payload: &mut Multipart, owner_id: i32) -> ItemForms {
     let mut form: ItemForms = ItemForms {
         title:          "".to_string(),
+        title_en:       "".to_string(),
         description:    None,
+        description_en: None,
         link:           None,
         main_image:     None,
         category_list:  Vec::new(),
@@ -198,7 +208,7 @@ pub async fn item_form(payload: &mut Multipart, owner_id: i32) -> ItemForms {
     while let Some(item) = payload.next().await {
         let mut field: Field = item.expect("split_payload err");
         let name = field.name();
-        let string_list = ["title", "description", "link", "slug"];
+        let string_list = ["title", "description", "title_en", "description_en", "link", "slug"];
 
         if string_list.contains(&name) {
             let mut _content = "".to_string();
@@ -208,8 +218,12 @@ pub async fn item_form(payload: &mut Multipart, owner_id: i32) -> ItemForms {
                     let data_string = s.to_string();
                     if field.name() == "title" {
                         form.title = data_string;
+                    } else if field.name() == "title_en" {
+                        form.title_en = data_string;
                     } else if field.name() == "description" {
                         form.description = Some(data_string);
+                    } else if field.name() == "description_en" {
+                        form.description_en = Some(data_string);
                     } else if field.name() == "link" {
                         form.link = Some(data_string);
                     }
@@ -302,6 +316,13 @@ pub async fn item_form(payload: &mut Multipart, owner_id: i32) -> ItemForms {
     form
 }
 
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct FeedbackForm {
+    pub username: String,
+    pub email:    String,
+    pub message:  String,
+}
 pub async fn feedback_form(payload: &mut Multipart) -> FeedbackForm {
     let mut form: FeedbackForm = FeedbackForm {
         username: "".to_string(),
@@ -565,19 +586,23 @@ pub async fn files_form(payload: &mut Multipart, owner_id: i32) -> FileForm {
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct ServeCategoriesForm {
-    pub name:          String,
-    pub description:   String,
-    pub category_id:   i32,
-    pub position:      i16,
-    pub default_price: i32,
+    pub name:           String,
+    pub name_en:        String,
+    pub description:    String,
+    pub description_en: String,
+    pub category_id:    i32,
+    pub position:       i16,
+    pub default_price:  i32,
 }
 pub async fn serve_category_form(payload: &mut Multipart, _owner_id: i32) -> ServeCategoriesForm {
     let mut form: ServeCategoriesForm = ServeCategoriesForm {
-        name:          "".to_string(),
-        description:   "".to_string(),
-        category_id:   0,
-        position:      0,
-        default_price: 0,
+        name:           "".to_string(),
+        name_en:        "".to_string(),
+        description:    "".to_string(),
+        description_en: "".to_string(),
+        category_id:    0,
+        position:       0,
+        default_price:  0,
     };
 
     while let Some(item) = payload.next().await {
@@ -619,8 +644,12 @@ pub async fn serve_category_form(payload: &mut Multipart, _owner_id: i32) -> Ser
                     let data_string = s.to_string();
                     if field.name() == "name" {
                         form.name = data_string
+                    } if field.name() == "name_en" {
+                        form.name_en = data_string
                     } else if field.name() == "description" {
                         form.description = data_string
+                    } else if field.name() == "description_en" {
+                        form.description_en = data_string
                     }
                 }
             }
@@ -632,26 +661,30 @@ pub async fn serve_category_form(payload: &mut Multipart, _owner_id: i32) -> Ser
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct ServeForm {
-    pub name:        String,
-    pub description: String,
-    pub position:    i16,
-    pub category_id: i32,
-    pub price:       i32,
-    pub man_hours:   i16,
-    pub is_default:  bool,
-    pub serve_id:    Option<i32>,
+    pub name:           String,
+    pub name_en:        String,
+    pub description:    String,
+    pub description_en: String,
+    pub position:       i16,
+    pub category_id:    i32,
+    pub price:          i32,
+    pub man_hours:      i16,
+    pub is_default:     bool,
+    pub serve_id:       Option<i32>,
 }
 
 pub async fn serve_split_payload(payload: &mut Multipart) -> ServeForm {
     let mut form: ServeForm = ServeForm {
-        name:        "".to_string(),
-        description: "".to_string(),
-        position:    0,
-        category_id: 0,
-        price:       0,
-        man_hours:   0,
-        is_default:  true,
-        serve_id:    None,
+        name:           "".to_string(),
+        name_en:        "".to_string(),
+        description:    "".to_string(),
+        description_en: "".to_string(),
+        position:       0,
+        category_id:    0,
+        price:          0,
+        man_hours:      0,
+        is_default:     true,
+        serve_id:       None,
     };
 
     let mut is_default = false;
@@ -721,9 +754,13 @@ pub async fn serve_split_payload(payload: &mut Multipart) -> ServeForm {
                     let data_string = s.to_string();
                     if field.name() == "name" {
                         form.name = data_string
+                    } else if field.name() == "name_en" {
+                        form.name_en = data_string
                     } else if field.name() == "description" {
                         form.description = data_string
-                    } ;
+                    } else if field.name() == "description_en" {
+                        form.description_en = data_string
+                    }
                 }
             }
         }

@@ -72,7 +72,7 @@ impl WebService {
             .load::<WebService>(&_connection)
             .expect("E")
     }
-    pub fn update_category_with_id(user: User, cat_id: i32, form: CategoriesForm, l: i16) -> i16 {
+    pub fn update_category_with_id(user: User, cat_id: i32, form: CategoriesForm) -> i16 {
         let _connection = establish_connection();
         let cat = schema::web_services::table
             .filter(schema::web_services::id.eq(cat_id))
@@ -81,72 +81,41 @@ impl WebService {
         if user.perm < 60 && cat.user_id != user.id {
             return 0;
         }
-        if l == 1 { 
-            diesel::update(&cat)
-                .set((
-                    schema::web_services::name.eq(&form.name),
-                    schema::web_services::description.eq(&form.description),
-                    schema::web_services::position.eq(form.position),
-                    //schema::web_services::image.eq(&form.image),
-                    schema::web_services::level.eq(form.level),
-                ))
-                .execute(&_connection)
-                .expect("E");
-        }
-        else if l == 2 {
-            diesel::update(&cat)
-                .set((
-                    schema::web_services::name_en.eq(&form.name),
-                    schema::web_services::description_en.eq(&form.description),
-                    schema::web_services::position.eq(form.position),
-                    //schema::web_services::image.eq(&form.image),
-                    schema::web_services::level.eq(form.level),
-                ))
-                .execute(&_connection)
-                .expect("E");
-        }
+
+        diesel::update(&cat)
+            .set((
+                schema::web_services::name.eq(&form.name),
+                schema::web_services::name_en.eq(&form.name_en),
+                schema::web_services::description.eq(&form.description),
+                schema::web_services::description_en.eq(&form.description_en),
+                schema::web_services::position.eq(form.position),
+                //schema::web_services::image.eq(&form.image),
+                schema::web_services::level.eq(form.level),
+            ))
+            .execute(&_connection)
+            .expect("E");
         return 1;
     }
-    pub fn create(user_id: i32, form: CategoriesForm, l: i16) -> i16 {
+    pub fn create(user_id: i32, form: CategoriesForm) -> i16 {
         let _connection = establish_connection();
-        if l == 1 {
-            let new_cat = NewWebService {
-                name:           form.name.clone(),
-                name_en:        "".to_string(),
-                description:    Some(form.description.clone()),
-                description_en: None,
-                position:       form.position,
-                count:          0,
-                level:          form.level,
-                user_id:        user_id,
-                view:           0,
-                height:         0.0,
-                seconds:        0,
-            };
-            diesel::insert_into(web_services::table)
-                .values(&new_cat)
-                .execute(&_connection)
-                .expect("E.");
-        }
-        else if l == 2 {
-            let new_cat = NewWebService {
-                name:           "".to_string(),
-                name_en:        form.name.clone(),
-                description:    None,
-                description_en: Some(form.description.clone()),
-                position:       form.position,
-                count:          0,
-                level:          form.level,
-                user_id:        user_id,
-                view:           0,
-                height:         0.0,
-                seconds:        0,
-            };
-            diesel::insert_into(web_services::table)
-                .values(&new_cat)
-                .execute(&_connection)
-                .expect("E.");
-        }
+
+        let new_cat = NewWebService {
+            name:           form.name.clone(),
+            name_en:        form.name_en.clone(),
+            description:    Some(form.description.clone()),
+            description_en: Some(form.description_en.clone()),
+            position:       form.position,
+            count:          0,
+            level:          form.level,
+            user_id:        user_id,
+            view:           0,
+            height:         0.0,
+            seconds:        0,
+        };
+        diesel::insert_into(web_services::table)
+            .values(&new_cat)
+            .execute(&_connection)
+            .expect("E.");
         return 1;
     }
     pub fn get_serve_categories(&self) -> Vec<ServeCategories> {
@@ -241,78 +210,48 @@ impl ServeCategories {
             .first::<ServeCategories>(&_connection)
             .expect("E")
     }
-    pub fn update_category_with_id(user: User, cat_id: i32, form: crate::utils::ServeCategoriesForm, l: i16) -> i16 {
+    pub fn update_category_with_id(user: User, cat_id: i32, form: crate::utils::ServeCategoriesForm) -> i16 {
         let _connection = establish_connection();
         let cat = ServeCategories::get(cat_id);
         if user.perm < 60 && cat.user_id != user.id {
             return 0;
         }
-        if l == 1 { 
-            diesel::update(&cat)
-                .set((
-                    schema::serve_categories::name.eq(&form.name),
-                    schema::serve_categories::description.eq(&form.description),
-                    schema::serve_categories::position.eq(form.position),
-                    //schema::serve_categories::image.eq(&form.image),
-                ))
-                .execute(&_connection)
-                .expect("E");
-        }
-        else if l == 2 {
-            diesel::update(&cat)
-                .set((
-                    schema::serve_categories::name_en.eq(&form.name),
-                    schema::serve_categories::description_en.eq(&form.description),
-                    schema::serve_categories::position.eq(form.position),
-                    //schema::serve_categories::image.eq(&form.image),
-                )) 
-                .execute(&_connection)
-                .expect("E");
-        }
+
+        diesel::update(&cat)
+            .set((
+                schema::serve_categories::name.eq(&form.name),
+                schema::serve_categories::name_en.eq(&form.name_en),
+                schema::serve_categories::description.eq(&form.description),
+                schema::serve_categories::description_en.eq(&form.description_en),
+                schema::serve_categories::position.eq(form.position),
+                //schema::serve_categories::image.eq(&form.image),
+            )) 
+            .execute(&_connection)
+            .expect("E");
         return 1;
     }
-    pub fn create(user_id: i32, form: crate::utils::ServeCategoriesForm, l: i16) -> i16 {
+    pub fn create(user_id: i32, form: crate::utils::ServeCategoriesForm) -> i16 {
         let _connection = establish_connection();
-        if l == 1 {
-            let new_cat = NewServeCategories {  
-                name:           form.name.clone(),
-                name_en:        "".to_string(),
-                description:    Some(form.description.clone()),
-                description_en: None,
-                category_id:    form.category_id,
-                position:       form.position,
-                count:          0,
-                default_price:  form.default_price,
-                user_id:        user_id,
-                view:           0,
-                height:         0.0,
-                seconds:        0,
-            };
-            diesel::insert_into(serve_categories::table)
-                .values(&new_cat)
-                .execute(&_connection)
-                .expect("E.");
-        }
-        else if l == 2 {
-            let new_cat = NewServeCategories {
-                name:           "".to_string(),
-                name_en:        form.name.clone(),
-                description:    None,
-                description_en: Some(form.description.clone()),
-                category_id:    form.category_id,
-                position:       form.position,
-                count:          0,
-                default_price:  form.default_price,
-                user_id:        user_id,
-                view:           0,
-                height:         0.0,
-                seconds:        0,
-            };
-            diesel::insert_into(serve_categories::table)
-                .values(&new_cat)
-                .execute(&_connection)
-                .expect("E.");
-        }
+
+        let new_cat = NewServeCategories {  
+            name:           form.name.clone(),
+            name_en:        form.name_en.clone(),
+            description:    Some(form.description.clone()),
+            description_en: Some(form.description_en.clone()),
+            category_id:    form.category_id,
+            position:       form.position,
+            count:          0,
+            default_price:  form.default_price,
+            user_id:        user_id,
+            view:           0,
+            height:         0.0,
+            seconds:        0,
+        };
+        diesel::insert_into(serve_categories::table)
+            .values(&new_cat)
+            .execute(&_connection)
+            .expect("E.");
+        
         return 1;
     }
     pub fn get_categories_from_level(level: &i16) -> Vec<ServeCategories> {
@@ -639,60 +578,37 @@ impl ServeVar {
 }
 
 impl Serve {
-    pub fn create(user: User, form: crate::utils::ServeForm, l: i16) -> i16 {
+    pub fn create(user: User, form: crate::utils::ServeForm) -> i16 {
         let _connection = establish_connection(); 
         let _category = ServeCategories::get(form.category_id);
         if user.perm < 60 && _category.user_id != user.id {
             return 0;
         }
-        if l == 1 {
-            let _new_serve = NewServe {
-                name:           form.name.clone(),
-                name_en:        "".to_string(),
-                description:    Some(form.description.clone()),
-                description_en: None,
-                position:       form.position,
-                category_id:    form.category_id,
-                price:          form.price,
-                man_hours:      form.man_hours,
-                is_default:     form.is_default,
-                user_id:        user.id,
-                web_service_id: _category.category_id,
-                height:         0.0,
-                seconds:        0,
-                serve_id:       form.serve_id,
-                view:           0,
-            };
 
-            diesel::insert_into(schema::serve::table)
-                .values(&_new_serve)
-                .execute(&_connection)
-                .expect("E.");
-        }
-        else if l == 2 {
-            let _new_serve = NewServe {
-                name:           "".to_string(),
-                name_en:        form.name.clone(),
-                description:    None,
-                description_en: Some(form.description.clone()),
-                position:       form.position,
-                category_id:    form.category_id,
-                price:          form.price,
-                man_hours:      form.man_hours,
-                is_default:     form.is_default,
-                user_id:        user.id,
-                web_service_id: _category.category_id,
-                height:         0.0,
-                seconds:        0,
-                serve_id:       form.serve_id,
-                view:           0,
-            };
+        let _new_serve = NewServe {
+            name:           form.name.clone(),
+            name_en:        form.name_en.clone(),
+            description:    Some(form.description.clone()),
+            description_en: Some(form.description_en.clone()),
+            position:       form.position,
+            category_id:    form.category_id,
+            price:          form.price,
+            man_hours:      form.man_hours,
+            is_default:     form.is_default,
+            user_id:        user.id,
+            web_service_id: _category.category_id,
+            height:         0.0,
+            seconds:        0,
+            serve_id:       form.serve_id,
+            view:           0,
+        };
 
-            diesel::insert_into(schema::serve::table)
-                .values(&_new_serve)
-                .execute(&_connection)
-                .expect("E.");
+        diesel::insert_into(schema::serve::table)
+            .values(&_new_serve)
+            .execute(&_connection)
+            .expect("E.");
         }
+
         if form.is_default {
             diesel::update(&_category)
                 .set(schema::serve_categories::default_price.eq(_category.default_price + form.price))
@@ -705,7 +621,7 @@ impl Serve {
             .expect("E.");
         return 1;
     }
-    pub fn update_serve_with_id(user: User, serve_id: i32, form: crate::utils::ServeForm, l: i16) -> i16 {
+    pub fn update_serve_with_id(user: User, serve_id: i32, form: crate::utils::ServeForm) -> i16 {
         if l > 2 {
             return 0;
         }
@@ -741,53 +657,29 @@ impl Serve {
             }
         }
 
-        if l == 1 { 
-            let _new_serve = NewServe {
-                name:           form.name.clone(),
-                name_en:        "".to_string(),
-                description:    Some(form.description.clone()),
-                description_en: None,
-                position:       form.position,
-                category_id:    _serve.category_id,
-                price:          form.price,
-                man_hours:      form.man_hours,
-                is_default:     is_default,
-                user_id:        user.id,
-                web_service_id: _category.category_id,
-                height:         0.0,
-                seconds:        0,
-                serve_id:       form.serve_id,
-                view:           0,
-            };
+        let _new_serve = NewServe {
+            name:           form.name.clone(),
+            name_en:        form.name_en.clone(),
+            description:    Some(form.description.clone()),
+            description_en: Some(form.description_en.clone()),
+            position:       form.position,
+            category_id:    _serve.category_id,
+            price:          form.price,
+            man_hours:      form.man_hours,
+            is_default:     is_default,
+            user_id:        user.id,
+            web_service_id: _category.category_id,
+            height:         0.0,
+            seconds:        0,
+            serve_id:       form.serve_id,
+            view:           0,
+        };
 
-            diesel::update(&_serve)
-                .set(_new_serve)
-                .execute(&_connection)
-                .expect("E");
-        }
-        else if l == 2 {
-            let _new_serve = NewServe {
-                name:           "".to_string(),
-                name_en:        form.name.clone(),
-                description:    None,
-                description_en: Some(form.description.clone()),
-                position:       form.position,
-                category_id:    _serve.category_id,
-                price:          form.price,
-                man_hours:      form.man_hours,
-                is_default:     is_default,
-                user_id:        user.id,
-                web_service_id: _category.category_id,
-                height:         0.0,
-                seconds:        0,
-                serve_id:       form.serve_id,
-                view:           0,
-            };
-            diesel::update(&_serve)
-                .set(_new_serve)
-                .execute(&_connection)
-                .expect("E");
-        }
+        diesel::update(&_serve)
+            .set(_new_serve)
+            .execute(&_connection)
+            .expect("E");
+    
         return 1;
     }
     pub fn delete(user: User, item_id: i32) -> i16 {

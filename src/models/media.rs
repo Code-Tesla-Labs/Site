@@ -64,8 +64,8 @@ impl File {
             .filter(schema::files::id.eq(id))
             .first::<File>(&_connection)
             .expect("E.");
-    }
-    pub fn update_file_with_id(user: User, file_id: i32, form: crate::utils::CategoriesForm, l: i16) -> i16 {
+    } 
+    pub fn update_file_with_id(user: User, file_id: i32, form: crate::utils::CategoriesForm) -> i16 {
         let _connection = establish_connection();
         let _file = schema::files::table
             .filter(schema::files::id.eq(file_id))
@@ -80,18 +80,15 @@ impl File {
         if user.perm < 60 && _item.user_id != user.id {
             return 0;
         }
-        if l == 1 { 
-            diesel::update(&_file)
-                .set(schema::files::description.eq(&form.description))
-                .execute(&_connection)
-                .expect("E");
-        }
-        else if l == 2 {
-            diesel::update(&_file)
-                .set(schema::files::description_en.eq(&form.description))
-                .execute(&_connection)
-                .expect("E");
-        }
+
+        diesel::update(&_file)
+            .set((
+                schema::files::description.eq(&form.description),
+                schema::files::description_ru.eq(&form.description_ru),
+            ))
+            .execute(&_connection)
+            .expect("E");
+
         return 1;
     }
     pub fn create(user: User, item_id: i32, form: crate::utils::FileForm) -> i16 {

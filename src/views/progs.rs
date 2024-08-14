@@ -111,8 +111,7 @@ pub async fn create_item(req: HttpRequest, session: Session, mut payload: Multip
         let _request_user = get_request_user_data(&session);
         if _request_user.perm == 60 {
             let form = crate::utils::item_form(payload.borrow_mut(), _request_user.id).await;
-            let l = crate::utils::get_c_user_l(&req);
-            Item::create(_request_user.id, form, l);
+            Item::create(_request_user.id, form);
         } 
     };
     HttpResponse::Ok()
@@ -123,8 +122,7 @@ pub async fn edit_item(req: HttpRequest, session: Session, mut payload: Multipar
         let _request_user = get_request_user_data(&session);
         if _request_user.perm == 60 {
             let form = crate::utils::item_form(payload.borrow_mut(), _request_user.id).await;
-            let l = crate::utils::get_c_user_l(&req);
-            Item::update_item_with_id(*_id, form, l); 
+            Item::update_item_with_id(*_id, form); 
         }
     };
     HttpResponse::Ok()
@@ -135,8 +133,7 @@ pub async fn create_category(req: HttpRequest, session: Session, mut payload: Mu
         let _request_user = get_request_user_data(&session);
         if _request_user.perm == 60 {
             let form = crate::utils::category_form(payload.borrow_mut(), _request_user.id).await;
-            let l = crate::utils::get_c_user_l(&req);
-            Categories::create(form, l);
+            Categories::create(form);
         }
     }
     return HttpResponse::Ok();
@@ -146,8 +143,7 @@ pub async fn edit_category(req: HttpRequest, session: Session, mut payload: Mult
     if is_signed_in(&session) {
         let _request_user = get_request_user_data(&session);
         let form = crate::utils::category_form(payload.borrow_mut(), _request_user.id).await;
-        let l = crate::utils::get_c_user_l(&req);
-        Categories::update_category_with_id(_request_user, *_id, form, l);
+        Categories::update_category_with_id(_request_user, *_id, form);
     }
     HttpResponse::Ok()
 }
@@ -156,8 +152,7 @@ pub async fn edit_content_item(req: HttpRequest, session: Session, mut payload: 
     if is_signed_in(&session) { 
         let _request_user = get_request_user_data(&session);
         let form = crate::utils::content_form(payload.borrow_mut()).await;
-        let l = crate::utils::get_c_user_l(&req);
-        Item::update_content_with_id(_request_user, *_id, form, l);
+        Item::update_content_with_id(_request_user, *_id, form);
     }
     HttpResponse::Ok().body("")
 }

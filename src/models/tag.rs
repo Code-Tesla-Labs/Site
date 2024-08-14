@@ -109,66 +109,40 @@ impl Tag {
             .first::<Tag>(&_connection)
             .expect("E.");
     }
-    pub fn update_tag_with_id(id: i32, form: CategoriesForm, l: i16) -> i16 {
+    pub fn update_tag_with_id(id: i32, form: CategoriesForm) -> i16 {
         let _connection = establish_connection();
         let _tag = schema::tags::table
             .filter(schema::tags::id.eq(id))
             .first::<Tag>(&_connection)
             .expect("E.");
-        if l == 1 {
-            diesel::update(&_tag)
-                .set((
-                    schema::tags::name.eq(&form.name),
-                    schema::tags::position.eq(form.position),
-                ))
-                .execute(&_connection)
-                .expect("E");
-        }
-        else if l == 2 {
-            diesel::update(&_tag)
-                .set((
-                    schema::tags::name_en.eq(&form.name),
-                    schema::tags::position.eq(form.position),
-                ))
-                .execute(&_connection)
-                .expect("E");
-        }
+
+        diesel::update(&_tag)
+            .set((
+                schema::tags::name.eq(&form.name),
+                schema::tags::name_en.eq(&form.name_en),
+                schema::tags::position.eq(form.position),
+            ))
+            .execute(&_connection)
+            .expect("E");
         return 1;
     }
-    pub fn create(user: User, form: CategoriesForm, l: i16) -> i16 {
+    pub fn create(user: User, form: CategoriesForm) -> i16 {
         let _connection = establish_connection();
-        if l == 1 { 
-            let new_tag = NewTag {
-                name:     form.name.clone(),
-                name_en:  "".to_string(),
-                position: form.position,
-                count:    0,
-                user_id:  user.id,
-                view:     0,
-                height:   0.0,
-                seconds:  0,
-            };
-            diesel::insert_into(schema::tags::table)
-                .values(&new_tag)
-                .execute(&_connection)
-                .expect("E.");
-        }
-        else if l == 2 {
-            let new_tag = NewTag {
-                name:     "".to_string(),
-                name_en:  form.name.clone(),
-                position: form.position,
-                count:    0,
-                user_id:  user.id,
-                view:     0,
-                height:   0.0,
-                seconds:  0,
-            }; 
-            diesel::insert_into(schema::tags::table)
-                .values(&new_tag)
-                .execute(&_connection)
-                .expect("E.");
-        }
+        let new_tag = NewTag {
+            name:     form.name.clone(),
+            name_en:  form.name_en.clone(),
+            position: form.position,
+            count:    0,
+            user_id:  user.id,
+            view:     0,
+            height:   0.0,
+            seconds:  0,
+        };
+        diesel::insert_into(schema::tags::table)
+            .values(&new_tag)
+            .execute(&_connection)
+            .expect("E.");
+        
         return 1;
     }
     pub fn get_all_tags() -> Vec<Tag> {

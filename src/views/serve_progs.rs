@@ -987,8 +987,7 @@ pub async fn create_web_service(req: HttpRequest, session: Session, mut payload:
         if _request_user.perm == 60 {
             let _connection = establish_connection();
             let form = crate::utils::category_form(payload.borrow_mut(), _request_user.id).await;
-            let l = crate::utils::get_c_user_l(&req);
-            WebService::create(_request_user.id, form, l);
+            WebService::create(_request_user.id, form);
         }
     }
     return HttpResponse::Ok();
@@ -999,8 +998,7 @@ pub async fn create_serve_category(req: HttpRequest, session: Session, mut paylo
         let _request_user = get_request_user_data(&session);
         if _request_user.perm == 60 {
             let form = crate::utils::serve_category_form(payload.borrow_mut(), _request_user.id).await;
-            let l = crate::utils::get_c_user_l(&req);
-            ServeCategories::create(_request_user.id, form, l);
+            ServeCategories::create(_request_user.id, form);
         }
     }
     return HttpResponse::Ok();
@@ -1010,8 +1008,7 @@ pub async fn edit_web_service(req: HttpRequest, session: Session, mut payload: M
     if is_signed_in(&session) {
         let _request_user = get_request_user_data(&session); 
         let form = crate::utils::category_form(payload.borrow_mut(), _request_user.id).await;
-        let l = crate::utils::get_c_user_l(&req);
-        WebService::update_category_with_id(_request_user, *_id, form, l);
+        WebService::update_category_with_id(_request_user, *_id, form);
     }
     return HttpResponse::Ok();
 }
@@ -1020,8 +1017,7 @@ pub async fn edit_serve_category(req: HttpRequest, session: Session, mut payload
     if is_signed_in(&session) {
         let _request_user = get_request_user_data(&session);
         let form = crate::utils::serve_category_form(payload.borrow_mut(), _request_user.id).await;
-        let l = crate::utils::get_c_user_l(&req);
-        ServeCategories::update_category_with_id(_request_user, *_id, form, l);
+        ServeCategories::update_category_with_id(_request_user, *_id, form);
     }
     return HttpResponse::Ok();
 }
@@ -1030,8 +1026,7 @@ pub async fn create_serve(req: HttpRequest, session: Session, mut payload: Multi
     if is_signed_in(&session) {
         let _request_user = get_request_user_data(&session);
         let form = crate::utils::serve_split_payload(payload.borrow_mut()).await;
-        let l = crate::utils::get_c_user_l(&req);
-        Serve::create(_request_user, form, l);
+        Serve::create(_request_user, form);
     }
     return HttpResponse::Ok();
 }
@@ -1040,8 +1035,7 @@ pub async fn edit_serve(req: HttpRequest, session: Session, mut payload: Multipa
     if is_signed_in(&session) {
         let _request_user = get_request_user_data(&session);
         let form = crate::utils::serve_split_payload(payload.borrow_mut()).await;
-        let l = crate::utils::get_c_user_l(&req);
-        Serve::update_serve_with_id(_request_user, *_id, form, l);
+        Serve::update_serve_with_id(_request_user, *_id, form);
     }
     return HttpResponse::Ok();
 }

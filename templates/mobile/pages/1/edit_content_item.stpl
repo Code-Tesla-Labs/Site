@@ -12,19 +12,35 @@
 <section class="page-section">
     <div class="container relative">
         <form class="col-md-8 col-md-offset-2 form" enctype="multipart/form-data">
+          
           <div class="mb-20 mb-md-10">
             <% if item.content.is_some() { %>
               <% let item_unwrap = item.content.unwrap(); %>
               <p><%- item_unwrap.len() %></p>
-              <div style="display:inline-block" contenteditable="true" placeholder="Содержимое" class="input-md form-control content_1 smile_supported">
+              <div style="display:inline-block" contenteditable="true" placeholder="Содержимое по-русски" class="input-md form-control content_ru smile_supported">
                 <%- item_unwrap %>
               </div>
             <% } else { %>
               <p>0</p>
-              <div style="display:inline-block" contenteditable="true" placeholder="Содержимое" class="input-md form-control content_1 smile_supported">
+              <div style="display:inline-block" contenteditable="true" placeholder="Содержимое по-русски" class="input-md form-control content_ru smile_supported">
               </div>
             <% } %>
           </div>
+
+          <div class="mb-20 mb-md-10">
+            <% if item.content_en.is_some() { %>
+              <% let item_unwrap = item.content_en.unwrap(); %>
+              <p><%- item_unwrap.len() %></p>
+              <div style="display:inline-block" contenteditable="true" placeholder="Содержимое по-английски" class="input-md form-control content_en smile_supported_en">
+                <%- item_unwrap %>
+              </div>
+            <% } else { %>
+              <p>0</p>
+              <div style="display:inline-block" contenteditable="true" placeholder="Содержимое по-английски" class="input-md form-control content_en smile_supported_en">
+              </div>
+            <% } %>
+          </div>
+
           <button data-pk="<%= item.id %>" style="float: right;" class="btn btn-mod btn-border btn-medium btn-round" type="button" id="edit_object_content_btn">Изменить</button>
         </form>
     </div>
