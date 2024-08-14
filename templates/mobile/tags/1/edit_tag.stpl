@@ -20,7 +20,7 @@
                 <input value="<%= tag.name %>" class="form_title input-md form-control" type="text" name="name" placeholder="<%= __title %>" />
             </div>
             <div class="mb-20 mb-md-10">
-                <input value="<%= tag.name_2 %>" class="form_title_2 input-md form-control" type="text" name="name_2" placeholder="<%= __title_en %>" />
+                <input value="<%= tag.name_en %>" class="form_title_2 input-md form-control" type="text" name="name_en" placeholder="<%= __title_en %>" />
             </div>
             <div class="mb-20 mb-md-10">
                 <input value="<%= tag.position %>" class="input-md form-control" type="number" name="position" placeholder="<%= __position %>" />

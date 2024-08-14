@@ -84,7 +84,7 @@ impl File {
         diesel::update(&_file)
             .set((
                 schema::files::description.eq(&form.description),
-                schema::files::description_ru.eq(&form.description_ru),
+                schema::files::description_en.eq(&form.description_en),
             ))
             .execute(&_connection)
             .expect("E");

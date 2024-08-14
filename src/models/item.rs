@@ -1475,12 +1475,11 @@ impl Item {
         let types = form.types;
         let _item: Item;
 
-        let new_item = NewItem::create ( 
+        let new_item = NewItem::create (  
             form.title.clone(),
             form.title_en.clone(),
             form.description.clone(),
             form.description_en.clone(),
-            None,
             form.link.clone(),
             form.main_image.clone(),
             user_id,

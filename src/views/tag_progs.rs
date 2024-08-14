@@ -1958,8 +1958,7 @@ pub async fn create_tag(req: HttpRequest, session: Session, mut payload: Multipa
         let _request_user = get_request_user_data(&session);
         if _request_user.is_superuser() {
             let form = crate::utils::category_form(payload.borrow_mut(), _request_user.id).await;
-            let l = crate::utils::get_c_user_l(&req);
-            Tag::create(_request_user, form, l);
+            Tag::create(_request_user, form);
         }
     }
     return HttpResponse::Ok();
@@ -1970,8 +1969,7 @@ pub async fn edit_tag(req: HttpRequest, session: Session, mut payload: Multipart
         let _request_user = get_request_user_data(&session);
         if _request_user.perm == 60 {
             let form = crate::utils::category_form(payload.borrow_mut(), _request_user.id).await;
-            let l = crate::utils::get_c_user_l(&req);
-            Tag::update_tag_with_id(*_id, form, l);
+            Tag::update_tag_with_id(*_id, form);
         }
     }
 

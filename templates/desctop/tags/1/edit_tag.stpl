@@ -1,4 +1,4 @@
-<% let (__home, __sect, __title, __position, __btn) = match linguage {
+<% let (__home, __sect, __title, __title_en, __position, __btn) = match linguage {
         2 => ("Home", "Edit tag", "Title ru", "Title en", "Position", "Update"), 
         1 | _ => ("Главная", "Изменение тега", "Название по-русски", "Название по-английски", "Порядок следования", "Изменить"),
     };
