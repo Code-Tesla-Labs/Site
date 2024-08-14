@@ -607,7 +607,6 @@ impl Serve {
             .values(&_new_serve)
             .execute(&_connection)
             .expect("E.");
-        }
 
         if form.is_default {
             diesel::update(&_category)
@@ -622,9 +621,6 @@ impl Serve {
         return 1;
     }
     pub fn update_serve_with_id(user: User, serve_id: i32, form: crate::utils::ServeForm) -> i16 {
-        if l > 2 {
-            return 0;
-        }
         let _connection = establish_connection();
         let _serve = Serve::get(serve_id);
         let _category = ServeCategories::get(_serve.category_id);
