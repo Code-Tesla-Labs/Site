@@ -2282,7 +2282,7 @@ a.blog-item-more{
     letter-spacing: 0;
 }
 
-.smile_supported {
+.smile_supported, .smile_supported_en {
   overflow-y: auto;
   overflow-x: hidden;
   height: 200px !important;
