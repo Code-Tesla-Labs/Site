@@ -18,7 +18,7 @@
         ),
     };
 %>
-<div class="page desctop_version" id="top" data-l="<%= linguage %>" data-id="<%= request_user.id %>" data-perm="<%= request_user.perm %>">
+<div class="page desctop_version" id="top" data-l="<%= linguage %>"  data-a="authorized" data-id="<%= request_user.id %>" data-perm="<%= request_user.perm %>">
       <nav class="main-nav small-height stick-fixed">
           <div class="full-wrapper relative clearfix">
               <div class="nav-logo-wrap local-scroll">
