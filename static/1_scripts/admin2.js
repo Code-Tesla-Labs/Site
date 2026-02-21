@@ -206,7 +206,7 @@ function send_content_data(_this, url) {
 };
 
 on('body', 'click', '#edit_file_btn', function() {
-  send_content_data("/edit_file/" + this.getAttribute("data-pk") + "/", "description");
+  send_content_data(this, "/edit_file/" + this.getAttribute("data-pk") + "/", "description");
 });
 
 function send_serve_data(form, url) {
@@ -289,7 +289,7 @@ on('body', 'click', '#edit_serve_btn', function() {
   send_serve_data(this.parentElement, "/edit_serve/" + this.getAttribute("data-pk") + "/");
 });
 on('body', 'click', '#edit_object_content_btn', function() {
-  send_content_data("/edit_content_item/" + this.getAttribute("data-pk") + "/", "content");
+  send_content_data(this, "/edit_content_item/" + this.getAttribute("data-pk") + "/", "content");
 });
 on('body', 'click', '#edit_serve_category_btn', function() {
   send_category_data(this.parentElement, "/edit_serve_category/" + this.getAttribute("data-pk") + "/");
