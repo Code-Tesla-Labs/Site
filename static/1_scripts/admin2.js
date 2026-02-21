@@ -165,7 +165,7 @@ function send_category_data(form, url) {
   link.send(form_data);
 };
 
-function send_content_data(url, field) {
+function send_content_data(url, text_field) {
 
   form = text_field.parentElement.parentElement;
   if (!text_field.innerHTML) {
