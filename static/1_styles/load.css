@@ -108,17 +108,17 @@ figure {
 }
 .image_fit_200 {
   object-fit: cover;
-  height: 200px;
+  height: 200px !important;
   width: 100%;
 }
 .image_fit_100 {
   object-fit: cover;
-  height: 100px;
+  height: 100px !important;;
   width: 100%;
 }
 .image_fit_300 {
   object-fit: cover;
-  height: 300px;
+  height: 300px !important;
   width: 100%;
 }
 .strong {
