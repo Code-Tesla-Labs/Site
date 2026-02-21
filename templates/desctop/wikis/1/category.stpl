@@ -27,7 +27,7 @@
                 <% include!("../../generic/items/1/wiki.stpl"); %>
               <% } %>
               <% if next_page_number > 0 { %>
-                <div class="load centered m-1 next_page_list" data-link="/wikis/<%= category.slug %>/?page=<%= next_page_number %>">
+                <div class="load centered m-1 next_page_list" data-link="/wiki/<%= category.slug %>/?page=<%= next_page_number %>">
                   <img src="/static/images/preloader.gif">
                 </div>
               <% } %>

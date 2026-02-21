@@ -108,7 +108,7 @@ on('body', 'input', '.smile_supported_en', function() {
 });
 
 function get_and_change_btn(_this, url, is_hide) {
-  form_data = new FormData(form);
+  form_data = new FormData();
   form_data.append("id", _this.getAttribute("data-pk"));
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   link.open( 'POST', url, true );

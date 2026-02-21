@@ -18,7 +18,7 @@
         <ul class="clearlist widget-menu">
           <% for cat in cats.iter() { %>
             <li>
-              <a class="ajax" href="/blogs/<%= cat.slug %>/"><%= cat.name %></a>
+              <a class="ajax" href="/wiki/<%= cat.slug %>/"><%= cat.name %></a>
             </li>
           <% } %>
         </ul>
