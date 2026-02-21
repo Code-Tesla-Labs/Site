@@ -7,6 +7,7 @@
 %>
 
 <% if images.len() > 0 { %>
+<hr />
 <h3 class="mt-20"><%= _images %></h3>
 <% if request_user.is_superuser() { %>
 <div class="row multi-columns-row mb-30 mb-xs-10">
@@ -46,7 +47,7 @@
 <% } %>
 
 <% if videos.len() > 0 { %>
-
+<hr />
 <h3><%= _videos %></h3>
 <% if request_user.is_superuser() { %>
 <div class="row multi-columns-row mb-30 mb-xs-10">
@@ -79,7 +80,7 @@
 
 
 <% if audios.len() > 0 { %>
-
+<hr />
 <h3><%= _audios %></h3>
 <% if request_user.is_superuser() { %>
 <div class="row multi-columns-row mb-30 mb-xs-10">
@@ -106,6 +107,7 @@
 <% } %>
 
 <% if docs.len() > 0 { %>
+<hr />
 <h3><%= _docs %></h3>
 
 <% if request_user.is_superuser() { %>
