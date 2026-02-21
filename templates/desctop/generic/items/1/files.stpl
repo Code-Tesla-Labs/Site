@@ -112,10 +112,10 @@
 <h3><%= _docs %></h3>
 
 <% if request_user.is_superuser() { %>
-<h3>Документы</h3>
 <div class="row multi-columns-row mb-30 mb-xs-10">
-
-  <% for doc in docs.iter() { %>
+ 
+  <% for (i, doc) in docs.iter().enumerate() { %>
+    <%= i %>
     <a target="_blank" rel="nofollow" href="/edit_file/<%= doc.id %>/">~</a>
     | <a class="remove_file_from_object pointer" data-pk="<%= doc.id %>">х</a>
     |
