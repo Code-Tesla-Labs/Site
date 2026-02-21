@@ -15,7 +15,7 @@
           <div class="mb-20 mb-md-10">
             <% if item.content.is_some() { %>
               <% let item_unwrap_ru = item.content.unwrap(); %>
-              <p><%- item_unwrap_ru.len() %></p>
+              <p>Содержимое объекта (<%- item_unwrap_ru.len() %>)</p>
               <div style="display:inline-block" contenteditable="true" placeholder="Содержимое" class="input-md form-control content_ru smile_supported">
                 <%- item_unwrap_ru %>
               </div>
@@ -29,13 +29,13 @@
           <div class="mb-20 mb-md-10">
             <% if item.content_en.is_some() { %>
               <% let item_unwrap_en = item.content_en.unwrap(); %>
-              <p><%- item_unwrap_en.len() %></p>
-              <div style="display:inline-block" contenteditable="true" placeholder="Content" class="input-md form-control content_ru smile_supported">
+              <p>Content (<%- item_unwrap_en.len() %>)</p>
+              <div style="display:inline-block" contenteditable="true" placeholder="Content" class="input-md form-control content_en smile_supported">
                 <%- item_unwrap_en %>
               </div>
             <% } else { %>
               <p>0</p>
-              <div style="display:inline-block" contenteditable="true" placeholder="Content" class="input-md form-control content_ru smile_supported">
+              <div style="display:inline-block" contenteditable="true" placeholder="Content" class="input-md form-control content_en smile_supported">
               </div>
             <% } %>
           </div>
