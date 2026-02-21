@@ -13,8 +13,8 @@
     <div class="container relative">
         <form class="col-md-8 col-md-offset-2 form" enctype="multipart/form-data">
           <div class="mb-20 mb-md-10">
-            <% if item.content_ru.is_some() { %>
-              <% let item_unwrap_ru = item.content_ru.unwrap(); %>
+            <% if item.content.is_some() { %>
+              <% let item_unwrap_ru = item.content.unwrap(); %>
               <p><%- item_unwrap_ru.len() %></p>
               <div style="display:inline-block" contenteditable="true" placeholder="Содержимое" class="input-md form-control content_ru smile_supported">
                 <%- item_unwrap_ru %>
