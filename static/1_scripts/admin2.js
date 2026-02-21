@@ -165,11 +165,12 @@ function send_category_data(form, url) {
   link.send(form_data);
 };
 
-function send_content_data(url, text_field) {
+function send_content_data(_this, url) {
 
-  form = text_field.parentElement.parentElement;
-  if (!text_field.innerHTML) {
-    text_field.style.setProperty('border', '1px #FF0000 solid', 'important');
+  form = _this.parentElement.parentElement;
+  smile_supported = form.querySelector(".smile_supported");
+  if (!smile_supported.innerHTML) {
+    smile_supported.style.setProperty('border', '1px #FF0000 solid', 'important');
     return
   } 
 
