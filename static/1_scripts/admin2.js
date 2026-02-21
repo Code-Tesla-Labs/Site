@@ -168,9 +168,14 @@ function send_category_data(form, url) {
 function send_content_data(_this, url) {
 
   form = _this.parentElement.parentElement;
-  smile_supported = form.querySelector(".smile_supported");
-  if (!smile_supported.innerHTML) {
-    smile_supported.style.setProperty('border', '1px #FF0000 solid', 'important');
+  content_ru = form.querySelector(".content_ru");
+  if (!content_ru.innerHTML) {
+    content_ru.style.setProperty('border', '1px #FF0000 solid', 'important');
+    return
+  }
+  content_en = form.querySelector(".content_en");
+  if (!content_en.innerHTML) {
+    content_en.style.setProperty('border', '1px #FF0000 solid', 'important');
     return
   } 
 
