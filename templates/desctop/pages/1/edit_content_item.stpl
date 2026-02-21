@@ -34,7 +34,7 @@
                 <%- item_unwrap_en %>
               </div>
             <% } else { %>
-              <p>0</p>
+              <p>Content (0)</p>
               <div style="display:inline-block" contenteditable="true" placeholder="Content" class="input-md form-control content_en smile_supported">
               </div>
             <% } %>
