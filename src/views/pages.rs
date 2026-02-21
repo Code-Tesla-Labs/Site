@@ -2309,7 +2309,7 @@ pub async fn image_page(req: HttpRequest, conn: ConnectionInfo, _id: web::Path<i
                 let _next = Some(&_images[i + 1]);
                 next = Some(schema::files::table
                     .filter(schema::files::id.eq(_next.unwrap()))
-                    .filter(schema::files::types.eq(_item.types))
+                    //.filter(schema::files::types.eq(_item.types))
                     .first::<File>(&_connection)
                     .expect("E"));
             };
@@ -2317,7 +2317,7 @@ pub async fn image_page(req: HttpRequest, conn: ConnectionInfo, _id: web::Path<i
                 let _prev = Some(&_images[i - 1]);
                 prev = Some(schema::files::table
                     .filter(schema::files::id.eq(_prev.unwrap()))
-                    .filter(schema::files::types.eq(_item.types))
+                    //.filter(schema::files::types.eq(_item.types))
                     .first::<File>(&_connection)
                     .expect("E"));
             };
