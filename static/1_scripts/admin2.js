@@ -501,15 +501,15 @@ on('body', 'change', '.add_file_in_object', function() {
 
 on('body', 'click', '.remove_file_from_object', function() {
   _this = this;
-  pk = _this.getAttribute("data-pk");
+  form = new FormData();
+  form.append("id", _this.getAttribute("data-pk"));
 
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
-  link.open( 'GET', "/delete_file/" + pk + "/", true );
+  link.open( 'POST', "/delete_file/", true );
   link.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
-    _this.nextElementSibling.remove();
-    _this.remove();
+    _this.parentElement.remove();
   }};
-  link.send();
+  link.send(form);
 });
