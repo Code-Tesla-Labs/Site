@@ -210,8 +210,53 @@ function send_content_data(_this, url) {
   link.send(form_data);
 };
 
+function send_description_data(_this, url) {
+
+  form = _this.parentElement;
+  content_ru = form.querySelector(".content_ru");
+  if (!content_ru.innerHTML) {
+    content_ru.style.setProperty('border', '1px #FF0000 solid', 'important');
+    return
+  }
+  content_en = form.querySelector(".content_en");
+  if (!content_en.innerHTML) {
+    content_en.style.setProperty('border', '1px #FF0000 solid', 'important');
+    return
+  } 
+
+  text_val_ru = form.querySelector(".content_ru");
+  _val_ru = format_text(text_val_ru);
+  _text_ru = _val_ru.innerHTML;
+  $input = document.createElement("input");
+  $input.setAttribute("name", "description");
+  $input.setAttribute("type", "hidden");
+  $input.classList.add("input_text");
+  $input.value = _text_ru; 
+  form.append($input);
+
+  text_val_en = form.querySelector(".content_en");
+  _val_en = format_text(text_val_en);
+  _text_en = _val_en.innerHTML;
+  $input = document.createElement("input");
+  $input.setAttribute("name", "description_en");
+  $input.setAttribute("type", "hidden");
+  $input.classList.add("input_text");
+  $input.value = _text_en;
+  form.append($input);
+
+  form_data = new FormData(form);
+
+  link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+  link.open( 'POST', url, true );
+  link.onreadystatechange = function () {
+  if ( link.readyState == 4 && link.status == 200 ) {
+    console.log("ok");
+  }};
+  link.send(form_data);
+};
+
 on('body', 'click', '#edit_file_btn', function() {
-  send_content_data(this, "/edit_file/" + this.getAttribute("data-pk") + "/", "description");
+  send_description_data(this, "/edit_file/" + this.getAttribute("data-pk") + "/");
 });
 
 function send_serve_data(form, url) {
