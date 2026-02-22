@@ -13,14 +13,14 @@
     </a>
   <% } %>
   </span>
-  <p>Выьран язык номер <%= linguage %></p>
-  <%= object.description.as_deref().unwrap() %>
   <p>
-  <% match linguage {
-    1 => return object.get_ru_description(),
-    2 => return object.get_en_description(),
-    _ => todo!(),
-  }; %>
+  <% if object.description.is_some() { %>
+      <%= object.description.as_deref().unwrap() %>
+      <br /><br />
+  <% } %>
+  <% if object.description_en.is_some() { %>
+      <%= object.description_en.as_deref().unwrap() %>
+  <% } %>
   </p>
   <div class="card rounded-0 border-0 mb-3">
     <img style="width: 100%;" src="<%= object.src %>" alt="image">
