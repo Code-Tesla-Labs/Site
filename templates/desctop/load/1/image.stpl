@@ -13,13 +13,14 @@
     </a>
   <% } %>
   </span>
+  <p>Выьран язык номер <%= linguage %></p>
   <p>
   <% match linguage {
     1 => object.get_ru_description(),
     2 => object.get_en_description(),
     _ => todo!(),
   }; %>
-  <p>
+  </p>
   <div class="card rounded-0 border-0 mb-3">
     <img style="width: 100%;" src="<%= object.src %>" alt="image">
   </div>
