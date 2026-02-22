@@ -1,4 +1,4 @@
-<% let (images, videos, audios, docs) = object.get_files(); %>
+<% let (images, videos, audios) = object.get_files(); %>
 <% let (
     _images, _videos, _audios) = match linguage {
         2 => ("Images", "Videos", "Audios"), 
