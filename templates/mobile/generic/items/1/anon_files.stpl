@@ -24,7 +24,7 @@
 <% } %>
 
 <% if videos.len() > 0 { %>
-<h6 class="mt-20"><%= _videos %></h6>
+<h3 class="mt-20"><%= _videos %></h3>
 <div class="row multi-columns-row mb-30 mb-xs-10">
   <% for video in videos.iter() { %>
   <% if video.description.is_some() { %>
@@ -39,7 +39,7 @@
 
 
 <% if audios.len() > 0 { %>
-<h6 class="mt-20"><%= _audios %></h6>
+<h3 class="mt-20"><%= _audios %></h3>
 <div class="row multi-columns-row mb-30 mb-xs-10">
   <% for audio in audios.iter() { %>
   <% if audio.description.is_some() { %>
@@ -51,7 +51,7 @@
 <% } %>
 
 <% if docs.len() > 0 { %>
-<h6 class="mt-20"><%= _docs %></h6>
+<h3 class="mt-20"><%= _docs %></h3>
 <div class="row multi-columns-row mb-30 mb-xs-10">
   <% for doc in docs.iter() { %>
     <% if doc.description.is_some() { %>
