@@ -17,8 +17,8 @@
   <%= object.description.as_deref().unwrap() %>
   <p>
   <% match linguage {
-    1 => object.get_ru_description(),
-    2 => object.get_en_description(),
+    1 => return object.get_ru_description(),
+    2 => return object.get_en_description(),
     _ => todo!(),
   }; %>
   </p>
