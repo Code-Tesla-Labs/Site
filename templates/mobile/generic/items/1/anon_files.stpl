@@ -54,10 +54,12 @@
 <h6 class="mt-20"><%= _docs %></h6>
 <div class="row multi-columns-row mb-30 mb-xs-10">
   <% for doc in docs.iter() { %>
-  <% if doc.description.is_some() { %>
-    <%= doc.description.as_deref().unwrap() %>
-  <% } %>
+    <% if doc.description.is_some() { %>
+      <%= doc.description.as_deref().unwrap() %>
+      <br />
+    <% } %>
     <p class="doc" src="<%= doc.src %>"></p>
+    <br />
   <% } %>
 </div>
 <% } %>

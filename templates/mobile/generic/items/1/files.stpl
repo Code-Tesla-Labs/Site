@@ -114,12 +114,14 @@
     <a href="<%= doc.src %>" target="_blank"> <%= doc.src %></a>
     <a target="_blank" rel="nofollow" href="/edit_file/<%= doc.id %>/">~</a>
     | <a class="remove_file_from_object pointer" data-pk="<%= doc.id %>">х</a>
+    <br />
   <% } %>
 </div>
 <% } else { %>
 <div class="row multi-columns-row mb-30 mb-xs-10">
   <% for doc in docs.iter() { %>
     <a href="<%= doc.src %>" target="_blank"> <%= doc.src %></a>
+    <br />
   <% } %>
 </div>
 <% } %>
