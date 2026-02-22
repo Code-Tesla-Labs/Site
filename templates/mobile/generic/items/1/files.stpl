@@ -1,8 +1,8 @@
 <% let (images, videos, audios, docs) = object.get_files(); %>
 <% let (
-    _images, _videos, _audios, _docs, _tit) = match linguage {
-        2 => ("Images", "Videos", "Audios", "Docs", "File"), 
-        1 | _ => ("Изображения", "Видеозаписи", "Аудиозаписи", "Документы", "файл"),
+    _images, _videos, _audios, _docs) = match linguage {
+        2 => ("Images", "Videos", "Audios", "Docs"), 
+        1 | _ => ("Изображения", "Видеозаписи", "Аудиозаписи", "Документы"),
     };
 %>
 
@@ -46,7 +46,7 @@
 <% } %>
 
 <% if videos.len() > 0 { %>
-<h3><%= _videos %></h3>
+<h3 class="mt-20"><%= _videos %></h3>
 <% if request_user.is_superuser() { %>
 
 <div class="row multi-columns-row mb-30 mb-xs-10">
@@ -79,7 +79,7 @@
 
 
 <% if audios.len() > 0 { %>
-<h3><%= _audios %></h3>
+<h3 class="mt-20"><%= _audios %></h3>
 <% if request_user.is_superuser() { %>
 <div class="row multi-columns-row mb-30 mb-xs-10">
 
@@ -106,26 +106,20 @@
 <% } %>
 
 <% if docs.len() > 0 { %>
-<h3><%= _docs %></h3>
+<h3 class="mt-20"><%= _docs %></h3>
 <% if request_user.is_superuser() { %>
 <div class="row multi-columns-row mb-30 mb-xs-10">
+ 
   <% for doc in docs.iter() { %>
+    <a href="<%= doc.src %>" target="_blank"> <%= doc.src %></a>
     <a target="_blank" rel="nofollow" href="/edit_file/<%= doc.id %>/">~</a>
     | <a class="remove_file_from_object pointer" data-pk="<%= doc.id %>">х</a>
-    |
-    <% if doc.description.is_some() { %>
-      <%= doc.description.as_deref().unwrap() %>
-    <% } %>
-    <p class="doc" src="<%= doc.src %>"><%= _tit %><</p>
   <% } %>
 </div>
 <% } else { %>
 <div class="row multi-columns-row mb-30 mb-xs-10">
   <% for doc in docs.iter() { %>
-    <% if doc.description.is_some() { %>
-      <%= doc.description.as_deref().unwrap() %>
-    <% } %>
-    <p class="doc" src="<%= doc.src %>"><%= _tit %></p>
+    <a href="<%= doc.src %>" target="_blank"> <%= doc.src %></a>
   <% } %>
 </div>
 <% } %>
