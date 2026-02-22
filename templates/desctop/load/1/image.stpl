@@ -14,6 +14,7 @@
   <% } %>
   </span>
   <p>Выьран язык номер <%= linguage %></p>
+  <%= object.description.as_deref().unwrap() %>
   <p>
   <% match linguage {
     1 => object.get_ru_description(),
