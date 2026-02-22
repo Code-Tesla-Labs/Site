@@ -1,7 +1,7 @@
 
 <div class="mb-20">
   <h4 class="font-alt mb-0">
-    <a class="ajax" href="/wiki/<%= category.slug %>/<%= object.slug %>/">
+    <a class="ajax" href="/wikis/<%= category.slug %>/<%= object.slug %>/">
       <% if !object.is_active { %>
         <span style="color: red">🛇</span>
       <% } %>
@@ -14,4 +14,5 @@
       <%= object.description.as_deref().unwrap() %>
     <% } %>
   </p>
-  </div>
+  <hr />
+</div>
