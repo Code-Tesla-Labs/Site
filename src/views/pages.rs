@@ -2223,6 +2223,7 @@ pub async fn edit_file_page(conn: ConnectionInfo, session: Session, req: HttpReq
                     link:           String,
                     image:          String,
                 }
+
                 let body = Template {
                     request_user:   _request_user,
                     file:           _file,

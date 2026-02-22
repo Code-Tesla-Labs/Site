@@ -77,7 +77,7 @@ impl File {
             .first::<crate::models::Item>(&_connection)
             .expect("E.");
 
-        if user.perm < 60 && _item.user_id != user.id {
+        if user.perm < 60 {
             return 0;
         }
 
@@ -117,10 +117,10 @@ impl File {
         let _connection = establish_connection();
         let _file = File::get(item_id);
         let _item = crate::models::Item::get_with_id(_file.item_id);
-        if user.perm < 60 && _file.user_id != user.id && _item.user_id != user.id {
+        if user.perm < 60 {
             return 0;
         }
-        std::fs::remove_file(_file.src).expect("E");
+        //std::fs::remove_file(_file.src).expect("E");
 
         diesel::delete(schema::files::table.filter(schema::files::id.eq(item_id)))
             .execute(&_connection)

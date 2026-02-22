@@ -13,17 +13,31 @@
         <form class="form mb-20 col-md-8 col-md-offset-2">
             <div class="mb-20 mb-md-10">
             <% if file.description.is_some() { %>
-              <% let unwrap = file.description.as_deref().unwrap(); %>
-              <p><%- unwrap.len() %></p>
+              <% let item_unwrap_ru = file.description.unwrap(); %>
+              <p>Описание объекта (<%- item_unwrap_ru.len() %>)</p>
               <div style="display:inline-block" contenteditable="true" placeholder="Содержимое" class="input-md form-control content_ru smile_supported">
-                <%- unwrap %>
+                <%- item_unwrap_ru %>
               </div>
             <% } else { %>
               <p>0</p>
               <div style="display:inline-block" contenteditable="true" placeholder="Содержимое" class="input-md form-control content_ru smile_supported">
               </div>
             <% } %>
-            </div>
+          </div>
+
+          <div class="mb-20 mb-md-10">
+            <% if file.description_en.is_some() { %>
+              <% let item_unwrap_en = file.description_en.unwrap(); %>
+              <p>Description (<%- item_unwrap_en.len() %>)</p>
+              <div style="display:inline-block" contenteditable="true" placeholder="Content" class="input-md form-control content_en smile_supported">
+                <%- item_unwrap_en %>
+              </div>
+            <% } else { %>
+              <p>Description (0)</p>
+              <div style="display:inline-block" contenteditable="true" placeholder="Content" class="input-md form-control content_en smile_supported">
+              </div>
+            <% } %>
+          </div>
             <div class="mb-20 mb-md-10">
                 <input value="<%= file.position %>" class="input-md form-control" type="number" name="position" placeholder="Порядок следования" />
             </div>
