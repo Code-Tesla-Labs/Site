@@ -78,12 +78,7 @@ CREATE TABLE users (
 CREATE TABLE chats (
     id                SERIAL PRIMARY KEY,
     user_id           INT NOT NULL,
-    created           TIMESTAMP NOT NULL,
-
-    CONSTRAINT fk_chat_creator
-        FOREIGN KEY(user_id)
-            REFERENCES users(id)
-);
+    created           TIMESTAMP NOT NULL
 CREATE INDEX chats_user_id_idx ON chats (user_id);
 
 CREATE TABLE messages (
@@ -93,11 +88,7 @@ CREATE TABLE messages (
     created TIMESTAMP NOT NULL,     -- когда создано
     content VARCHAR(5000),          -- текст
     view    SMALLINT NOT NULL,      -- создано / показано / прочитано
-    types   SMALLINT NOT NULL,      -- обычное / изменено / удалено
-
-    CONSTRAINT fk_message_creator        -- связь с создателем
-        FOREIGN KEY(user_id)
-            REFERENCES users(id)
+    types   SMALLINT NOT NULL       -- обычное / изменено / удалено
 );
 CREATE INDEX messages_user_id_idx ON messages (user_id);
 
@@ -143,11 +134,7 @@ CREATE TABLE cookie_stats (
     height   FLOAT NOT NULL,        -- высота просмотра страницы
     seconds  INT NOT NULL,          -- секунды нахождения страницы
     created  TIMESTAMP NOT NULL,    -- когда создана запись
-    template VARCHAR(100) NOT NULL DEFAULT 'rhythm', -- вид шаблона
-
-    CONSTRAINT fk_cookie_stat_user
-        FOREIGN KEY(user_id)
-            REFERENCES cookie_users(id)
+    template VARCHAR(100) NOT NULL DEFAULT 'rhythm' -- вид шаблона
 );
 
 CREATE TABLE tags (
@@ -159,11 +146,7 @@ CREATE TABLE tags (
     user_id   INT NOT NULL,
     view      INT NOT NULL,
     height    FLOAT NOT NULL,
-    seconds   INT NOT NULL,
-
-    CONSTRAINT fk_tag_creator
-        FOREIGN KEY(user_id)
-            REFERENCES users(id)
+    seconds   INT NOT NULL
 );
 
 CREATE TABLE tags_items (
@@ -235,11 +218,7 @@ CREATE TABLE items (
     types          SMALLINT NOT NULL, -- блог, услуга, товар ......
     slug           VARCHAR(100) NOT NULL,
 
-    UNIQUE(slug),
-
-    CONSTRAINT fk_store_creator
-        FOREIGN KEY(user_id)
-            REFERENCES users(id)
+    UNIQUE(slug)
 );
 CREATE INDEX items_creator_idx ON items (user_id);
 
@@ -250,19 +229,7 @@ CREATE TABLE item_comments (
     item_id   INT NOT NULL,
     user_id   INT NOT NULL,
     parent_id INT,
-    created   TIMESTAMP NOT NULL,
-
-    CONSTRAINT fk_item_comment
-        FOREIGN KEY(item_id)
-            REFERENCES items(id),
-
-    CONSTRAINT fk_user_item_comment
-        FOREIGN KEY(user_id)
-            REFERENCES users(id),
-
-    CONSTRAINT fk_item_parent_comment
-        FOREIGN KEY(parent_id)
-            REFERENCES item_comments(id)
+    created   TIMESTAMP NOT NULL
 );
 CREATE INDEX item_comments_id_idx ON item_comments (item_id);
 CREATE INDEX item_comments_user_id_idx ON item_comments (user_id);
@@ -271,15 +238,7 @@ CREATE TABLE category (
     id          SERIAL PRIMARY KEY,
     category_id INT NOT NULL,
     item_id     INT NOT NULL,
-    types       SMALLINT NOT NULL, -- блог, услуга, товар ......
-
-   CONSTRAINT fk_category_cat
-        FOREIGN KEY(category_id)
-            REFERENCES categories(id),
-
-   CONSTRAINT fk_category_item
-        FOREIGN KEY(item_id)
-            REFERENCES items(id)
+    types       SMALLINT NOT NULL -- блог, услуга, товар ......
 );
 
 CREATE TABLE files (
@@ -328,11 +287,7 @@ CREATE TABLE serve_categories (
     user_id        INT NOT NULL,
     view           INT NOT NULL,
     height         FLOAT NOT NULL,
-    seconds        INT NOT NULL,
-
-    CONSTRAINT fk_web_services
-        FOREIGN KEY(category_id)
-            REFERENCES web_services(id)
+    seconds        INT NOT NULL
 );
 
 -- это опции (например, продвинутая админка)
@@ -352,14 +307,7 @@ CREATE TABLE serve (
     height         FLOAT NOT NULL,
     seconds        INT NOT NULL,
     serve_id       INT,
-    view           INT NOT NULL,
-
-    CONSTRAINT fk_serve_category
-        FOREIGN KEY(category_id)
-            REFERENCES serve_categories(id),
-    CONSTRAINT fk_serve_creator
-        FOREIGN KEY(user_id)
-            REFERENCES users(id)
+    view           INT NOT NULL
 );
 
 -- связь опции с объетками сервисов, работ, товаров

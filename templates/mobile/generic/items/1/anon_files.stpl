@@ -58,7 +58,7 @@
       <%= doc.description.as_deref().unwrap() %>
       <br />
     <% } %>
-    <p class="doc" src="<%= doc.src %>"></p>
+    <p class="doc" src="<%= doc.src %>"><%= doc.src %></p>
     <br />
   <% } %>
 </div>
