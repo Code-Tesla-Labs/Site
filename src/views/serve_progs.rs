@@ -415,8 +415,8 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
         }
         else {
-            let _serve_categories = ServeCategories::get_all();
             let _web_services = block(move || WebService::get_all()).await?;
+            let _serve_categories = block(move || ServeCategories::get_all()).await?;            
             if is_desctop {
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/serve/create_serve_category.stpl")]
