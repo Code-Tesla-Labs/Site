@@ -415,7 +415,7 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
         }
         else {
             let _serve_categories = ServeCategories::get_all();
-            let _web_services = WebService::get_all(); 
+            let _web_services = block(move || WebService::get_all()).await?;
             if is_desctop {
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/serve/create_serve_category.stpl")]
@@ -796,8 +796,8 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
     }
     else {
         let _request_user = get_request_user_data(&session);
+        let _web_services = block(move || WebService::get_all()).await?;
         let _serve_categories = ServeCategories::get_all();
-        let _web_services = WebService::get_all();
 
         if _category.user_id != _request_user.id {
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
