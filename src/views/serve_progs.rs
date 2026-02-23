@@ -798,7 +798,7 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
         let _request_user = get_request_user_data(&session);
         let _serve_categories = ServeCategories::get_all();
         let __web_services = WebService::get_all();
-        let mut _web_services:  Vec<WebService>;
+        let mut _web_services: Vec<WebService> = Vec::new();
         for i in __web_services.into_iter() {
             _web_services.push(i);
         }
