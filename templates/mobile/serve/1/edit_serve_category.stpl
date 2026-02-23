@@ -66,12 +66,12 @@
         </form>
         <section style="padding-top: 50px">
           <% for s in _serve_categories.iter() { %>
-              <% let cat = s.get_category(); %>
-              <h4><%= s.name %> - <%= cat.name %><%= cat.get_level_ru() %>)
+              <% let cat = s.get_category_small(); %>
+              <h4><%= s.name %> - <%= cat.0 %><%= cat.1 %>)
                 | <a class="ajax" href="/edit_serve_category/<%= s.id %>/">~</a>
                 | <a class="pointer remove_serve_category" data-pk="<%= s.id %>">x</a>
               </h4> 
-          <% } %>
+            <% } %>
         </section>
     </div>
 </section>
