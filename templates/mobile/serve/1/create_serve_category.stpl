@@ -33,7 +33,7 @@
             <div class="mb-20 mb-md-10">
               <label>Веб-сервис</label>
               <select class="input-md form-control" name="web_service" data-live-search="true" tabindex="-1" aria-hidden="true">
-                <% for category in _web_services.iter() { %>
+                <% for category in _web_services.into_iter() { %>
                   <option value="<%= category.id %>">
                     <%= category.name %> (<%= category.get_level_ru() %>)
                   </option>
