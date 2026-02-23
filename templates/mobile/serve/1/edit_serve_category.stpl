@@ -55,7 +55,7 @@
             <div class="mb-20 mb-md-10">
               <label>Категория</label>
               <select class="input-md form-control" name="category_id" data-live-search="true" tabindex="-1" aria-hidden="true">
-                <% for cat in _web_services.iter() { %>
+                <% for cat in _web_services.into_iter() { %>
                   <option <% if cat.id == category.category_id { %>selected=""<% } %> value="<%= cat.id %>">
                     <%= cat.name %> (<%= cat.get_level_ru() %>)
                   </option>
