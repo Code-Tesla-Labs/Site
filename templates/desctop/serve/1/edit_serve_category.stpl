@@ -68,7 +68,7 @@
         </form>
         <section class="col-md-4">
             <% for s in _serve_categories.iter() { %>
-              <% let cat = s.get_category() %>
+              <% let cat = s.get_category(); %>
               <h4><%= s.name %> - <%= cat.name %><%= cat.get_level_ru() %>)
                 | <a class="ajax" href="/edit_serve_category/<%= s.id %>/">~</a>
                 | <a class="pointer remove_serve_category" data-pk="<%= s.id %>">x</a>
