@@ -414,33 +414,36 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
         }
         else {
-            let _serve_categories = ServeCategories::get_all(); 
+            let _serve_categories = ServeCategories::get_all();
+            let _web_categories = WebService::get_all(); 
             if is_desctop {
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/serve/create_serve_category.stpl")]
                 struct Template {
-                    request_user:       User,
-                    _serve_categories:  Vec<ServeCategories>,
-                    is_ajax:            i32,
-                    template_types:     i16,
-                    linguage:           i16,
-                    currency:           String,
-                    title:              String,
-                    description:        String,
-                    link:               String,
-                    image:              String,
+                    request_user:      User,
+                    _serve_categories: Vec<ServeCategories>,
+                    _web_categories:   Vec<WebService>,
+                    is_ajax:           i32,
+                    template_types:    i16,
+                    linguage:          i16,
+                    currency:          String,
+                    title:             String,
+                    description:       String,
+                    link:              String,
+                    image:             String,
                 }
                 let body = Template {
-                    request_user:       _request_user,
-                    _serve_categories:  _web_services,
-                    is_ajax:            is_ajax,
-                    template_types:     t,
-                    linguage:           l,
-                    currency:           c,
-                    title:              title,
-                    description:        description,
-                    link:               link,
-                    image:              image,
+                    request_user:      _request_user,
+                    _serve_categories: _web_services,
+                    _web_categories:   _web_categories,
+                    is_ajax:           is_ajax,
+                    template_types:    t,
+                    linguage:          l,
+                    currency:          c,
+                    title:             title,
+                    description:       description,
+                    link:              link,
+                    image:             image,
                 }
                 .render_once()
                 .map_err(|e| InternalError::new(e, StatusCode::INTERNAL_SERVER_ERROR))?;
@@ -450,18 +453,20 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/serve/create_serve_category.stpl")]
                 struct Template {
-                    _serve_categories:  Vec<ServeCategories>,
-                    is_ajax:            i32,
-                    template_types:     i16,
-                    linguage:           i16,
-                    currency:           String,
-                    title:              String,
-                    description:        String,
-                    link:               String,
-                    image:              String,
+\                   _serve_categories: Vec<ServeCategories>,
+                    _web_categories:   Vec<WebService>,
+                    is_ajax:           i32,
+                    template_types:    i16,
+                    linguage:          i16,
+                    currency:          String,
+                    title:             String,
+                    description:       String,
+                    link:              String,
+                    image:             String,
                 }
                 let body = Template {
-                    _serve_categories: _web_services,
+\                   _serve_categories: _web_services,
+                    _web_categories:   _web_categories,
                     is_ajax:           is_ajax,
                     template_types:    t,
                     linguage:          l,
@@ -792,6 +797,7 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
     else {
         let _request_user = get_request_user_data(&session);
         let _serve_categories = ServeCategories::get_all();
+        let _web_categories = WebService::get_all();
 
         if _category.user_id != _request_user.id {
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
@@ -801,30 +807,32 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/serve/edit_serve_category.stpl")]
                 struct Template {
-                    request_user:       User,
-                    _serve_categories:  Vec<ServeCategories>,
-                    category:           ServeCategories,
-                    is_ajax:            i32,
-                    template_types:     i16,  
-                    linguage:           i16,
-                    currency:           String,
-                    title:              String,
-                    description:        String,
-                    link:               String,
-                    image:              String,
+                    request_user:      User,
+                    _serve_categories: Vec<ServeCategories>,
+                    _web_categories:   Vec<WebService>,
+                    category:          ServeCategories,
+                    is_ajax:           i32,
+                    template_types:    i16,  
+                    linguage:          i16,
+                    currency:          String,
+                    title:             String,
+                    description:       String,
+                    link:              String,
+                    image:             String,
                 }
                 let body = Template {
-                    request_user:       _request_user,
-                    _serve_categories:  _web_services,
-                    category:           _category,
-                    is_ajax:            is_ajax,
-                    template_types:     t,
-                    linguage:           l,
-                    currency:           c,
-                    title:              title,
-                    description:        description,
-                    link:               link,
-                    image:              image,
+                    request_user:      _request_user,
+                    _serve_categories: _web_services,
+                    _web_categories:   _web_categories,
+                    category:          _category,
+                    is_ajax:           is_ajax,
+                    template_types:    t,
+                    linguage:          l,
+                    currency:          c,
+                    title:             title,
+                    description:       description,
+                    link:              link,
+                    image:             image,
                 }
                 .render_once()
                 .map_err(|e| InternalError::new(e, StatusCode::INTERNAL_SERVER_ERROR))?;
@@ -834,28 +842,30 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/serve/edit_serve_category.stpl")]
                 struct Template {
-                    _serve_categories:  Vec<ServeCategories>,
-                    category:           ServeCategories,
-                    is_ajax:            i32,
-                    template_types:     i16,
-                    linguage:           i16,
-                    currency:           String,
-                    title:              String,
-                    description:        String,
-                    link:               String,
-                    image:              String,
+                    _serve_categories: Vec<ServeCategories>,
+                    _web_categories:   Vec<WebService>,
+                    category:          ServeCategories,
+                    is_ajax:           i32,
+                    template_types:    i16,  
+                    linguage:          i16,
+                    currency:          String,
+                    title:             String,
+                    description:       String,
+                    link:              String,
+                    image:             String,
                 }
                 let body = Template {
-                    _serve_categories:  _web_services,
-                    category:           _category,
-                    is_ajax:            is_ajax,
-                    template_types:     t,
-                    linguage:           l,
-                    currency:           c,
-                    title:              title,
-                    description:        description,
-                    link:               link,
-                    image:              image,
+                    _serve_categories: _web_services,
+                    _web_categories:   _web_categories,
+                    category:          _category,
+                    is_ajax:           is_ajax,
+                    template_types:    t,
+                    linguage:          l,
+                    currency:          c,
+                    title:             title,
+                    description:       description,
+                    link:              link,
+                    image:             image,
                 }
                 .render_once()
                 .map_err(|e| InternalError::new(e, StatusCode::INTERNAL_SERVER_ERROR))?;
