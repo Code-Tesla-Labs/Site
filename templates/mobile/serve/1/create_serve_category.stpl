@@ -33,9 +33,12 @@
             <div class="mb-20 mb-md-10">
               <label>Веб-сервис</label>
               <select class="input-md form-control" name="web_service" data-live-search="true" tabindex="-1" aria-hidden="true">
-                <% for c in _web_services.iter() { %>
-                  <option value="<%= c.id %>">
-                    <%= c.name %> (<%= c.get_level_ru() %>)
+                <% 
+                let object_list = crate::models::WebService::get_all();
+              %>
+                <% for category in object_list.iter() { %>
+                  <option value="<%= category.id %>">
+                    <%= category.name %> (<%= category.get_level_ru() %>)
                   </option>
                 <% } %>
               </select>
