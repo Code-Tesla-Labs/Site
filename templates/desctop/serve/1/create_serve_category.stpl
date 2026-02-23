@@ -37,19 +37,14 @@
                   <option value="<%= category.id %>">
                     <%= category.name %> (<%= category.get_level_ru() %>)
                   </option>
-                <% } %>
+                <% } %> 
               </select>
             </div>
             <button class="btn btn-mod btn-border btn-medium btn-round" style="float: right;" type="button" id="create_serve_category_btn">Создать</button>
         </form>
 
         <section class="col-md-4">
-            <% for s in _serve_categories.iter() { %>
-              <h4><%= s.name %> - <%= s.category_id %>)
-                | <a class="ajax" href="/edit_serve_category/<%= s.id %>/">~</a>
-                | <a class="pointer remove_serve_category" data-pk="<%= s.id %>">x</a>
-              </h4> 
-            <% } %>
+           
         </section>
     </div>
 </section>
