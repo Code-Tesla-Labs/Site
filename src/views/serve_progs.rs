@@ -434,8 +434,8 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
                 }
                 let body = Template {
                     request_user:      _request_user,
-                    _serve_categories: _web_services,
-                    _web_services:     _web_categories,
+                    _serve_categories: _serve_categories,
+                    _web_services:     _web_services,
                     is_ajax:           is_ajax,
                     template_types:    t,
                     linguage:          l,
@@ -822,8 +822,8 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
                 }
                 let body = Template {
                     request_user:      _request_user,
-                    _serve_categories: _web_services,
-                    _web_services:     _web_categories,
+                    _serve_categories: _serve_categories,
+                    _web_services:     _web_services,
                     category:          _category,
                     is_ajax:           is_ajax,
                     template_types:    t,
