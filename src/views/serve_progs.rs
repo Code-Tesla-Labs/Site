@@ -453,7 +453,7 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/serve/create_serve_category.stpl")]
                 struct Template {
-\                   _serve_categories: Vec<ServeCategories>,
+                    _serve_categories: Vec<ServeCategories>,
                     _web_categories:   Vec<WebService>,
                     is_ajax:           i32,
                     template_types:    i16,
@@ -465,7 +465,7 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
                     image:             String,
                 }
                 let body = Template {
-\                   _serve_categories: _web_services,
+                    _serve_categories: _web_services,
                     _web_categories:   _web_categories,
                     is_ajax:           is_ajax,
                     template_types:    t,
