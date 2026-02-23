@@ -797,7 +797,11 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
     else {
         let _request_user = get_request_user_data(&session);
         let _serve_categories = ServeCategories::get_all();
-        let _web_services = WebService::get_all();
+        let __web_services = WebService::get_all();
+        let mut _web_services:  Vec<WebService>;
+        for i in __web_services.into_iter() {
+            _web_services.push(i);
+        }
 
         if _category.user_id != _request_user.id {
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))

@@ -275,7 +275,7 @@ CREATE TABLE serve_categories (
     id             SERIAL PRIMARY KEY,
     name           VARCHAR(100) NOT NULL,
     name_en        VARCHAR(100) NOT NULL,
-    description    VARCHAR(10000),
+    description    VARCHAR(10000), 
     description_en VARCHAR(10000),
     category_id    INT NOT NULL, 
     position       SMALLINT NOT NULL,
