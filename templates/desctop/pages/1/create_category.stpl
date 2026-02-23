@@ -36,7 +36,7 @@
               <p>0</p>
                 <div style="display:inline-block" contenteditable="true" placeholder="Описание по-русски" class="input-md form-control content_ru smile_supported"></div>
             </div>
-            <div class="mb-20 mb-md-10">
+            <div class="mb-20 mb-md-10"> 
               <p>0</p>
                 <div style="display:inline-block" contenteditable="true" placeholder="Описание по-английски" class="input-md form-control content_en smile_supported_en"></div>
             </div>

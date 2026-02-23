@@ -133,6 +133,9 @@ function send_category_data(form, url) {
     form.querySelector(".form_title").style.setProperty('border', '1px #FF0000 solid', 'important');
     return 
   }
+  for (var i = 0; i < u.length; i++){
+      u[i].remove();
+  };
 
   text_val_ru = form.querySelector(".content_ru");
   _val_ru = format_text(text_val_ru);
@@ -178,6 +181,9 @@ function send_content_data(_this, url) {
     content_en.style.setProperty('border', '1px #FF0000 solid', 'important');
     return
   } 
+  for (var i = 0; i < u.length; i++){
+      u[i].remove();
+  };
 
   text_val_ru = form.querySelector(".content_ru");
   _val_ru = format_text(text_val_ru);
@@ -223,6 +229,9 @@ function send_description_data(_this, url) {
     content_en.style.setProperty('border', '1px #FF0000 solid', 'important');
     return
   } 
+  for (var i = 0; i < u.length; i++){
+      u[i].remove();
+  };
 
   text_val_ru = form.querySelector(".content_ru");
   _val_ru = format_text(text_val_ru);
@@ -264,6 +273,11 @@ function send_serve_data(form, url) {
     text_field.style.setProperty('border', '1px #FF0000 solid', 'important');
     return
   } 
+  u = form.querySelectorAll(".input_text");
+
+  for (var i = 0; i < u.length; i++){
+      u[i].remove();
+  };
   
   text_val_ru = form.querySelector(".content_ru");
   _val_ru = format_text(text_val_ru);
