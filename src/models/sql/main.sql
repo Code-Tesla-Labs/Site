@@ -54,11 +54,7 @@ CREATE TABLE orders (
 CREATE TABLE order_files (
     id       SERIAL PRIMARY KEY,
     order_id INT NOT NULL,
-    src      VARCHAR(500) NOT NULL,
-
-    CONSTRAINT fk_order_files
-        FOREIGN KEY(order_id)
-            REFERENCES orders(id)
+    src      VARCHAR(500) NOT NULL
 );
 CREATE INDEX order_files_id_idx ON order_files (order_id);
 
@@ -79,6 +75,7 @@ CREATE TABLE chats (
     id                SERIAL PRIMARY KEY,
     user_id           INT NOT NULL,
     created           TIMESTAMP NOT NULL
+);
 CREATE INDEX chats_user_id_idx ON chats (user_id);
 
 CREATE TABLE messages (

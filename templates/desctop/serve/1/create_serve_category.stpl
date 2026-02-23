@@ -44,18 +44,12 @@
         </form>
 
         <section class="col-md-4">
-            <% for category in _web_services.iter() { %>
-              <h4><%= category.name %> (<%= category.get_level_ru() %>)
-                | <a class="ajax" href="/edit_web_service/<%= category.id %>/">~</a>
-                | <a class="pointer remove_web_service" data-pk="<%= category.id %>">x</a>
-              </h4>
-              <% for object in category.get_serve_categories().iter() { %>
-                <p style="margin:0">
-                  <%= object.name %>
-                  | <a class="ajax" href="/edit_serve_category/<%= object.id %>/">~</a>
-                  | <a class="pointer remove_serve_category" data-pk="<%= object.id %>">x</a>
-                </p>
-              <% } %>
+            <% for s in _serve_categories.iter() { %>
+              <% let cat = s.get_category() %>
+              <h4><%= s.name %> - <%= cat.name %><%= cat.get_level_ru() %>)
+                | <a class="ajax" href="/edit_serve_category/<%= s.id %>/">~</a>
+                | <a class="pointer remove_serve_category" data-pk="<%= s.id %>">x</a>
+              </h4> 
             <% } %>
         </section>
     </div>
