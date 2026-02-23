@@ -34,7 +34,7 @@
               <label>Веб-сервис</label>
               <select class="input-md form-control" name="web_services" data-live-search="true" tabindex="-1" aria-hidden="true">
               <% 
-                let object_list = block(move || crate::models::WebService::get_all()).await?;
+                let object_list = crate::models::WebService::get_all();
               %>
                 <% for category in object_list.iter() { %>
                   <option value="<%= category.id %>">
