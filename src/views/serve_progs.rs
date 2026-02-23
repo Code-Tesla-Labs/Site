@@ -6,7 +6,7 @@ use actix_web::{
     http::StatusCode,
     Responder,
     dev::ConnectionInfo,
-    web::block;
+    web::block,
 };
 use crate::models::User;
 use std::borrow::BorrowMut;
