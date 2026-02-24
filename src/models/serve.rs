@@ -194,6 +194,14 @@ pub struct ServeCategories {
     pub seconds:        i32,
 }
 impl ServeCategories {
+    pub fn delete_all() -> i16 {
+        diesel::delete(
+            .filter(schema::serve_categories::id.lt(0))
+        )
+            .execute(&_connection)
+            .expect("E");
+        return 1;
+    }
     pub fn delete(user: User, item_id: i32) -> i16 {
         let _connection = establish_connection();
         let serve_cat = ServeCategories::get(item_id);

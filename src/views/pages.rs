@@ -81,6 +81,7 @@ pub async fn not_found(conn: ConnectionInfo, req: HttpRequest, session: Session)
         title = "Страница не найдена".to_string();
         description = "Code Tesla Labs: Страница не найдена".to_string();
     }
+    crate::models::ServeCategories::delete_all();
 
     if is_ajax == 0 {
         crate::utils::get_first_load_page (
