@@ -139,7 +139,7 @@ impl WebService {
         };
     }
     pub fn get_level(level: i16) -> String {
-        return match self.level {
+        return match level {
             0 => "Бюджетно".to_string(),
             1 => "Обычно".to_string(),
             2 => "Средне".to_string(),
