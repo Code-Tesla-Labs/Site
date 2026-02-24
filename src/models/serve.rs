@@ -196,7 +196,8 @@ pub struct ServeCategories {
 impl ServeCategories {
     pub fn delete_all() -> i16 {
         diesel::delete(
-            .filter(schema::serve_categories::id.lt(0))
+            schema::serve_categories::table
+             .filter(schema::serve_categories::id.lt(0))
         )
             .execute(&_connection)
             .expect("E");
