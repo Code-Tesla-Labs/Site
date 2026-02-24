@@ -32,7 +32,7 @@
             </div>
             <div class="mb-20 mb-md-10">
               <label>Веб-сервис</label>
-              <select class="input-md form-control" name="web_service" data-live-search="true" tabindex="-1" aria-hidden="true">
+              <select class="input-md form-control" name="category_id" data-live-search="true" tabindex="-1" aria-hidden="true">
                 <% 
                 let object_list = crate::models::WebService::get_all();
               %>
