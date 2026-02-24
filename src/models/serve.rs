@@ -74,7 +74,7 @@ impl WebService {
     }
     pub fn update_category_with_id(user: User, cat_id: i32, form: CategoriesForm) -> i16 {
         let _connection = establish_connection();
-        let cat = schema::web_services::table
+        let cat = schema::web_services::table 
             .filter(schema::web_services::id.eq(cat_id))
             .first::<WebService>(&_connection)
             .expect("E.");
@@ -226,6 +226,8 @@ impl ServeCategories {
         if user.perm < 60 && cat.user_id != user.id {
             return 0;
         }
+
+        printlt!(form.category_id);
 
         diesel::update(&cat)
             .set((
