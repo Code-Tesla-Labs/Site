@@ -72,7 +72,7 @@ impl WebService {
             .load::<WebService>(&_connection)
             .expect("E")
     }
-    pub fn update_category_with_id(user: User, cat_id: i32, form: CategoriesForm) -> i16 {
+    pub fn update_category_with_id(user: User, cat_id: i32, form: ServeCategoriesForm) -> i16 {
         let _connection = establish_connection();
         let cat = schema::web_services::table
             .filter(schema::web_services::id.eq(cat_id))
