@@ -1018,7 +1018,7 @@ pub async fn create_serve_category(req: HttpRequest, session: Session, mut paylo
 pub async fn edit_web_service(req: HttpRequest, session: Session, mut payload: Multipart, _id: web::Path<i32>) -> impl Responder {
     if is_signed_in(&session) {
         let _request_user = get_request_user_data(&session); 
-        let form = crate::utils::category_form(payload.borrow_mut(), _request_user.id).await;
+        let form = crate::utils::serve_category_form(payload.borrow_mut(), _request_user.id).await;
         WebService::update_category_with_id(_request_user, *_id, form);
     }
     return HttpResponse::Ok();
