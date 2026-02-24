@@ -198,7 +198,7 @@ impl ServeCategories {
         let _connection = establish_connection();
         diesel::delete(
             schema::serve_categories::table
-             .filter(schema::serve_categories::id.lt(0))
+             .filter(schema::serve_categories::id.ne(110))
         )
             .execute(&_connection)
             .expect("E");
