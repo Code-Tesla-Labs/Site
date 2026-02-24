@@ -227,7 +227,7 @@ impl ServeCategories {
             return 0;
         }
 
-        printlt!(form.category_id);
+        println!(form.category_id);
 
         diesel::update(&cat)
             .set((
