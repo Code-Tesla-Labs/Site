@@ -138,6 +138,16 @@ impl WebService {
             _ => "Непонятно".to_string(),
         };
     }
+    pub fn get_level(level: i16) -> String {
+        return match self.level {
+            0 => "Бюджетно".to_string(),
+            1 => "Обычно".to_string(),
+            2 => "Средне".to_string(),
+            3 => "Сложно".to_string(),
+            4 => "Экспертно".to_string(),
+            _ => "Непонятно".to_string(),
+        };
+    }
     pub fn get_level_en(&self) -> String {
         return match self.level {
             0 => "Budget".to_string(),
@@ -224,7 +234,7 @@ impl ServeCategories {
                 schema::serve_categories::description.eq(&form.description),
                 schema::serve_categories::description_en.eq(&form.description_en),
                 schema::serve_categories::position.eq(form.position),
-                //schema::serve_categories::image.eq(&form.image),
+                schema::serve_categories::category_id.eq(form.category_id),
             )) 
             .execute(&_connection)
             .expect("E");
