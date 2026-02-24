@@ -345,7 +345,7 @@ impl ServeCategories {
     pub fn get_category_small(&self) -> (String, i16) {
         let _connection = establish_connection();
         return schema::web_services::table
-            filter(schema::web_services::id.eq(self.category_id))
+            .filter(schema::web_services::id.eq(self.category_id))
             .select((
                 schema::web_services::name,
                 schema::web_services::level,
