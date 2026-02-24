@@ -344,6 +344,25 @@ impl ServeCategories {
     }
     pub fn get_category_small(&self) -> (String, i16) {
         let _connection = establish_connection();
+        let some_cat = schema::web_services::table
+            .filter(schema::web_services::id.eq(self.category_id))
+            .select((
+                schema::web_services::name,
+                schema::web_services::level,
+            ))
+            .first::<(String, i16)>(&_connection);
+        if some_cat.is_ok() {
+            return some_cat.expect("E");
+        }
+        else {
+            return schema::web_services::table
+            .select((
+                schema::web_services::name,
+                schema::web_services::level,
+            ))
+            .first::<(String, i16)>(&_connection)
+            .expect("E");
+        }
         return schema::web_services::table
             .filter(schema::web_services::id.eq(self.category_id))
             .select((
