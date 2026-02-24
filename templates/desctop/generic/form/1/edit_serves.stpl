@@ -61,7 +61,10 @@
     </select>
 </div>
 <div class="">
-<% for web_service in _web_services.iter() { %>
+<% 
+  let object_list = crate::models::WebService::get_all();
+%>
+<% for web_service in object_list.iter() { %>
 <% let __web_level = match linguage {
    2 => web_service.get_level_en(), 
    1 | _ => web_service.get_level_ru(),
