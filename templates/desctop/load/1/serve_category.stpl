@@ -1,3 +1,4 @@
+<% let category = object.get_category(); %>
 <% let (__w, __l, __level, __data) = match linguage {
         2 => ("Application language / technology", "complexity", category.get_level_en(), object.description_en.as_deref().unwrap()), 
         1 | _ => ("Язык / технология приложения", "сложность", category.get_level_ru(), object.description.as_deref().unwrap()),
@@ -6,7 +7,7 @@
 <div page-id="" object-id="<%= object.id %>" data-title="<%= title %>" data-description="<%= description %>" data-uri="<%= link %>" data-image="<%= image %>" class="doc_title" style="padding: 0;">
   <h4 style="margin-bottom: 0 !important"><%= object.name %></h4>
   <p class="solid_bottom" style="font-size: 80%;">
-    <% let category = object.get_category(); %>
+    
     <%= __w %>
       <a class="pointer get_web_service_info" data-pk="<%= category.id %>" style="font-weight: bold">"<%= category.name %> (<%= __l %>: <%= __level %>)"</a>.
   </p>
