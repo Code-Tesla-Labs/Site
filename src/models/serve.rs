@@ -753,6 +753,12 @@ impl Serve {
             .first::<Serve>(&_connection)
             .expect("E")
     }
+    pub fn get_all() -> Vec<Serve> {
+        let _connection = establish_connection();
+        return schema::serve::table
+            .load::<Serve>(&_connection)
+            .expect("E")
+    }
     pub fn get_hours(&self) -> String {
         use crate::utils::get_count_for_ru;
 

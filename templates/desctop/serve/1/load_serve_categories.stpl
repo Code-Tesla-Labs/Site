@@ -1,5 +1,9 @@
 <% for category in serve_cats.iter() { %>
+<% 
+  let cat = s.get_category_small();
+  let level = crate::models::WebService::get_level(cat.1);
+%>
   <option value="<%= category.id %>">
-    <%= category.name %>
+    <%= category.name %> - <%= cat.0 %> (<%= level %>)
   </option>
-<% } %>
+<% } %> 

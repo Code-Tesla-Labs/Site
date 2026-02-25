@@ -589,13 +589,14 @@ pub async fn create_serve_page(conn: ConnectionInfo, session: Session, req: Http
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
         }
         else {
-            let _connection = establish_connection();
+            let _serves = Serve::get_all();
 
             if is_desctop {
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/serve/create_serve.stpl")]
                 struct Template {
                     request_user:   User,
+                    _serves:        Vec<Serve>,
                     is_ajax:        i32,
                     template_types: i16,
                     linguage:       i16,
@@ -607,6 +608,7 @@ pub async fn create_serve_page(conn: ConnectionInfo, session: Session, req: Http
                 }
                 let body = Template {
                     request_user:   _request_user,
+                    _serves:        _serves,
                     is_ajax:        is_ajax,
                     template_types: t,
                     linguage:       l,
@@ -624,6 +626,8 @@ pub async fn create_serve_page(conn: ConnectionInfo, session: Session, req: Http
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/serve/create_serve.stpl")]
                 struct Template {
+                    request_user:   User,
+                    _serves:        Vec<Serve>,
                     is_ajax:        i32,
                     template_types: i16,
                     linguage:       i16,
@@ -634,6 +638,8 @@ pub async fn create_serve_page(conn: ConnectionInfo, session: Session, req: Http
                     image:          String,
                 }
                 let body = Template {
+                    request_user:   _request_user,
+                    _serves:        _serves,
                     is_ajax:        is_ajax,
                     template_types: t,
                     linguage:       l,
