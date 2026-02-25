@@ -1,12 +1,13 @@
-<% let (__t, __s, __l, __data) = match linguage {
-        2 => ("Code Tesla Labs", "Application language / technology", "complexity", object.description_en.as_deref().unwrap()), 
-        1 | _ => ("Веб-сервис", "Язык / технология приложения", "сложность", object.description.as_deref().unwrap()),
+<% let s_cat = object.get_category();
+   let t_cat = s_cat.get_category();
+   let (__t, __s, __l, __level, __data) = match linguage {
+        2 => ("Code Tesla Labs", "Application language / technology", "complexity", t_cat.get_level_en(), object.description_en.as_deref().unwrap()), 
+        1 | _ => ("Веб-сервис", "Язык / технология приложения", "сложность", t_cat.get_level_ru(), object.description.as_deref().unwrap()),
     };
 %>
 
 <div page-id="" object-id="<%= object.id %>" data-title="<%= title %>" data-description="<%= description %>" data-uri="<%= link %>" data-image="<%= image %>" class="doc_title" style="padding: 0;">
-  <% let s_cat = object.get_category(); %>
-  <% let t_cat = s_cat.get_category(); %>
+  
 
   <% if object.serve_id.is_some() { %>
     <% let parent = object.get_parent(); %>
@@ -20,7 +21,7 @@
     <p class="solid_bottom" style="font-size: 80%;">
       <%= __t %>:
       <span class="pointer get_web_service_info underline" data-pk="<%= t_cat.id %>">
-        <%= t_cat.name %> (<%= __l %>: <%= t_cat.get_level_ru() %>)
+        <%= t_cat.name %> (<%= __l %>: <%= __level %>)
       </span>
       <br />
       <%= __s %>:
