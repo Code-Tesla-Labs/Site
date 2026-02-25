@@ -29,11 +29,11 @@
     <% } %>
 
     <% for a in __level_list.iter() { %>
-    <h3><%= a.0 %></h3>
+    <h3><%= a.1 %></h3>
     <div class="css-treeview" style="margin-bottom: 40px">
       <ul>
         <% 
-          let _web_services = crate::models::WebService::get_all_with_level(a.1);
+          let _web_services = crate::models::WebService::get_all_with_level(a.0);
           for (i, web_service) in _web_services.iter().enumerate() { 
         %>
           <li>
