@@ -1,6 +1,6 @@
 <% let _web_services_ids = object.get_close_web_services(object.types);
    let serves_ids = object.get_serves_ids();
-   let _web_services = crate::models::WebService::get_all_with_level(object.types);
+   let object_list = crate::models::WebService::get_all_with_level(object.types);
   %> 
 <div class="meta">
   <p class="web_services_ids hidden">
@@ -46,7 +46,7 @@
 <div class="mb-20 mb-md-10">
     <label><%= __close %></label>
     <select class="form-control close_web_services" name="close_web_services_list[]" multiple="">
-      <% for cat in _web_services.into_iter() { %>
+      <% for cat in object_list.into_iter() { %>
         <% let __cat_level = match linguage {
             2 => cat.get_level_en(), 
             1 | _ => cat.get_level_ru(),
