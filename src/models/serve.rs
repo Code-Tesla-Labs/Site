@@ -639,7 +639,7 @@ impl ServeVar {
 impl Serve {
     pub fn create(user: User, form: crate::utils::ServeForm) -> i16 {
         let _connection = establish_connection();
-        println!({}, form.category_id);
+        println!("{}", form.category_id);
         let some_cat = schema::web_services::table
             .filter(schema::web_services::id.eq(form.category_id))
             .first::<WebService>(&_connection);
