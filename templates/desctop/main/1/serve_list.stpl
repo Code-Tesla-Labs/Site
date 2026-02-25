@@ -30,12 +30,10 @@
 
     <% for a in __level_list.iter() { %>
     <h3><%= a.1 %></h3>
+    <% let _web_services = crate::models::WebService::get_all_with_level(a.0); %>
     <div class="css-treeview" style="margin-bottom: 40px">
       <ul>
-        <% 
-          let _web_services = crate::models::WebService::get_all_with_level(a.0);
-          for (i, web_service) in _web_services.iter().enumerate() { 
-        %>
+        <% for (i, web_service) in _web_services.iter().enumerate() { %>
           <li>
             <input class="load_web_objects" data-pk="<%= web_service.id %>" type="checkbox" id="web<%= web_service.id %>" />
             <label class="font-alt" for="web<%= web_service.id %>">
