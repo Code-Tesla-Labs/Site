@@ -124,9 +124,9 @@ pub async fn category_form(payload: &mut Multipart, owner_id: i32) -> Categories
                     } else if field.name() == "name_en" {
                         form.name_en = data_string 
                     } else if field.name() == "description" {
-                        form.description_en = data_string
-                    } else if field.name() == "description_en" {
                         form.description = data_string
+                    } else if field.name() == "description_en" {
+                        form.description_en = data_string
                     } else if field.name() == "slug" {
                         form.slug = data_string
                     }
