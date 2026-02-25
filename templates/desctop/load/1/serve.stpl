@@ -21,12 +21,12 @@
     <p class="solid_bottom" style="font-size: 80%;">
       <%= __t %>:
       <span class="pointer get_web_service_info underline" data-pk="<%= t_cat.id %>">
-        <%= t_cat.get_name() %> (<%= __l %>: <%= __level %>)
+        <%= t_cat.get_name(linguage) %> (<%= __l %>: <%= __level %>)
       </span>
       <br />
       <%= __s %>:
       <span class="pointer get_serve_category_info underline" data-pk="<%= s_cat.id %>">
-        <%= s_cat.get_name() %>
+        <%= s_cat.get_name(linguage) %>
       </span>
     </p>
 

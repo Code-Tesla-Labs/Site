@@ -9,7 +9,7 @@
   <p class="solid_bottom" style="font-size: 80%;">
     
     <%= __w %>
-      <a class="pointer get_web_service_info" data-pk="<%= category.id %>" style="font-weight: bold">"<%= category.get_name() %> (<%= __l %>: <%= __level %>)"</a>.
+      <a class="pointer get_web_service_info" data-pk="<%= category.id %>" style="font-weight: bold">"<%= category.get_name(linguage) %> (<%= __l %>: <%= __level %>)"</a>.
   </p>
 
   <div style="margin-top:10px">
