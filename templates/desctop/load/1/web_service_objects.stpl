@@ -8,7 +8,7 @@
   <li>
     <input checked type="checkbox" id="cat<%= category.id %>" />
     <label class="selected" for="cat<%= category.id %>">
-      <%= category.get_name() %>
+      <%= category.get_name(linguage) %>
     </label>
     <span>
       <% if is_admin { %>
@@ -29,7 +29,7 @@
         <% if object.is_parent() { %>
           <span style="font-weight: bold">
             <% if object.is_default { %>* <% } %>
-            <%= object.get_name() %>
+            <%= object.name %>
           </span> <% if is_admin { %>(<%= object.id %>)<% } %>
         <% if is_admin { %>
           <a target="_blank" rel="nofollow" href="/edit_serve/<%= object.id %>/">~</a>
@@ -46,7 +46,7 @@
           <li>
             <span>
               - <% if child.is_default { %>* <% } %>
-              <%= child.get_name() %>: <%= child.price %> <%= __price %> (<%= child.man_hours %> <%= __hour %>.)
+              <%= child.name %>: <%= child.price %> <%= __price %> (<%= child.man_hours %> <%= __hour %>.)
             </span>
             <% if is_admin { %>
               <a target="_blank" rel="nofollow" href="/edit_serve/<%= child.id %>/">~</a>
@@ -64,7 +64,7 @@
         <% } else { %>
           <span>
             <% if object.is_default { %>* <% } %>
-            <%= object.get_name() %>: <%= object.price %> <%= __price %> (<%= object.get_hours(linguage) %>)
+            <%= object.name %>: <%= object.price %> <%= __price %> (<%= object.get_hours(linguage) %>)
           </span>
           <% if is_admin { %>
             <a target="_blank" rel="nofollow" href="/edit_serve/<%= object.id %>/">~</a>

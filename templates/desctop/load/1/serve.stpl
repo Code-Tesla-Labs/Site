@@ -12,10 +12,10 @@
   <% if object.serve_id.is_some() { %>
     <% let parent = object.get_parent(); %>
     <h4 style="margin-bottom: 0 !important">
-      <%= parent.get_name() %> → <%= object.get_name() %>
+      <%= parent.get_name(linguage) %> → <%= object.get_name(linguage) %>
     </h4>
   <% } else { %>
-    <h4 style="margin-bottom: 0 !important"><%= object.get_name() %></h4>
+    <h4 style="margin-bottom: 0 !important"><%= object.get_name(linguage) %></h4>
   <% } %>
 
     <p class="solid_bottom" style="font-size: 80%;">
