@@ -58,6 +58,13 @@ impl WebService {
             .load::<WebService>(&_connection)
             .expect("E");
     }
+    pub fn get_all_with_level(level: i16) -> Vec<WebService> {
+        let _connection = establish_connection();
+        return schema::web_services::table
+            .filter(schema::web_services::level.eq(level))
+            .load::<WebService>(&_connection)
+            .expect("E");
+    }
     pub fn get(id: i32) -> WebService {
         let _connection = establish_connection();
         return schema::web_services::table
@@ -146,7 +153,7 @@ impl WebService {
             3 => "Сложно".to_string(),
             4 => "Экспертно".to_string(),
             _ => "Непонятно".to_string(),
-        };
+        }; 
     }
     pub fn get_level_en(&self) -> String {
         return match self.level {

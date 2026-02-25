@@ -963,13 +963,13 @@ pub async fn serve_list_page(conn: ConnectionInfo, req: HttpRequest, session: Se
     }
     else if is_signed_in(&session) {
         let _request_user = get_request_user_data(&session);
+
         if is_desctop {
             #[derive(TemplateOnce)]
             #[template(path = "desctop/main/serve_list.stpl")]
             struct Template {
                 request_user:   User,
                 is_ajax:        i32,
-                _web_services:  Vec<WebService>,
                 template_types: i16,
                 linguage:       i16,
                 currency:       String,
@@ -981,7 +981,6 @@ pub async fn serve_list_page(conn: ConnectionInfo, req: HttpRequest, session: Se
             let body = Template {
                 request_user:   _request_user,
                 is_ajax:        is_ajax,
-                _web_services:  all_web_services,
                 template_types: t,
                 linguage:       l,
                 currency:       c,
@@ -1000,7 +999,6 @@ pub async fn serve_list_page(conn: ConnectionInfo, req: HttpRequest, session: Se
             struct Template {
                 request_user:   User,
                 is_ajax:        i32,
-                _web_services:  Vec<WebService>,
                 template_types: i16,
                 linguage:       i16,
                 currency:       String,
@@ -1012,7 +1010,6 @@ pub async fn serve_list_page(conn: ConnectionInfo, req: HttpRequest, session: Se
             let body = Template {
                 request_user:   _request_user,
                 is_ajax:        is_ajax,
-                _web_services:  all_web_services,
                 template_types: t,
                 linguage:       l,
                 currency:       c,
@@ -1032,7 +1029,6 @@ pub async fn serve_list_page(conn: ConnectionInfo, req: HttpRequest, session: Se
             #[template(path = "desctop/main/anon_serve_list.stpl")]
             struct Template {
                 is_ajax:        i32,
-                _web_services:  Vec<WebService>,
                 template_types: i16,
                 linguage:       i16,
                 currency:       String,
@@ -1043,7 +1039,6 @@ pub async fn serve_list_page(conn: ConnectionInfo, req: HttpRequest, session: Se
             }
             let body = Template {
                 is_ajax:        is_ajax,
-                _web_services:  all_web_services,
                 template_types: t,
                 linguage:       l,
                 currency:       c,
@@ -1061,7 +1056,6 @@ pub async fn serve_list_page(conn: ConnectionInfo, req: HttpRequest, session: Se
             #[template(path = "mobile/main/anon_serve_list.stpl")]
             struct Template {
                 is_ajax:        i32,
-                _web_services:  Vec<WebService>,
                 template_types: i16,
                 linguage:       i16,
                 currency:       String,
@@ -1072,7 +1066,6 @@ pub async fn serve_list_page(conn: ConnectionInfo, req: HttpRequest, session: Se
             }
             let body = Template {
                 is_ajax:        is_ajax,
-                _web_services:  all_web_services,
                 template_types: t,
                 linguage:       l,
                 currency:       c,
