@@ -352,7 +352,7 @@ function delete_item(url, id) {
 };
 ///////////SERVE //////////////////
 on('body', 'click', '#create_serve_btn', function() {
-  send_serve_data(this.parentElement, "/create_serve/");
+  send_serve_data(this, "/create_serve/");
 });
 on('body', 'click', '#create_web_service_btn', function() {
   send_category_data(this.parentElement, "/create_web_service/");
@@ -361,7 +361,7 @@ on('body', 'click', '#create_serve_category_btn', function() {
   send_category_data(this.parentElement, "/create_serve_category/");
 });
 on('body', 'click', '#edit_serve_btn', function() {
-  send_serve_data(this.parentElement, "/edit_serve/" + this.getAttribute("data-pk") + "/");
+  send_serve_data(this, "/edit_serve/" + this.getAttribute("data-pk") + "/");
 });
 on('body', 'click', '#edit_object_content_btn', function() {
   send_content_data(this, "/edit_content_item/" + this.getAttribute("data-pk") + "/", "content");
