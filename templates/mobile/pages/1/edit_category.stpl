@@ -67,7 +67,7 @@
                 <% let (name, object_list) = crate::models::Categories::get_type_and_query(*i); %>
                 <h3><%= name %></h3>
                 <% for category in object_list.iter() { %>
-                    <p><%= category.name %> (<%= category.get_type() %>)
+                    <p><%= category.name %>
                         | <a class="ajax" href="/edit_category/<%= category.id %>/">~</a>
                         | <a class="pointer remove_category" data-pk="<%= category.id %>">x</a>
                     </p>
