@@ -53,7 +53,7 @@
             <% let stack = vec!(1,2,3,4,5,6); %>
             <div>
             <% for i in stack.iter() { %>
-                <% let (name, object_list) = crate::models::Categories::get_type_and_query(i); %>
+                <% let (name, object_list) = crate::models::Categories::get_type_and_query(*i); %>
                 <h3><%= name %></h3>
                 <% for category in object_list.iter() { %>
                     <p><%= category.name %> (<%= category.get_type() %>)
