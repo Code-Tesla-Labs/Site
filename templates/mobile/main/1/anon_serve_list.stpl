@@ -26,7 +26,7 @@
           <li> 
             <input class="load_web_objects" data-pk="<%= web_service.id %>" type="checkbox" id="web<%= web_service.id %>" />
             <label class="font-alt" for="web<%= web_service.id %>">
-              <%= web_service.name %> <span style="font-size:80%;text-transform:lowercase;">(<%= web_service.get_level_ru() %>)</span>
+              <%= web_service.name %> <span style="font-size:80%;text-transform:lowercase;"></span>
             </label>
             <a class="pointer get_web_service_info" data-pk="<%= web_service.id %>">
               <svg fill="currentColor" style="vertical-align: text-bottom;width:17px" viewBox="0 0 24 24">
