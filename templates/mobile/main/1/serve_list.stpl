@@ -1,6 +1,6 @@
-<% let (__home, __list) = match linguage {
-        2 => ("Home", "List of options"), 
-        1 | _ => ("Главная", "Список опций"),
+<% let (__home, __list, __level_list) = match linguage {
+        2 => ("Home", "List of options", vec![(0, "Budget-friendly"), (1, "Normally"), (2, "Medium"), (3, "Difficult"), (4, "Expertly")]), 
+        1 | _ => ("Главная", "Список опций", vec![(0, "Бюджетно"), (1, "Обычно"), (2, "Средне"), (3, "Сложно"), (4, "Экспертно")]),
     };
 %>
 
@@ -27,9 +27,13 @@
       </div>
       <br />
     <% } %>
-    <div class="css-treeview">
+
+    <% for a in __level_list.iter() { %>
+    <h3><%= a.1 %></h3>
+    <% let object_list = crate::models::WebService::get_all_with_level(a.0); %>
+    <div class="css-treeview" style="margin-bottom: 40px">
       <ul>
-        <% for (i, web_service) in _web_services.iter().enumerate() { %>
+        <% for (i, web_service) in object_list.iter().enumerate() { %>
           <li>
             <input class="load_web_objects" data-pk="<%= web_service.id %>" type="checkbox" id="web<%= web_service.id %>" />
             <label class="font-alt" for="web<%= web_service.id %>">
@@ -50,10 +54,7 @@
         <% } %>
       </ul>
     </div>
+    <hr />
+    <% } %>
     </div>
 </section>
-
-<div class="sidebar hidden">
-    <% include!("sidebar.stpl"); %>
-</div>
-
