@@ -1,6 +1,6 @@
 <% let (__d, __l, __data) = match linguage {
-        2 => ("This application is a large structural unit", "complexity", <%- object.description.as_deref().unwrap() %>), 
-        1 | _ => ("Это приложениe - большая структурная единица", "сложность", <%- object.description_en.as_deref().unwrap() %>),
+        2 => ("This application is a large structural unit", "complexity", "<%- object.description.as_deref().unwrap() %>"), 
+        1 | _ => ("Это приложениe - большая структурная единица", "сложность", "<%- object.description_en.as_deref().unwrap() %>"),
     };
 %>
 
