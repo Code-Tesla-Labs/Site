@@ -1,9 +1,9 @@
-<% let _web_services_ids = object.get_close_web_services_ids(object.types); %>
-<% let serves_ids = object.get_serves_ids(); %>
+<% let _web_services_ids = object.get_close_web_services(object.types); %>
+<% let serves_ids = object.get_serves_ids(); %> 
 <div class="meta">
   <p class="web_services_ids hidden">
     <% for id in _web_services_ids.iter() { %>
-      <span><%= id %></span>
+      <span><%= id.id %></span>
     <% } %>
   </p>
   <p class="serve_ids hidden">
@@ -39,7 +39,7 @@
         2 => ("Closed web services", "by default"), 
         1 | _ => ("Закрытые веб-сервисы", "по умолчанию"),
     };
-%>
+%> 
 <div class="">
 <div class="mb-20 mb-md-10">
     <label><%= __close %></label>
