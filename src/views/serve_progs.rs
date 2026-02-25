@@ -921,6 +921,7 @@ pub async fn edit_serve_page(conn: ConnectionInfo, session: Session, req: HttpRe
         let _serve_cat = ServeCategories::get(_serve.category_id);
         let _level = WebService::get(_serve_cat.category_id).level;
         let _serve_cats = ServeCategories::get_categories_from_level(&_level);
+        let _serves = Serve::get_all();
 
         if _serve.user_id != _request_user.id {
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
@@ -933,6 +934,7 @@ pub async fn edit_serve_page(conn: ConnectionInfo, session: Session, req: HttpRe
                     request_user:   User,
                     level:          i16,
                     serve_cats:     Vec<ServeCategories>,
+                    _serves:        Vec<Serve>,
                     object:         Serve,
                     is_ajax:        i32,
                     template_types: i16,
@@ -947,6 +949,7 @@ pub async fn edit_serve_page(conn: ConnectionInfo, session: Session, req: HttpRe
                     request_user:   _request_user,
                     level:          _level,
                     serve_cats:     _serve_cats,
+                    _serves:        _serves,
                     object:         _serve,
                     is_ajax:        is_ajax,
                     template_types: t,
@@ -965,8 +968,10 @@ pub async fn edit_serve_page(conn: ConnectionInfo, session: Session, req: HttpRe
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/serve/edit_serve.stpl")]
                 struct Template {
+                    request_user:   User,
                     level:          i16,
                     serve_cats:     Vec<ServeCategories>,
+                    _serves:        Vec<Serve>,
                     object:         Serve,
                     is_ajax:        i32,
                     template_types: i16,
@@ -978,8 +983,10 @@ pub async fn edit_serve_page(conn: ConnectionInfo, session: Session, req: HttpRe
                     image:          String,
                 }
                 let body = Template {
+                    request_user:   _request_user,
                     level:          _level,
                     serve_cats:     _serve_cats,
+                    _serves:        _serves,
                     object:         _serve,
                     is_ajax:        is_ajax,
                     template_types: t,
