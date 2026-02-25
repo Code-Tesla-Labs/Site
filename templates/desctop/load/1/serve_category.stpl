@@ -1,6 +1,6 @@
-<% let (__w, __l) = match linguage {
-        2 => ("Application language / technology", "complexity"), 
-        1 | _ => ("Язык / технология приложения", "сложность"),
+<% let (__w, __l, __data) = match linguage {
+        2 => ("Application language / technology", "complexity", "<%- object.description_en.as_deref().unwrap() %>"), 
+        1 | _ => ("Язык / технология приложения", "сложность", "<%- object.description.as_deref().unwrap() %>"),
     };
 %>
 <div page-id="" object-id="<%= object.id %>" data-title="<%= title %>" data-description="<%= description %>" data-uri="<%= link %>" data-image="<%= image %>" class="doc_title" style="padding: 0;">
@@ -12,8 +12,6 @@
   </p>
 
   <div style="margin-top:10px">
-    <% if object.description.is_some() { %>
-      <%- object.description.as_deref().unwrap() %>
-    <% } %>
+    <%= __data %>
   </div>
 </div>

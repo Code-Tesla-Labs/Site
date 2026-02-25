@@ -1,6 +1,6 @@
-<% let (__t, __s, __l) = match linguage {
-        2 => ("Code Tesla Labs", "Application language / technology", "complexity"), 
-        1 | _ => ("Веб-сервис", "Язык / технология приложения", "сложность"),
+<% let (__t, __s, __l, __data) = match linguage {
+        2 => ("Code Tesla Labs", "Application language / technology", "complexity", "<%- object.description_en.as_deref().unwrap() %>"), 
+        1 | _ => ("Веб-сервис", "Язык / технология приложения", "сложность", "<%- object.description.as_deref().unwrap() %>"),
     };
 %>
 
@@ -30,8 +30,6 @@
     </p>
 
   <div style="margin-top:10px">
-    <% if object.description.is_some() { %>
-      <%- object.description.as_deref().unwrap() %>
-    <% } %>
+    <%= __data %>
   <div>
 </div>
