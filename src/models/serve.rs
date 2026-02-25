@@ -40,6 +40,10 @@ pub struct WebService {
 }
 
 impl WebService {
+    pub fn get_name(&self, l: i16) -> String {
+        if l == 1 {return self.name}
+        else {return self.name_en};
+    }
     pub fn delete(user: User, item_id: i32) -> i16 {
         let _connection = establish_connection();
         let _web_service = WebService::get(item_id);
@@ -300,6 +304,11 @@ impl ServeCategories {
             .filter(schema::serve_categories::category_id.eq_any(web_services_ids))
             .load::<ServeCategories>(&_connection)
             .expect("E");
+    }
+
+    pub fn get_name(&self, l: i16) -> String {
+        if l == 1 {return self.name}
+        else {return self.name_en};
     }
 
     pub fn get_serves(&self, l: i16) -> Vec<ServeVar> {
@@ -637,6 +646,10 @@ impl ServeVar {
 }
 
 impl Serve {
+    pub fn get_name(&self, l: i16) -> String {
+        if l == 1 {return self.name}
+        else {return self.name_en};
+    }
     pub fn create(user: User, form: crate::utils::ServeForm) -> i16 {
         let _connection = establish_connection();
         println!("{}", form.category_id);

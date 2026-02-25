@@ -5,11 +5,11 @@
     };
 %>
 <div page-id="" object-id="<%= object.id %>" data-title="<%= title %>" data-description="<%= description %>" data-uri="<%= link %>" data-image="<%= image %>" class="doc_title" style="padding: 0;">
-  <h4 style="margin-bottom: 0 !important"><%= object.name %></h4>
+  <h4 style="margin-bottom: 0 !important"><%= object.get_name() %></h4>
   <p class="solid_bottom" style="font-size: 80%;">
     
     <%= __w %>
-      <a class="pointer get_web_service_info" data-pk="<%= category.id %>" style="font-weight: bold">"<%= category.name %> (<%= __l %>: <%= __level %>)"</a>.
+      <a class="pointer get_web_service_info" data-pk="<%= category.id %>" style="font-weight: bold">"<%= category.get_name() %> (<%= __l %>: <%= __level %>)"</a>.
   </p>
 
   <div style="margin-top:10px">
