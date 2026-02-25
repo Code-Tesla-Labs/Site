@@ -40,7 +40,7 @@ pub struct WebService {
 }
 
 impl WebService {
-    pub fn get_name(&self, l: i16) -> String {
+    pub fn get_name(&self, l: i16) -> &str {
         if l == 1 {return self.name}
         else {return self.name_en};
     }
