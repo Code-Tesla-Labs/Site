@@ -272,9 +272,16 @@ on('body', 'click', '#edit_file_btn', function() {
   send_description_data(this, "/edit_file/" + this.getAttribute("data-pk") + "/");
 });
 
-function send_serve_data(form, url) {
-  if (!text_field.innerHTML) {
-    text_field.style.setProperty('border', '1px #FF0000 solid', 'important');
+function send_serve_data(_this, url) {
+  form = _this.parentElement;
+  content_ru = form.querySelector(".content_ru");
+  if (!content_ru.innerHTML) {
+    content_ru.style.setProperty('border', '1px #FF0000 solid', 'important');
+    return
+  }
+  content_en = form.querySelector(".content_en");
+  if (!content_en.innerHTML) {
+    content_en.style.setProperty('border', '1px #FF0000 solid', 'important');
     return
   };
   u = form.querySelectorAll(".input_text");
