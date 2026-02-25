@@ -70,6 +70,7 @@
             <button data-pk="<%= category.id %>" class="btn btn-mod btn-border btn-medium btn-round" style="float: right;" type="button" id="edit_serve_category_btn">Изменить</button>
         </form>
         <section class="col-md-4">
+          <div>
             <% for s in _serve_categories.iter() { %>
               <% 
                 let cat = s.get_category_small();
@@ -80,6 +81,7 @@
                 | <a class="pointer remove_serve_category" data-pk="<%= s.id %>">x</a>
               </h4> 
             <% } %>
+          </div>
         </section>
     </div>
 </section>

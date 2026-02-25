@@ -38,12 +38,14 @@
             <button class="btn btn-mod btn-border btn-medium btn-round" style="float: right;" type="button" id="create_web_service_btn">Создать</button>
         </form>
         <section class="col-md-4">
+          <div>
           <% for c in _web_services.iter() { %>
             <p><%= c.name %> (<%= c.get_level_ru() %>)
               | <a class="ajax" href="/edit_web_service/<%= c.id %>/">~</a>
               | <a class="pointer remove_web_service" data-pk="<%= c.id %>">x</a>
             </p>
           <% } %>
+          </div>
         </section>
     </div>
 </section>
