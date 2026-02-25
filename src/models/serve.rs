@@ -235,8 +235,8 @@ impl ServeCategories {
         return schema::serve_categories::table
             .filter(schema::serve_categories::id.eq(id))
             .first::<ServeCategories>(&_connection)
-            .expect("E")
-    }
+            .expect("E");
+    } 
     pub fn update_category_with_id(user: User, cat_id: i32, form: crate::utils::ServeCategoriesForm) -> i16 {
         let _connection = establish_connection();
         let cat = ServeCategories::get(cat_id);
@@ -638,8 +638,19 @@ impl ServeVar {
 
 impl Serve {
     pub fn create(user: User, form: crate::utils::ServeForm) -> i16 {
-        let _connection = establish_connection(); 
+        let _connection = establish_connection();
+        println!({}, form.category_id);
+        let some_cat = schema::web_services::table
+            .filter(schema::web_services::id.eq(form.category_id))
+            .first::<WebService>(&_connection);
+        if some_cat.is_ok() {
+            println!("some cat is_ok");
+        }
+        else {
+            println!("some cat err");
+        }
         let _category = ServeCategories::get(form.category_id);
+
         if user.perm < 60 && _category.user_id != user.id {
             return 0;
         }
