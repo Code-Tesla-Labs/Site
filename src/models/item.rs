@@ -322,33 +322,34 @@ pub struct Categories {
 }
 
 impl Categories {
-    pub fn get_type_and_query(types: i16) -> (&str, Vec<Categories>) {
+    pub fn get_type_and_query(types: i16) -> (String, Vec<Categories>) {
+        let _connection = establish_connection();
         return match types {
-            1 => ("блог", schema::categories::table
+            1 => ("блог".to_string(), schema::categories::table
                 .filter(schema::categories::types.eq(types))
                 .load::<Categories>(&_connection)
                 .expect("E")),
-            2 => ("услуга", schema::categories::table
+            2 => ("услуга".to_string(), schema::categories::table
                 .filter(schema::categories::types.eq(types))
                 .load::<Categories>(&_connection)
                 .expect("E")),
-            3 => ("товар", schema::categories::table
+            3 => ("товар".to_string(), schema::categories::table
                 .filter(schema::categories::types.eq(types))
                 .load::<Categories>(&_connection)
                 .expect("E")),
-            4 => ("wiki", schema::categories::table
+            4 => ("wiki".to_string(), schema::categories::table
                 .filter(schema::categories::types.eq(types))
                 .load::<Categories>(&_connection)
                 .expect("E")),
-            5 => ("работа", schema::categories::table
+            5 => ("работа".to_string(), schema::categories::table
                 .filter(schema::categories::types.eq(types))
                 .load::<Categories>(&_connection)
                 .expect("E")),
-            6 => ("помощь", schema::categories::table
+            6 => ("помощь".to_string(), schema::categories::table
                 .filter(schema::categories::types.eq(types))
                 .load::<Categories>(&_connection)
                 .expect("E")),
-            _ => ("Непонятно", Vec::new()),
+            _ => ("Непонятно".to_string(), Vec::new()),
         };
     }
     pub fn delete(user: User, item_id: i32) -> i16 {
