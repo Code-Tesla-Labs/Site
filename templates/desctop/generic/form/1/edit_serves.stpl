@@ -51,7 +51,7 @@
           };
         %>
         <option
-          <% if _web_services_ids.iter().any(|i| i.id==&cat.id) { %>
+          <% if _web_services_ids.iter().any(|i| &i.id==&cat.id) { %>
             selected=""
           <% } %>
           value="<%= cat.id %>">
@@ -71,7 +71,7 @@
   };
 %>
 
-<div class="open_web_service <% if _web_services_ids.iter().any(|i| i.id==&web_service.id) { %>hidden<% } %>" data-pk="<%= web_service.id %>">
+<div class="open_web_service <% if _web_services_ids.iter().any(|i| &i.id==&web_service.id) { %>hidden<% } %>" data-pk="<%= web_service.id %>">
   <h4 class="show_next_element pointer"><%= web_service.name %> (<%= __web_level %>)</h4>
   <div class="hidden">
   <% for category in web_service.get_serve_categories().iter() { %> 
