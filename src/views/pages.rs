@@ -1629,14 +1629,11 @@ pub async fn create_category_page(conn: ConnectionInfo, session: Session, req: H
     else if is_signed_in(&session) {
         let _request_user = get_request_user_data(&session);
         if _request_user.perm == 60 { 
-            let _cats = Categories::get_all();
-
             if is_desctop {
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/pages/create_category.stpl")]
                 struct Template {
                     request_user:   User,
-                    cats:           Vec<Categories>,
                     is_ajax:        i32,
                     template_types: i16,
                     linguage:       i16,
@@ -1648,7 +1645,6 @@ pub async fn create_category_page(conn: ConnectionInfo, session: Session, req: H
                 }
                 let body = Template {
                     request_user:   _request_user,
-                    cats:           _cats,
                     is_ajax:        is_ajax,
                     template_types: t,
                     linguage:       l,
@@ -1666,7 +1662,6 @@ pub async fn create_category_page(conn: ConnectionInfo, session: Session, req: H
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/pages/create_category.stpl")]
                 struct Template {
-                    cats:           Vec<Categories>,
                     is_ajax:        i32,
                     template_types: i16,
                     linguage:       i16,
@@ -1677,7 +1672,6 @@ pub async fn create_category_page(conn: ConnectionInfo, session: Session, req: H
                     image:          String,
                 }
                 let body = Template {
-                    cats:           _cats,
                     is_ajax:        is_ajax,
                     template_types: t,
                     linguage:       l,
@@ -1733,15 +1727,12 @@ pub async fn edit_category_page(conn: ConnectionInfo, session: Session, req: Htt
     else if is_signed_in(&session) {
         let _request_user = get_request_user_data(&session);
         if _request_user.perm == 60 {
-            let _cats = Categories::get_all();
-
             if is_desctop {
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/pages/edit_category.stpl")]
                 struct Template {
                     request_user:   User,
                     cat:            Categories,
-                    cats:           Vec<Categories>,
                     is_ajax:        i32,
                     template_types: i16,
                     linguage:       i16,
@@ -1754,7 +1745,6 @@ pub async fn edit_category_page(conn: ConnectionInfo, session: Session, req: Htt
                 let body = Template {
                     request_user:   _request_user,
                     cat:            _cat,
-                    cats:           _cats,
                     is_ajax:        is_ajax,
                     template_types: t,
                     linguage:       l,
@@ -1773,7 +1763,6 @@ pub async fn edit_category_page(conn: ConnectionInfo, session: Session, req: Htt
                 #[template(path = "mobile/pages/edit_category.stpl")]
                 struct Template {
                     cat:            Categories,
-                    cats:           Vec<Categories>,
                     is_ajax:        i32,
                     template_types: i16,
                     linguage:       i16,
@@ -1785,7 +1774,6 @@ pub async fn edit_category_page(conn: ConnectionInfo, session: Session, req: Htt
                 }
                 let body = Template {
                     cat:            _cat,
-                    cats:           _cats,
                     is_ajax:        is_ajax,
                     template_types: t,
                     linguage:       l,

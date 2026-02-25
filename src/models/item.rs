@@ -322,6 +322,35 @@ pub struct Categories {
 }
 
 impl Categories {
+    pub fn get_type_and_query(types: i16) -> (&str, Vec<Categories>) {
+        return match types {
+            1 => ("блог", schema::categories::table
+                .filter(schema::categories::types.eq(types))
+                .load::<Categories>(&_connection)
+                .expect("E")),
+            2 => ("услуга", schema::categories::table
+                .filter(schema::categories::types.eq(types))
+                .load::<Categories>(&_connection)
+                .expect("E")),
+            3 => ("товар", schema::categories::table
+                .filter(schema::categories::types.eq(types))
+                .load::<Categories>(&_connection)
+                .expect("E")),
+            4 => ("wiki", schema::categories::table
+                .filter(schema::categories::types.eq(types))
+                .load::<Categories>(&_connection)
+                .expect("E")),
+            5 => ("работа", schema::categories::table
+                .filter(schema::categories::types.eq(types))
+                .load::<Categories>(&_connection)
+                .expect("E")),
+            6 => ("помощь", schema::categories::table
+                .filter(schema::categories::types.eq(types))
+                .load::<Categories>(&_connection)
+                .expect("E")),
+            _ => ("Непонятно", Vec::new()),
+        };
+    }
     pub fn delete(user: User, item_id: i32) -> i16 {
         let _connection = establish_connection();
         let _item = Categories::get_with_id(item_id);
