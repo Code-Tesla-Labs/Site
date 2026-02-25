@@ -1,5 +1,7 @@
-<% let _web_services_ids = object.get_close_web_services(object.types); %>
-<% let serves_ids = object.get_serves_ids(); %> 
+<% let _web_services_ids = object.get_close_web_services(object.types);
+   let serves_ids = object.get_serves_ids();
+   let _web_services = crate::models::WebService::get_all_with_level(object.types);
+  %> 
 <div class="meta">
   <p class="web_services_ids hidden">
     <% for id in _web_services_ids.iter() { %>
