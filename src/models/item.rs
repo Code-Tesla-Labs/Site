@@ -475,59 +475,113 @@ impl Categories {
                 if (i + 1) != _category_items_len {
                     let _next = Some(&_category_items[i + 1]);
                     if l == 1 {
-                        next = Some(items
+                        next = items
                             .filter(schema::items::id.eq(_next.unwrap()))
-                            //.filter(schema::items::title.ne(""))
                             .filter(schema::items::types.eq(item_types))
-                            //.filter(schema::items::is_active.eq(true))
+                            .filter(schema::items::is_active.eq(true))
+                            .select((
+                                schema::items::slug,
+                                schema::items::title,
+                            ))
+                            .first::<FeaturedItem>(&_connection);
+                        if next.is_ok() {
+                            next = Some(items
+                            .filter(schema::items::id.eq(_next.unwrap()))
+                            .filter(schema::items::types.eq(item_types))
+                            .filter(schema::items::is_active.eq(true))
                             .select((
                                 schema::items::slug,
                                 schema::items::title,
                             ))
                             .first::<FeaturedItem>(&_connection)
                             .expect("E."));
+                        }
+                        else {
+                            next = None;
+                        }
                     }
                     else if l == 2 {
-                        next = Some(items
+                        next = items
                             .filter(schema::items::id.eq(_next.unwrap()))
-                            //.filter(schema::items::title_en.ne(""))
                             .filter(schema::items::types.eq(item_types))
-                            //.filter(schema::items::is_active.eq(true))
+                            .filter(schema::items::is_active.eq(true))
+                            .select((
+                                schema::items::slug,
+                                schema::items::title_en,
+                            ))
+                            .first::<FeaturedItem>(&_connection);
+                        if next.is_ok() {
+                            next = Some(items
+                            .filter(schema::items::id.eq(_next.unwrap()))
+                            .filter(schema::items::types.eq(item_types))
+                            .filter(schema::items::is_active.eq(true))
                             .select((
                                 schema::items::slug,
                                 schema::items::title_en,
                             ))
                             .first::<FeaturedItem>(&_connection)
                             .expect("E."));
+                        }
+                        else {
+                            next = None;
+                        }
                     }
                 };
                 if i != 0 {
                     let _prev = Some(&_category_items[i - 1]);
                     if l == 1 {
-                        prev = Some(items
+                        prev = items
                             .filter(schema::items::id.eq(_prev.unwrap()))
-                            .filter(schema::items::title.ne(""))
                             .filter(schema::items::types.eq(item_types))
                             .filter(schema::items::is_active.eq(true))
                             .select((
                                 schema::items::slug,
                                 schema::items::title,
                             ))
-                            .first::<FeaturedItem>(&_connection)
+                            .first::<FeaturedItem>(&_connection);
+;
+                        if prev.is_ok() {
+                            prev = Some(items
+                            .filter(schema::items::id.eq(_prev.unwrap()))
+                            .filter(schema::items::types.eq(item_types))
+                            .filter(schema::items::is_active.eq(true))
+                            .select((
+                                schema::items::slug,
+                                schema::items::title,
+                            ))
+                            .first::<FeaturedItem>(&_connection);
                             .expect("E."));
+                        }
+                        else {
+                            prev = None;
+                        }
                     }
                     else if l == 2 {
-                        prev = Some(items
+                        prev = items
                             .filter(schema::items::id.eq(_prev.unwrap()))
-                            .filter(schema::items::title_en.ne(""))
                             .filter(schema::items::types.eq(item_types))
                             .filter(schema::items::is_active.eq(true))
                             .select((
                                 schema::items::slug,
                                 schema::items::title_en,
                             ))
-                            .first::<FeaturedItem>(&_connection)
+                            .first::<FeaturedItem>(&_connection);
+;
+                        if prev.is_ok() {
+                            prev = Some(items
+                            .filter(schema::items::id.eq(_prev.unwrap()))
+                            .filter(schema::items::types.eq(item_types))
+                            .filter(schema::items::is_active.eq(true))
+                            .select((
+                                schema::items::slug,
+                                schema::items::title_en,
+                            ))
+                            .first::<FeaturedItem>(&_connection);
                             .expect("E."));
+                        }
+                        else {
+                            prev = None;
+                        }
                     }
                 };
                 break;
