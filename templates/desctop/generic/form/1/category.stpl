@@ -25,7 +25,7 @@
       <tr>
         <th class="hidden-xs">
           <span data-pk="<%= category.id %>" class="pointer get_serve_category_info" tooltip="<%= __what %>" flow="up">
-            <%= t_category.name %> <%= __from %> <%= category.name %>
+            <%= t_category.get_name(linguage) %> <%= __from %> <%= category.get_name(linguage) %>
           </span>
         </th>
         <th><%= __price %></th>

@@ -4,7 +4,7 @@
 
 <section class="banner_block mb-20 mt-20 border open_cat" style="width:100%;">
     <h4 class="section-title font-alt">
-        <%= t_category.name %>
+        <%= t_category.get_name(linguage) %>
     </h4>
     <div class="">
         <div class="align-center">
@@ -13,11 +13,11 @@
 
                 <% if i == 0 { %>
                   <li data-pk="<%= cat.id %>" data-sum="<%= cat.default_price %>" class="yy s_<%= i + 1 %> active">
-                      <a class="pointer"><%= cat.name %></a>
+                      <a class="pointer"><%= cat.get_name(linguage) %></a>
                   </li>
                 <% } else { %>
                   <li data-pk="<%= cat.id %>" data-sum="<%= cat.default_price %>" class="yy pointer not_active s_<%= i + 1 %>">
-                    <a class="pointer"><%= cat.name %></a>
+                    <a class="pointer"><%= cat.get_name(linguage) %></a>
                   </li>
                 <% } %>
 
