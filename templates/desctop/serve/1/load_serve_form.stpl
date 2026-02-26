@@ -3,7 +3,7 @@
         1 | _ => ("Закрытые веб-сервисы", "по умолчанию", "₽"),
     }; 
 %>
-<% let tech_list = crate::models::WebService::get_all_with_level(object.types); %> 
+
 <div class="mb-20 mb-md-10">
     <label><%= __close %></label>
     <select class="form-control close_web_services" name="close_web_services_list[]" multiple="">
