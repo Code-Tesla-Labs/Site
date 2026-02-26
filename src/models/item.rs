@@ -484,7 +484,7 @@ impl Categories {
                                 schema::items::title,
                             ))
                             .first::<FeaturedItem>(&_connection);
-                        if next.is_ok() {
+                        if next.unwrap().is_ok() {
                             next = Some(items
                             .filter(schema::items::id.eq(_next.unwrap()))
                             .filter(schema::items::types.eq(item_types))
@@ -510,7 +510,7 @@ impl Categories {
                                 schema::items::title_en,
                             ))
                             .first::<FeaturedItem>(&_connection);
-                        if next.is_ok() {
+                        if next.unwrap().is_ok() {
                             next = Some(items
                             .filter(schema::items::id.eq(_next.unwrap()))
                             .filter(schema::items::types.eq(item_types))
@@ -540,7 +540,7 @@ impl Categories {
                             ))
                             .first::<FeaturedItem>(&_connection);
 ;
-                        if prev.is_ok() {
+                        if prev.unwrap().is_ok() {
                             prev = Some(items
                             .filter(schema::items::id.eq(_prev.unwrap()))
                             .filter(schema::items::types.eq(item_types))
@@ -567,7 +567,7 @@ impl Categories {
                             ))
                             .first::<FeaturedItem>(&_connection);
 ;
-                        if prev.is_ok() {
+                        if prev.unwrap().is_ok() {
                             prev = Some(items
                             .filter(schema::items::id.eq(_prev.unwrap()))
                             .filter(schema::items::types.eq(item_types))
