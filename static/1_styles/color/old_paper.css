@@ -134,6 +134,9 @@ pre {
   color: rgba(0, 0, 0, 0.9) !important;
   background-color: #e6e3df !important;
 }
+.tpl-alt-tabs li.active span {
+  color: #000000 !important;
+}
 .form input[type="text"],
 .form input[type="email"],
 .form input[type="number"],
