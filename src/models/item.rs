@@ -477,9 +477,9 @@ impl Categories {
                     if l == 1 {
                         next = Some(items
                             .filter(schema::items::id.eq(_next.unwrap()))
-                            .filter(schema::items::title.ne(""))
+                            //.filter(schema::items::title.ne(""))
                             .filter(schema::items::types.eq(item_types))
-                            .filter(schema::items::is_active.eq(true))
+                            //.filter(schema::items::is_active.eq(true))
                             .select((
                                 schema::items::slug,
                                 schema::items::title,
@@ -490,9 +490,9 @@ impl Categories {
                     else if l == 2 {
                         next = Some(items
                             .filter(schema::items::id.eq(_next.unwrap()))
-                            .filter(schema::items::title_en.ne(""))
+                            //.filter(schema::items::title_en.ne(""))
                             .filter(schema::items::types.eq(item_types))
-                            .filter(schema::items::is_active.eq(true))
+                            //.filter(schema::items::is_active.eq(true))
                             .select((
                                 schema::items::slug,
                                 schema::items::title_en,
