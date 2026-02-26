@@ -268,19 +268,23 @@ function get_active_button() {
 
 on('body', 'click', '.anon_color_change', function() {
   _this = this;
-  color = _this.innerHTML;
+  color = _this.getAttribute("data-color");
   addStyleSheets("/static/1_styles/color/" + color + ".css");
-  design_items = _this.parentElement.parentElement.querySelectorAll(".design_item");
-  active_class = "underline";
-  for (var i = 0; i < design_items.length; i++) {
-    if (design_items[i].innerHTML == color) {
-      design_items[i].classList.add(active_class);
-      design_items[i].classList.remove("anon_color_change");
-    }
-    else {
-      design_items[i].classList.add("anon_color_change");
-      design_items[i].classList.remove(active_class);
-    }
+  if (color == "white") {
+    new_color = "dark";
+  } else if (color == "dark") {
+    new_color = "old_paper";
   }
+  else if (color == "old_paper") {
+    new_color = "yellow";
+  }
+  else if (color == "yellow") {
+    new_color = "dark_wood";
+  }
+  else if (color == "dark_wood") {
+    new_color = "white";
+  }
+  _this.setAttribute("data-color", new_color);
+  
   setCookie("background", color, 90);
 });
