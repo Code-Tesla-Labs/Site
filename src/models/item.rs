@@ -549,7 +549,7 @@ impl Categories {
                                 schema::items::slug,
                                 schema::items::title,
                             ))
-                            .first::<FeaturedItem>(&_connection);
+                            .first::<FeaturedItem>(&_connection)
                             .expect("E."));
                         }
                         else {
@@ -576,7 +576,7 @@ impl Categories {
                                 schema::items::slug,
                                 schema::items::title_en,
                             ))
-                            .first::<FeaturedItem>(&_connection);
+                            .first::<FeaturedItem>(&_connection)
                             .expect("E."));
                         }
                         else {
