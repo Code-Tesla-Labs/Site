@@ -75,7 +75,7 @@
 }
 
 .mobile_nav {
-    background: #290003 !important;
+    background: rgba(0, 0, 0, 0.7) !important;
 }
 
 .first_span {
@@ -112,7 +112,7 @@
 
 body {
     color: rgba(255, 255, 255, 0.8) !important;
-    background-image: url('/static/images/skin/red.webp') !important;
+    background-image: url('/static/images/dark_skin.jpg') !important;
     background-size: unset !important;
     font-family: "Open Sans", arial, sans-serif;
 }
@@ -126,7 +126,7 @@ body {
 .hover,
 pre {
     color: rgba(255, 255, 255, 0.8) !important;
-    background: #290003 !important;
+    background: rgba(0, 0, 0, 0.9) !important;
 }
 
 a,

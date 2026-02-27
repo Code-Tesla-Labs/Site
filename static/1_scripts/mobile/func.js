@@ -285,6 +285,9 @@ on('body', 'click', '.anon_color_change', function() {
     new_color = "red";
   }
   else if (color == "red") {
+    new_color = "dark_skin";
+  }
+  else if (color == "dark_skin") {
     new_color = "white";
   }
   _this.setAttribute("data-color", new_color);
