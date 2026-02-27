@@ -32,9 +32,6 @@
             <div class="mb-20 mb-md-10">
                 <input class="input-md form-control" type="number" name="position" placeholder="Порядок следования" />
             </div>
-            <div class="mb-20 mb-md-10">
-                <input class="input-md form-control" type="number" name="level" placeholder="Уровень сложности" />
-            </div>
             <select class="input-md form-control" name="level" data-live-search="true" tabindex="-1" aria-hidden="true">
                 <option value="">Уровень сложности</option>
                 <option value="0">Бюджетнo</option>
