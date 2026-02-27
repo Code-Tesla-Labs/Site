@@ -322,35 +322,65 @@ pub struct Categories {
 }
 
 impl Categories {
-    pub fn get_type_and_query(types: i16) -> (String, Vec<Categories>) {
+    pub fn get_type_and_query(types: i16, l: i16) -> (String, Vec<Categories>) {
         let _connection = establish_connection();
-        return match types {
-            1 => ("блог".to_string(), schema::categories::table
-                .filter(schema::categories::types.eq(types))
-                .load::<Categories>(&_connection)
-                .expect("E")),
-            2 => ("услуга".to_string(), schema::categories::table
-                .filter(schema::categories::types.eq(types))
-                .load::<Categories>(&_connection)
-                .expect("E")),
-            3 => ("товар".to_string(), schema::categories::table
-                .filter(schema::categories::types.eq(types))
-                .load::<Categories>(&_connection)
-                .expect("E")),
-            4 => ("wiki".to_string(), schema::categories::table
-                .filter(schema::categories::types.eq(types))
-                .load::<Categories>(&_connection)
-                .expect("E")),
-            5 => ("работа".to_string(), schema::categories::table
-                .filter(schema::categories::types.eq(types))
-                .load::<Categories>(&_connection)
-                .expect("E")),
-            6 => ("помощь".to_string(), schema::categories::table
-                .filter(schema::categories::types.eq(types))
-                .load::<Categories>(&_connection)
-                .expect("E")),
-            _ => ("Непонятно".to_string(), Vec::new()),
-        };
+        if l == 1 {
+            return match types {
+                1 => ("Блог".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                2 => ("Услуга".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                3 => ("Товар".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                4 => ("Обучение".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                5 => ("Работа".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                6 => ("Помощь".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                _ => ("Непонятно".to_string(), Vec::new()),
+            };
+        } else {
+            return match types {
+                1 => ("Blog".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                2 => ("Service".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                3 => ("Good".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                4 => ("Wiki".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                5 => ("Work".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                6 => ("Help".to_string(), schema::categories::table
+                    .filter(schema::categories::types.eq(types))
+                    .load::<Categories>(&_connection)
+                    .expect("E")),
+                _ => ("Uncnoun".to_string(), Vec::new()),
+            };
+        }
     }
     pub fn delete(user: User, item_id: i32) -> i16 {
         let _connection = establish_connection();
