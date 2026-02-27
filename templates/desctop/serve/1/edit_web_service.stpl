@@ -51,9 +51,14 @@
             <div class="mb-20 mb-md-10">
                 <input value="<%= category.position %>" class="input-md form-control" type="number" name="position" placeholder="Порядок следования" />
             </div>
-            <div class="mb-20 mb-md-10">
-                <input value="<%= category.level %>" class="input-md form-control" type="number" name="level" placeholder="Уровень сложности" />
-            </div>
+            <label>Уровень сложности</label>
+              <select class="input-md form-control" data-live-search="true" tabindex="-1" aria-hidden="true">
+                <option <% if category.level == 0 { %>selected=""<% } %> value="0">Бюджетно</option>
+                <option <% if category.level == 1 { %>selected=""<% } %> value="1">Обычно</option>
+                <option <% if category.level == 2 { %>selected=""<% } %> value="2">Средне</option>
+                <option <% if category.level == 3 { %>selected=""<% } %> value="3">Сложно</option>
+                <option <% if category.level == 4 { %>selected=""<% } %> value="4">Экспертно</option>
+              </select>
             <button data-pk="<%= category.id %>" class="btn btn-mod btn-border btn-medium btn-round" style="float: right;" type="button" id="edit_web_service_btn">Изменить</button>
         </form>
         <section class="col-md-4">

@@ -1,5 +1,5 @@
 <% let __help = match linguage {
-        2 => "Help items", 
+        2 => "FAQ", 
         1 | _ => "Помощь",
     };
 %>
