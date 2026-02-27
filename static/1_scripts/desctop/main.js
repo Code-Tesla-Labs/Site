@@ -131,7 +131,7 @@ function create_desing_menu() {
     }
     
     container = document.body.querySelector(".design_container");
-    let d_list = ["white", "dark", "old_paper", "yellow", "dark_wood", "red"];
+    let d_list = ["white", "dark", "old_paper", "yellow", "dark_wood", "red", "dark_skin"];
     for (var i = 0; i < d_list.length; i++) {
       if (d_list[i] == color) {
         li = document.createElement("li");
