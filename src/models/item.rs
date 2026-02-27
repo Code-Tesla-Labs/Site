@@ -358,9 +358,9 @@ impl Categories {
         if user.perm < 60 {
             return 0;
         }
-        if _item.image.is_some() {
-            std::fs::remove_file(_item.image.unwrap()).expect("E");
-        }
+        //if _item.image.is_some() {
+        //    std::fs::remove_file(_item.image.unwrap()).expect("E");
+        //}
         diesel::delete(schema::categories::table.filter(schema::categories::id.eq(item_id)))
             .execute(&_connection)
             .expect("E");
