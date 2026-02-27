@@ -282,6 +282,9 @@ on('body', 'click', '.anon_color_change', function() {
     new_color = "dark_wood";
   }
   else if (color == "dark_wood") {
+    new_color = "red";
+  }
+  else if (color == "red") {
     new_color = "white";
   }
   _this.setAttribute("data-color", new_color);
