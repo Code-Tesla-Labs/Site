@@ -215,18 +215,6 @@ a.btn-mod:focus{
     color: rgba(0,0,0, .7) !important;
 }
 
-.contact-item a:hover{
-    color: #FFFFFF !important;
-}
-
-.blog-item-title a{
-    color: #FFFFFF !important;
-}
-
-.blog-item-data a:hover{
-    color: #FFFFFF !important;
-}
-
 .tpl-alt-tabs li.active a,
 .tpl-alt-tabs li.active a:hover,
 .tpl-alt-tabs li.active a:focus{
