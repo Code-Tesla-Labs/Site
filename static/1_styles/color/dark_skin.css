@@ -112,7 +112,7 @@
 
 body {
     color: rgba(255, 255, 255, 0.8) !important;
-    background-image: url('/static/images/dark_skin.jpg') !important;
+    background-image: url('/static/images/skin/dark_skin.jpg') !important;
     background-size: unset !important;
     font-family: "Open Sans", arial, sans-serif;
 }
