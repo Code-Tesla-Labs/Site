@@ -322,6 +322,10 @@ pub struct Categories {
 }
 
 impl Categories {
+    pub fn get_name(&self, l: i16) -> &str {
+        if l == 1 {return &self.name}
+        else {return &self.name_en};
+    }
     pub fn get_type_and_query(types: i16, l: i16) -> (String, Vec<Categories>) {
         let _connection = establish_connection();
         if l == 1 {
