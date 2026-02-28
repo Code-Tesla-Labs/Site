@@ -1,10 +1,10 @@
 
 <div class="blog-post-prev-small clearfix">
-    <a class="ajax" href="/wiki/all-articles/<%= object.slug %>/">
+    <a class="ajax" href="/wiki/all-wikis/<%= object.slug %>/">
         <img src="<%= object.get_image() %>" alt="img" class="image_fit_100 widget-posts-img">
     </a>
     <div class="widget-posts-descr">
-        <a class="ajax solid_bottom" style="margin-bottom: 3px;" href="/wiki/all-articles/<%= object.slug %>/">
+        <a class="ajax solid_bottom" style="margin-bottom: 3px;" href="/wiki/all-wikis/<%= object.slug %>/">
           <% if !object.is_active { %>
             <span style="color: red">🛇</span>
           <% } %>

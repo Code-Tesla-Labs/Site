@@ -133,7 +133,7 @@
   <% } else if linguage == 1 { %> 
       <p>Девайс:  <span class="device_ru"></span></p> 
       <p>Локация: <span class="city_ru"></span></p> 
-      <p>Язык:    <span class="underline pointer" data-l="2">Ru</span> &nbsp;&nbsp; <a data-l="1" class="change_l pointer">En</a></p>
+      <p>Язык:    <span class="underline pointer" data-l="1">Ru</span> &nbsp;&nbsp; <a data-l="2" class="change_l pointer">En</a></p>
       <p>Шаблон:  
         <span class="underline pointer">Rhythm</span>
         <!--
