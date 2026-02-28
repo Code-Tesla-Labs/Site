@@ -464,7 +464,7 @@ function create_order_form(price) {
   banner_blocks = document.body.querySelectorAll(".open_cat");
   console.log("открытые веб-сервисы", banner_blocks);
   serves_container.parentElement.querySelector(".total_price").innerHTML = price;
-  for (var i = 0; i < banner_blocks.length; i++) {
+  for (var i = 0; i < banner_blocks.length; i++) { 
     //if (banner_blocks[i].classList.contains("open_cat")) { 
       banner_block_title = banner_blocks[i].querySelector(".section-title").innerHTML;
 
@@ -479,15 +479,15 @@ function create_order_form(price) {
           cat_title = tab_panes[k].querySelector(".get_serve_category_info").innerHTML;
           cat_id = tab_panes[k].querySelector(".get_serve_category_info").getAttribute("data-pk");
           serves = "";
-          for (var i = 0; i < serves_list.length; i++) {
+          for (var a = 0; a < serves_list.length; a++) {
             serve = "<tr><td class='border-top' style='width:55%'><a class='get_serve_info pointer' data-pk='"
-            + serves_list[i].querySelector(".get_serve_info").getAttribute("data-pk")
+            + serves_list[a].querySelector(".get_serve_info").getAttribute("data-pk")
             + "'>"
-            + serves_list[i].querySelector(".get_serve_info").innerHTML
+            + serves_list[a].querySelector(".get_serve_info").innerHTML
             + "</a></td><td class='border-top price_td' style='width:15%'>"
-            + serves_list[i].querySelector(".price_td").innerHTML
+            + serves_list[a].querySelector(".price_td").innerHTML
             + "</td><td class='border-top hours' style='width:15%'>"
-            + serves_list[i].querySelector(".hours").innerHTML
+            + serves_list[a].querySelector(".hours").innerHTML
             + "</td></tr>";
 
             serves += serve;
