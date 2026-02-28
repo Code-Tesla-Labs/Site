@@ -461,17 +461,20 @@ function create_order_form(price) {
   fullscreens_container = document.body.querySelector("#fullscreens_container");
   serves_container = fullscreens_container.querySelector(".serves_container");
 
-  banner_blocks = document.body.querySelectorAll(".banner_block");
+  banner_blocks = document.body.querySelectorAll(".banner_block"); 
   serves_container.parentElement.querySelector(".total_price").innerHTML = price;
   for (var i = 0; i < banner_blocks.length; i++) {
     if (banner_blocks[i].classList.contains("open_cat")) { 
+      console.log("открытый веб-сервис", banner_blocks[i]);
       banner_block_title = banner_blocks[i].querySelector(".section-title").innerHTML;
 
       tabs = banner_blocks[i].querySelector(".price_mode");
       tab_pk = tabs.querySelector(".active").getAttribute("data-pk");
       tab_panes = banner_blocks[i].querySelectorAll(".tab-pane");
+      console.log("языки веб-сервиса", tab_panes);
       for (var k = 0; k < tab_panes.length; k++) {
-        if (tab_panes[k].getAttribute("data-pk") == tab_pk) {
+        if (tab_panes[k].getAttribute("data-pk") == tab_pk) { 
+          console.log("активный язык веб-сервиса", tab_panes);
           serves_list = tab_panes[k].querySelectorAll(".hover");
           cat_title = tab_panes[k].querySelector(".get_serve_category_info").innerHTML;
           cat_id = tab_panes[k].querySelector(".get_serve_category_info").getAttribute("data-pk");
@@ -504,7 +507,7 @@ function create_order_form(price) {
       + serves
       + "</tbody></table></div></div></div></section>";
 
-      serves_container.innerHTML += section;
+      serves_container.innerHTML = serves_container.innerHTML + section;
 
     }
   }
