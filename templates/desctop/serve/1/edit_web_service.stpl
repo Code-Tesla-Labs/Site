@@ -17,7 +17,7 @@
                 <input value="<%= category.name %>" class="form_title input-md form-control" type="text" name="name" placeholder="Название по-русски" />
             </div>
             <div class="mb-20 mb-md-10">
-                <input value="<%= category.name %>" class="form_title_2 input-md form-control" type="text" name="name_en" placeholder="Название по-английски" />
+                <input value="<%= category.name_en %>" class="form_title_2 input-md form-control" type="text" name="name_en" placeholder="Название по-английски" />
             </div>
 
             <div class="mb-20 mb-md-10">
@@ -52,7 +52,7 @@
                 <input value="<%= category.position %>" class="input-md form-control" type="number" name="position" placeholder="Порядок следования" />
             </div>
             <label>Уровень сложности</label>
-              <select class="input-md form-control" data-live-search="true" tabindex="-1" aria-hidden="true">
+              <select class="input-md form-control" name="level" data-live-search="true" tabindex="-1" aria-hidden="true">
                 <option <% if category.level == 0 { %>selected=""<% } %> value="0">Бюджетно</option>
                 <option <% if category.level == 1 { %>selected=""<% } %> value="1">Обычно</option>
                 <option <% if category.level == 2 { %>selected=""<% } %> value="2">Средне</option>
