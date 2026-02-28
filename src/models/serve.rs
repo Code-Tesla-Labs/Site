@@ -742,7 +742,7 @@ impl Serve {
             description:    Some(form.description.clone()),
             description_en: Some(form.description_en.clone()),
             position:       form.position,
-            category_id:    _serve.category_id,
+            category_id:    form.category_id,
             price:          form.price,
             man_hours:      form.man_hours,
             is_default:     is_default,

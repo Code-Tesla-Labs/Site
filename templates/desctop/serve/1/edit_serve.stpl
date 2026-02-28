@@ -17,7 +17,7 @@
                 <input value="<%= object.name %>" class="form_title input-md form-control" type="text" name="name" placeholder="Название по-русски" />
             </div>
             <div class="mb-20 mb-md-10">
-                <input value="<%= object.name %>" class="form_title_2 input-md form-control" type="text" name="name" placeholder="Название по-английски" />
+                <input value="<%= object.name_en %>" class="form_title_2 input-md form-control" type="text" name="name" placeholder="Название по-английски" />
             </div>
 
             <div class="mb-20 mb-md-10">

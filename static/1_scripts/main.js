@@ -454,27 +454,20 @@ function create_fullscreen(url, type_class, price) {
 };
 
 function create_order_form(price) {
-  try {
-    document.body.querySelector(".price_section_block").style.display = "none";
-  } catch { null };
+  try {document.body.querySelector(".price_section_block").style.display = "none";} catch { null };
 
   fullscreens_container = document.body.querySelector("#fullscreens_container");
   serves_container = fullscreens_container.querySelector(".serves_container");
-
   banner_blocks = document.body.querySelectorAll(".open_cat");
-  console.log("открытые веб-сервисы", banner_blocks);
   serves_container.parentElement.querySelector(".total_price").innerHTML = price;
   for (var i = 0; i < banner_blocks.length; i++) { 
-    //if (banner_blocks[i].classList.contains("open_cat")) { 
       banner_block_title = banner_blocks[i].querySelector(".section-title").innerHTML;
 
       tabs = banner_blocks[i].querySelector(".price_mode");
       tab_pk = tabs.querySelector(".active").getAttribute("data-pk");
       tab_panes = banner_blocks[i].querySelectorAll(".tab-pane");
-      console.log("языки веб-сервиса", tab_panes);
       for (var k = 0; k < tab_panes.length; k++) {
         if (tab_panes[k].getAttribute("data-pk") == tab_pk) { 
-          console.log("активный язык веб-сервиса", tab_panes[k]);
           serves_list = tab_panes[k].querySelectorAll(".hover");
           cat_title = tab_panes[k].querySelector(".get_serve_category_info").innerHTML;
           cat_id = tab_panes[k].querySelector(".get_serve_category_info").getAttribute("data-pk");
@@ -508,8 +501,6 @@ function create_order_form(price) {
       + "</tbody></table></div></div></div></section>";
 
       serves_container.innerHTML = serves_container.innerHTML + section;
-
-   // }
   }
 };
 
