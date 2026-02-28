@@ -22,8 +22,12 @@
               <div class="row search_result"></div>
               <div class="content_block content">
                 <div class="blog-item mb-80 mb-xs-40">
-                    <div class="blog-item-body">
+                    <div class="blog-item-body"> 
+                      <div class="box2">
+                        <div class="reveal"></div>
                         <h1 class="mt-0 font-alt"><%= object.title %></h1>
+                      </div> 
+                        
                         <div class="blog-item-data">
 
                           <%= object.created.format("%d-%m-%Y в %H:%M").to_string() %>

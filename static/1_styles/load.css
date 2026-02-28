@@ -2280,7 +2280,10 @@ a.blog-item-more{
     font-size: 48px;
     letter-spacing: 0;
 }
-
+ .box2 {
+     overflow: hidden;
+     position: absolute
+ }
 .smile_supported, .smile_supported_en {
   overflow-y: auto;
   overflow-x: hidden;

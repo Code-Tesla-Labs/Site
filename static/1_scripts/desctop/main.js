@@ -167,7 +167,23 @@ function create_split() {
           repeatDelay: 10
         })
     });
-}
+};
+function create_reveal() {
+    reveal = $(".reveal"),
+    h1 = $("h1"),
+    tl = new TimelineMax;
+ tl.from(reveal, .2, {
+    scaleX: 0,
+    transformOrigin: "top left",
+    ease: Power1.easeOut
+ }, 1).from(h1, .1, {
+    ease: Power0.easeNone,
+    autoAlpha: 0
+ }, 1.5).to(reveal, .2, {
+    transformOrigin: "top right",
+    scaleX: 0
+ });
+};
 
 function check_first_load() {
   span = document.body.querySelector(".span");
@@ -195,6 +211,7 @@ function check_first_load() {
           window.history.pushState ({"url":loc}, document.title, loc);
           create_desing_menu();
           create_split();
+          create_reveal();
       } 
     }
     ajax_link.send();
@@ -247,6 +264,7 @@ function ajax_get_reload(url, history_enable, ajax) {
       scrolled(rtr);
       get_stat_meta($link, $title, $object_id, $page_id);
       get_document_opacity_1();
+      create_reveal();
     }
   }
   ajax_link.send();
@@ -298,7 +316,8 @@ on('body', 'input', '.desctop_folder_search', function() {
           search_block.innerHTML = search_section.innerHTML.replaceAll(new RegExp(value, 'ig'), "<span class='selected'>" + value + "</span>")
         ) : search_block.innerHTML = "<div style='margin-top: 40px;'><div class='align-center'><span class='border' style='padding: 10px 15px;'>Искать пока не из чего...</div></div>";
         content_block.classList.add("hidden")
-      }
+      };
+      creat_reveal();
     }
     ajax_link.send();
 });
