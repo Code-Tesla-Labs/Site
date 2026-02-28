@@ -30,7 +30,6 @@
                             <div class="work-full-detail">
                             <p>
                                 <strong>Дата:</strong>
-                                <% include!("../../../block/object_admin_panel.stpl"); %>
                             </p>
                             <p>
                                 <strong>Категории:</strong>

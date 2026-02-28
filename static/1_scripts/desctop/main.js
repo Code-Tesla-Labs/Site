@@ -147,6 +147,28 @@ function create_desing_menu() {
   }
 }
 
+function create_split() {
+    var text = $(".split"),
+    split = new SplitText(text);
+ 
+    function random(t, e) {
+        return Math.random() * (e - t) + t
+    }
+    $(split.chars).each(function(t) {
+        TweenMax.from($(this), 2.5, {
+          opacity: 0,
+          x: random(-500, 500),
+          y: random(-500, 500),
+          z: random(-500, 500),
+          scale: .1,
+          delay: .02 * t,
+          yoyo: !1,
+          repeat: 0,
+          repeatDelay: 10
+        })
+    });
+}
+
 function check_first_load() {
   span = document.body.querySelector(".span");
   loc = window.location.href;
@@ -171,8 +193,9 @@ function check_first_load() {
           get_page_view_time(120); 
           scrolled(document.body.querySelector(".span"));
           window.history.pushState ({"url":loc}, document.title, loc);
-          create_desing_menu(); 
-      }
+          create_desing_menu();
+          create_split();
+      } 
     }
     ajax_link.send();
 }

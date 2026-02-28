@@ -66,6 +66,7 @@ impl WebService {
         let _connection = establish_connection();
         return schema::web_services::table
             .filter(schema::web_services::level.eq(level))
+            .order(schema::web_services::position.asc())
             .load::<WebService>(&_connection)
             .expect("E");
     }
