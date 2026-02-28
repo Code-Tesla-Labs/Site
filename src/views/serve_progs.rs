@@ -311,14 +311,11 @@ pub async fn create_web_service_page(conn: ConnectionInfo, session: Session, req
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
         }
         else {
-            let _categories = WebService::get_all();
-
             if is_desctop {
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/serve/create_web_service.stpl")]
                 struct Template {
                     request_user:   User,
-                    _web_services:  Vec<WebService>,
                     is_ajax:        i32,
                     template_types: i16,
                     linguage:       i16,
@@ -330,7 +327,6 @@ pub async fn create_web_service_page(conn: ConnectionInfo, session: Session, req
                 }
                 let body = Template {
                     request_user:   _request_user,
-                    _web_services:  _categories,
                     is_ajax:        is_ajax,
                     template_types: t,
                     linguage:       l,
@@ -348,7 +344,6 @@ pub async fn create_web_service_page(conn: ConnectionInfo, session: Session, req
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/serve/create_web_service.stpl")]
                 struct Template {
-                    _web_services:  Vec<WebService>,
                     is_ajax:        i32,
                     template_types: i16,
                     linguage:       i16,
@@ -359,7 +354,6 @@ pub async fn create_web_service_page(conn: ConnectionInfo, session: Session, req
                     image:          String,
                 }
                 let body = Template {
-                    _web_services:  _categories,
                     is_ajax:        is_ajax,
                     template_types: t,
                     linguage:       l,
@@ -416,13 +410,11 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
         }
         else {
             let _web_services = block(move || WebService::get_all()).await?;
-            let _serve_categories = block(move || ServeCategories::get_all()).await?;            
             if is_desctop {
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/serve/create_serve_category.stpl")]
                 struct Template {
                     request_user:      User,
-                    _serve_categories: Vec<ServeCategories>,
                     _web_services:     Vec<WebService>,
                     is_ajax:           i32,
                     template_types:    i16,
@@ -435,7 +427,6 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
                 }
                 let body = Template {
                     request_user:      _request_user,
-                    _serve_categories: _serve_categories,
                     _web_services:     _web_services,
                     is_ajax:           is_ajax,
                     template_types:    t,
@@ -454,7 +445,6 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/serve/create_serve_category.stpl")]
                 struct Template {
-                    _serve_categories: Vec<ServeCategories>,
                     _web_categories:   Vec<WebService>,
                     is_ajax:           i32,
                     template_types:    i16,
@@ -466,7 +456,6 @@ pub async fn create_serve_category_page(conn: ConnectionInfo, session: Session, 
                     image:             String,
                 }
                 let body = Template {
-                    _serve_categories: _serve_categories,
                     _web_categories:   _web_services,
                     is_ajax:           is_ajax,
                     template_types:    t,
@@ -589,14 +578,11 @@ pub async fn create_serve_page(conn: ConnectionInfo, session: Session, req: Http
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
         }
         else {
-            let _serves = Serve::get_all();
-
             if is_desctop {
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/serve/create_serve.stpl")]
                 struct Template {
                     request_user:   User,
-                    _serves:        Vec<Serve>,
                     is_ajax:        i32,
                     template_types: i16,
                     linguage:       i16,
@@ -608,7 +594,6 @@ pub async fn create_serve_page(conn: ConnectionInfo, session: Session, req: Http
                 }
                 let body = Template {
                     request_user:   _request_user,
-                    _serves:        _serves,
                     is_ajax:        is_ajax,
                     template_types: t,
                     linguage:       l,
@@ -627,7 +612,6 @@ pub async fn create_serve_page(conn: ConnectionInfo, session: Session, req: Http
                 #[template(path = "mobile/serve/create_serve.stpl")]
                 struct Template {
                     request_user:   User,
-                    _serves:        Vec<Serve>,
                     is_ajax:        i32,
                     template_types: i16,
                     linguage:       i16,
@@ -639,7 +623,6 @@ pub async fn create_serve_page(conn: ConnectionInfo, session: Session, req: Http
                 }
                 let body = Template {
                     request_user:   _request_user,
-                    _serves:        _serves,
                     is_ajax:        is_ajax,
                     template_types: t,
                     linguage:       l,
@@ -697,14 +680,11 @@ pub async fn edit_web_service_page(conn: ConnectionInfo, session: Session, req: 
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
         }
         else {
-            let _web_services = WebService::get_all();
-
             if is_desctop {
                 #[derive(TemplateOnce)]
                 #[template(path = "desctop/serve/edit_web_service.stpl")]
                 struct Template {
                     request_user:   User,
-                    _web_services:  Vec<WebService>,
                     category:       WebService,
                     is_ajax:        i32,
                     template_types: i16,
@@ -717,7 +697,6 @@ pub async fn edit_web_service_page(conn: ConnectionInfo, session: Session, req: 
                 }
                 let body = Template {
                     request_user:   _request_user,
-                    _web_services:  _web_services,
                     category:       _category,
                     is_ajax:        is_ajax,
                     template_types: t,
@@ -736,7 +715,6 @@ pub async fn edit_web_service_page(conn: ConnectionInfo, session: Session, req: 
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/serve/edit_web_service.stpl")]
                 struct Template {
-                    _web_services:  Vec<WebService>,
                     category:       WebService,
                     is_ajax:        i32,
                     template_types: i16,
@@ -748,7 +726,6 @@ pub async fn edit_web_service_page(conn: ConnectionInfo, session: Session, req: 
                     image:          String,
                 }
                 let body = Template {
-                    _web_services:  _web_services,
                     category:       _category,
                     is_ajax:        is_ajax,
                     template_types: t,
@@ -804,7 +781,6 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
     else {
         let _request_user = get_request_user_data(&session);
         let _web_services = block(move || WebService::get_all()).await?;
-        let _serve_categories = ServeCategories::get_all();
 
         if _category.user_id != _request_user.id {
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
@@ -815,7 +791,6 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
                 #[template(path = "desctop/serve/edit_serve_category.stpl")]
                 struct Template {
                     request_user:      User,
-                    _serve_categories: Vec<ServeCategories>,
                     _web_services:     Vec<WebService>,
                     category:          ServeCategories,
                     is_ajax:           i32,
@@ -829,7 +804,6 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
                 }
                 let body = Template {
                     request_user:      _request_user,
-                    _serve_categories: _serve_categories,
                     _web_services:     _web_services,
                     category:          _category,
                     is_ajax:           is_ajax,
@@ -849,7 +823,6 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
                 #[derive(TemplateOnce)]
                 #[template(path = "mobile/serve/edit_serve_category.stpl")]
                 struct Template {
-                    _serve_categories: Vec<ServeCategories>,
                     _web_categories:   Vec<WebService>,
                     category:          ServeCategories,
                     is_ajax:           i32,
@@ -862,7 +835,6 @@ pub async fn edit_serve_category_page(conn: ConnectionInfo, session: Session, re
                     image:             String,
                 }
                 let body = Template {
-                    _serve_categories: _serve_categories,
                     _web_categories:   _web_services,
                     category:          _category,
                     is_ajax:           is_ajax,
@@ -921,7 +893,6 @@ pub async fn edit_serve_page(conn: ConnectionInfo, session: Session, req: HttpRe
         let _serve_cat = ServeCategories::get(_serve.category_id);
         let _level = WebService::get(_serve_cat.category_id).level;
         let _serve_cats = ServeCategories::get_categories_from_level(&_level);
-        let _serves = Serve::get_all();
 
         if _serve.user_id != _request_user.id {
             Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(""))
@@ -934,7 +905,6 @@ pub async fn edit_serve_page(conn: ConnectionInfo, session: Session, req: HttpRe
                     request_user:   User,
                     level:          i16,
                     serve_cats:     Vec<ServeCategories>,
-                    _serves:        Vec<Serve>,
                     object:         Serve,
                     is_ajax:        i32,
                     template_types: i16,
@@ -949,7 +919,6 @@ pub async fn edit_serve_page(conn: ConnectionInfo, session: Session, req: HttpRe
                     request_user:   _request_user,
                     level:          _level,
                     serve_cats:     _serve_cats,
-                    _serves:        _serves,
                     object:         _serve,
                     is_ajax:        is_ajax,
                     template_types: t,
@@ -971,7 +940,6 @@ pub async fn edit_serve_page(conn: ConnectionInfo, session: Session, req: HttpRe
                     request_user:   User,
                     level:          i16,
                     serve_cats:     Vec<ServeCategories>,
-                    _serves:        Vec<Serve>,
                     object:         Serve,
                     is_ajax:        i32,
                     template_types: i16,
@@ -986,7 +954,6 @@ pub async fn edit_serve_page(conn: ConnectionInfo, session: Session, req: HttpRe
                     request_user:   _request_user,
                     level:          _level,
                     serve_cats:     _serve_cats,
-                    _serves:        _serves,
                     object:         _serve,
                     is_ajax:        is_ajax,
                     template_types: t,

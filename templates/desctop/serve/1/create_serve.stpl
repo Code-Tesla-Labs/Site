@@ -65,19 +65,7 @@
             <button class="btn btn-mod btn-border btn-medium btn-round" style="float: right;" type="button" id="create_serve_btn">Создать</button>
         </form>
         <section class="col-md-4">
-          <div>
-            <% for s in _serves.iter() { %>
-              <% 
-                let cat = s.get_category();
-                let tech = cat.get_category_small();
-                let level = crate::models::WebService::get_level(tech.1);
-              %>
-              <h4><%= s.name %> - <%= cat.name %>, <%= tech.0 %> (<%= level %>)
-                | <a class="ajax" href="/edit_serve/<%= s.id %>/">~</a>
-                | <a class="pointer remove_serve" data-pk="<%= s.id %>">x</a>
-              </h4> 
-            <% } %>
-          </div>
+          
         </section>
     </div>
 </section>
