@@ -464,7 +464,7 @@ function create_order_form(price) {
   banner_blocks = document.body.querySelectorAll(".banner_block");
   serves_container.parentElement.querySelector(".total_price").innerHTML = price;
   for (var i = 0; i < banner_blocks.length; i++) {
-    if (banner_blocks[i].classList.contains("open_cat")) {
+    if (banner_blocks[i].classList.contains("open_cat")) { 
       banner_block_title = banner_blocks[i].querySelector(".section-title").innerHTML;
 
       tabs = banner_blocks[i].querySelector(".price_mode");

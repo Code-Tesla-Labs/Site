@@ -39,15 +39,15 @@
   <% let s_cats = t_category.get_serve_categories(); %> 
 
 <section class="banner_block mb-20 mt-20 border" style="width:100%;">
-    <h3 class="pointer section-title font-alt show_web_service">
+    <h3 class="pointer font-alt show_web_service">
       <span class="cat_description">
-        <%= t_category.name %>
+        <span class="section-title"><%= t_category.name %></span>
         <span style="float:right;margin-right: 20px;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
         </span>
       </span>
       <span class="cat_name hidden">
-        <%= t_category.name %>
+        <span class="section-title"><%= t_category.name %></span>
         <span style="float:right;margin-right: 20px;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </span>
@@ -58,7 +58,7 @@
         <div class="align-center">
             <ul class="nav nav-tabs tpl-minimal-tabs">
               <% for (i, cat) in s_cats.iter().enumerate() { %>
-                <li data-sum="<%= cat.default_price %>" class="yy pointer s_<%= i + 1 %> <% if i == 0 { %>active<% } %>">
+                <li data-pk="<%= cat.id %>" data-sum="<%= cat.default_price %>" class="yy pointer s_<%= i + 1 %> <% if i == 0 { %>active<% } %>">
                     <a class="pointer"><%= cat.name %></a>
                 </li>
               <% } %>
