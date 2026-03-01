@@ -24,12 +24,12 @@
                 <div class="blog-item mb-80 mb-xs-40">
                     <div class="blog-item-body">
                         <div style="position: relative">
-                          <div style="position: relative">
+                          
                             <div class="box2">
                               <div class="reveal"></div>
                               <h1 class="mt-0 font-alt reveal_target"><%= object.title %></h1>
                             </div> 
-                          </div> 
+                          
                         </div>
                         <div class="blog-item-data">
 

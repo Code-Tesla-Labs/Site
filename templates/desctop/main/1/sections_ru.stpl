@@ -25,7 +25,7 @@
         </ul>
 
         <div class="tab-content tpl-tabs-cont">
-            <div class="tab_1 fade tab-pane in active create_show_split">
+            <div class="tab_1 fade tab-pane in active split_word">
                 <div class="section-text">
                     <div class="row">
                         <div class="mb-sm-50">
@@ -73,9 +73,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
 
-            <div class="tab_2 fade tab-pane in create_show_split">
+            <div class="tab_2 fade tab-pane in split_lines">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">
