@@ -12,7 +12,9 @@
 .mob_menu, .mn-sub {
 	background-color: #DDD1C5;
 }
-
+.reveal {
+  background: #000;
+}
 .solid_left {
   border-left: 1px solid #222;
 }

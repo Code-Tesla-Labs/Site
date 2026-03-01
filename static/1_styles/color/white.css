@@ -9,7 +9,9 @@
 .alt-features-icon {
     color: #00000 !important;
 }
-
+ .reveal {
+   background: #000;
+ }
 .desctop_version .team-item:hover .team-item-image:after {
   background: #e6e3df !important;
 }
