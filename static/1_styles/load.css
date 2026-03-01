@@ -253,7 +253,7 @@ dl dd {
       font-size: 20px;
   }
   .yy {
-    width: 45% !important;
+    width: 100% !important;
     margin-bottom: 9px !important;
   }
   h1 {
@@ -261,6 +261,10 @@ dl dd {
   }
   .this_fullscreen_hide {
     right: 30px !important;
+  }
+  .yy {
+      width: 45% !important;
+      margin-bottom: 9px !important;
   }
 }
 pre {
