@@ -23,9 +23,9 @@
               <div class="content_block content">
                 <div class="blog-item mb-80 mb-xs-40">
                     <div class="blog-item-body">
-                       <div class="box2">
+                       <div class="_box2">
                           <div class="reveal"></div>
-                          <h1 class="mt-0 font-alt"><%= object.title %></h1>
+                          <h1 class="mt-0 font-alt reveal_target"><%= object.title %></h1>
                         </div> 
                         <div class="blog-item-data">
 
