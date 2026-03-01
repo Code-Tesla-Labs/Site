@@ -25,7 +25,7 @@
         </ul>
 
         <div class="tab-content tpl-tabs-cont">
-            <div class="tab_1 fade tab-pane in active">
+            <div class="tab_1 fade tab-pane in active create_show_split">
                 <div class="section-text">
                     <div class="row">
                         <div class="mb-sm-50">
@@ -75,7 +75,7 @@
                 </div>
             </div>
 
-            <div class="tab_2 fade tab-pane in">
+            <div class="tab_2 fade tab-pane in create_show_split">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">
@@ -97,7 +97,7 @@
                 </div>
             </div>
 
-            <div class="tab_3 fade tab-pane in">
+            <div class="tab_3 fade tab-pane in create_show_split">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">
@@ -119,7 +119,7 @@
                 </div>
             </div>
 
-            <div class="tab_4 fade tab-pane in">
+            <div class="tab_4 fade tab-pane in create_show_split">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">
@@ -143,7 +143,7 @@
                 </div>
             </div>
 
-            <div class="tab_5 fade tab-pane in">
+            <div class="tab_5 fade tab-pane in create_show_split">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">
@@ -178,7 +178,7 @@
                 </div>
             </div>
 
-            <div class="tab_6 fade tab-pane in">
+            <div class="tab_6 fade tab-pane in create_show_split">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">

@@ -253,7 +253,7 @@ dl dd {
       font-size: 20px;
   }
   .yy {
-    width: 100% !important;
+    width: 45% !important;
     margin-bottom: 9px !important;
   }
   h1 {
@@ -263,7 +263,7 @@ dl dd {
     right: 30px !important;
   }
   .yy {
-      width: 45% !important;
+      width: 100% !important;
       margin-bottom: 9px !important;
   }
 }
