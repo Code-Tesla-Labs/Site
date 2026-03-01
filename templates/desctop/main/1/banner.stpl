@@ -12,10 +12,14 @@
                 <h2 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">
                     <%= __h2 %>
                 </h2>
-                <h1 class="hs-line-14 font-alt mb-50 mb-xs-30 reveal">
-                    <%= __h1 %>
-                </h1>
-
+                <div style="position: relative">
+                  <div class="box2">
+                    <div class="reveal"></div>
+                    <h1 class="hs-line-14 font-alt mb-50 mb-xs-30 reveal">
+                        <%= __h1 %>
+                    </h1>
+                  </div>
+                </div>
                 <div class="local-scroll" style="position:relative">
                   <span style="position:absolute; left:0">
                     <% include!("../../generic/items/1/page_stat.stpl"); %>
