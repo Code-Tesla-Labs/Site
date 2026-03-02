@@ -13,7 +13,7 @@
   background: #F4E0E3 !important;
 }
 .reveal {
-  background: #000;
+  background: rgb(255, 255, 255, 0.7);
 }
 .desctop_version .team-item:hover .team-item-image:after {
   background: #F4E0E3 !important;

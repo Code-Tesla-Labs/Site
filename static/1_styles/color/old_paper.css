@@ -13,7 +13,7 @@
 	background-color: #DDD1C5;
 }
 .reveal {
-  background: #000;
+  background: rgb(0, 0, 0, 0.7);
 }
 .solid_left {
   border-left: 1px solid #222;

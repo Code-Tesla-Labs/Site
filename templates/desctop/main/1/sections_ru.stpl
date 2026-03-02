@@ -59,7 +59,7 @@
                 </div>
             </div> 
 
-            <div class="tab_2 fade tab-pane in split_word">
+            <div class="tab_2 fade tab-pane in">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">
@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-            <div class="tab_3 fade tab-pane in create_show_split">
+            <div class="tab_3 fade tab-pane in">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">
@@ -103,7 +103,7 @@
                 </div>
             </div>
 
-            <div class="tab_4 fade tab-pane in create_show_split">
+            <div class="tab_4 fade tab-pane in">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">
@@ -127,7 +127,7 @@
                 </div>
             </div>
 
-            <div class="tab_5 fade tab-pane in create_show_split">
+            <div class="tab_5 fade tab-pane in">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">
@@ -162,7 +162,7 @@
                 </div>
             </div>
 
-            <div class="tab_6 fade tab-pane in create_show_split">
+            <div class="tab_6 fade tab-pane in">
                 <div class="section-text">
                     <div class="row">
                       <div class="mb-sm-50">

@@ -7,7 +7,7 @@
   padding: 0px 2px;
 }
 .reveal {
-  background: white;
+  background: rgb(255, 255, 255, 0.7);
 }
 .small-section, .mob_menu, .banner_block {
   background: inherit !important;
