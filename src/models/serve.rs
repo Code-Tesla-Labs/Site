@@ -40,7 +40,7 @@ pub struct WebService {
 }
 
 impl WebService {
-    pub fn get_services(&self) -> Vec<crate::models::Service> {
+    pub fn get_services(&self, l: i16) -> Vec<crate::models::Service> {
         let _connection = establish_connection();
         let ids = web_services_items
             .filter(schema::web_services_items::category_id.eq(&self.id))
@@ -48,20 +48,36 @@ impl WebService {
             .select(schema::web_services_items::item_id)
             .load::<i32>(&_connection)
             .expect("E");
-        return schema::items::table
-            .filter(schema::items::id.eq_any(ids))
-            .select((
-                schema::items::id,
-                schema::items::slug,
-                schema::items::image.nullable(),
-                schema::items::is_active,
-                schema::items::title,
-                schema::items::description.nullable(),
-            ))
-            .load::<crate::models::Service>(&_connection)
-            .expect("E");
+        if l == 1 {
+            return schema::items::table
+                .filter(schema::items::id.eq_any(ids))
+                .select((
+                    schema::items::id,
+                    schema::items::slug,
+                    schema::items::image.nullable(),
+                    schema::items::is_active,
+                    schema::items::title,
+                    schema::items::description.nullable(),
+                ))
+                .load::<crate::models::Service>(&_connection)
+                .expect("E");
+            }
+            else {
+                return schema::items::table
+                    .filter(schema::items::id.eq_any(ids))
+                    .select((
+                        schema::items::id,
+                        schema::items::slug,
+                        schema::items::image.nullable(),
+                        schema::items::is_active,
+                        schema::items::title_en,
+                        schema::items::description_en.nullable(),
+                    ))
+                    .load::<crate::models::Service>(&_connection)
+                    .expect("E");
+            }
     }
-    pub fn get_stores(&self) -> Vec<crate::models::Store> {
+    pub fn get_stores(&self, l: i16) -> Vec<crate::models::Store> {
         let _connection = establish_connection();
         let ids = web_services_items
             .filter(schema::web_services_items::category_id.eq(&self.id))
@@ -69,22 +85,40 @@ impl WebService {
             .select(schema::web_services_items::item_id)
             .load::<i32>(&_connection)
             .expect("E");
-        return schema::items::table
-            .filter(schema::items::id.eq_any(ids))
-            .select((
-                schema::items::id,
-                schema::items::slug,
-                schema::items::image.nullable(),
-                schema::items::is_active,
-                schema::items::title,
-                schema::items::description.nullable(),
-                schema::items::price,
-                schema::items::price_acc.nullable(),
-            ))
-            .load::<crate::models::Store>(&_connection)
-            .expect("E");
+        if l == 1 {
+            return schema::items::table
+                .filter(schema::items::id.eq_any(ids))
+                .select((
+                    schema::items::id,
+                    schema::items::slug,
+                    schema::items::image.nullable(),
+                    schema::items::is_active,
+                    schema::items::title,
+                    schema::items::description.nullable(),
+                    schema::items::price,
+                    schema::items::price_acc.nullable(),
+                ))
+                .load::<crate::models::Store>(&_connection)
+                .expect("E");
+            } 
+            else {
+                return schema::items::table
+                    .filter(schema::items::id.eq_any(ids))
+                    .select((
+                        schema::items::id,
+                        schema::items::slug,
+                        schema::items::image.nullable(),
+                        schema::items::is_active,
+                        schema::items::title_en,
+                        schema::items::description_en.nullable(),
+                        schema::items::price,
+                        schema::items::price_acc.nullable(),
+                    ))
+                    .load::<crate::models::Store>(&_connection)
+                    .expect("E");
+            }
     }
-    pub fn get_works(&self) -> Vec<crate::models::Work> {
+    pub fn get_works(&self, l: i16) -> Vec<crate::models::Work> {
         let _connection = establish_connection();
         let ids = web_services_items
             .filter(schema::web_services_items::category_id.eq(&self.id))
@@ -92,18 +126,34 @@ impl WebService {
             .select(schema::web_services_items::item_id)
             .load::<i32>(&_connection)
             .expect("E");
-        return schema::items::table
-            .filter(schema::items::id.eq_any(ids))
-            .select((
-                schema::items::id,
-                schema::items::slug,
-                schema::items::image.nullable(),
-                schema::items::is_active,
-                schema::items::title_en,
-                schema::items::description_en.nullable(),
-            ))
-            .load::<crate::models::Work>(&_connection)
-            .expect("E");
+        if l == 1 {
+            return schema::items::table
+                .filter(schema::items::id.eq_any(ids))
+                .select((
+                    schema::items::id,
+                    schema::items::slug,
+                    schema::items::image.nullable(),
+                    schema::items::is_active,
+                    schema::items::title,
+                    schema::items::description.nullable(),
+                ))
+                .load::<crate::models::Work>(&_connection)
+                .expect("E");
+            }
+            else {
+                return schema::items::table
+                    .filter(schema::items::id.eq_any(ids))
+                    .select((
+                        schema::items::id,
+                        schema::items::slug,
+                        schema::items::image.nullable(),
+                        schema::items::is_active,
+                        schema::items::title_en,
+                        schema::items::description_en.nullable(),
+                    ))
+                    .load::<crate::models::Work>(&_connection)
+                    .expect("E");
+            }
     }
     pub fn get_name(&self, l: i16) -> &str {
         if l == 1 {return &self.name}
