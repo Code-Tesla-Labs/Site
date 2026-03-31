@@ -43,7 +43,7 @@ pub struct WebService {
 impl WebService {
     pub fn get_services(&self, l: i16) -> Vec<crate::models::Service> {
         let _connection = establish_connection();
-        let ids = schema::items::web_services_items
+        let ids = schema::web_services_items::table
             .filter(schema::web_services_items::category_id.eq(&self.id))
             .filter(schema::web_services_items::types.eq(2))
             .select(schema::web_services_items::item_id)
@@ -80,7 +80,7 @@ impl WebService {
     }
     pub fn get_stores(&self, l: i16) -> Vec<crate::models::Store> {
         let _connection = establish_connection();
-        let ids = schema::items::web_services_items
+        let ids = schema::web_services_items::table
             .filter(schema::web_services_items::category_id.eq(&self.id))
             .filter(schema::web_services_items::types.eq(3))
             .select(schema::web_services_items::item_id)
@@ -121,9 +121,9 @@ impl WebService {
     }
     pub fn get_works(&self, l: i16) -> Vec<crate::models::Work> {
         let _connection = establish_connection();
-        let ids = schema::items::web_services_items
+        let ids = schema::web_services_items::table
             .filter(schema::web_services_items::category_id.eq(&self.id))
-            .filter(schema::web_services_items::types.eq(5))
+            .filter(schema::web_services_items::types.eq(5))  
             .select(schema::web_services_items::item_id)
             .load::<i32>(&_connection)
             .expect("E");
