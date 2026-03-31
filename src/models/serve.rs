@@ -5,6 +5,7 @@ use crate::diesel::{
     QueryDsl,
     RunQueryDsl,
     ExpressionMethods,
+    NullableExpressionMethods,
 };
 use serde::{Serialize, Deserialize};
 use crate::schema::{
