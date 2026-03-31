@@ -48,21 +48,21 @@
               <p class="small">
                 <%= __services %>:&nbsp;&nbsp;
                 <% for item in services.iter() { %>
-                  <a href="/service/all-services/<%= item.slug %>/"><%= item.name %></a>&nbsp;&nbsp;
+                  <a href="/service/all-services/<%= item.slug %>/"><%= item.title %></a>&nbsp;&nbsp;
                 <% } %>
               </p>
             <% } %>
             <% if stores.len() > 0 { %>
               <p class="small"><%= __stores %>:&nbsp;&nbsp;
                 <% for item in stores.iter() { %>
-                  <a href="/service/all-stores/<%= item.slug %>/"><%= item.name %></a>&nbsp;&nbsp;
+                  <a href="/service/all-stores/<%= item.slug %>/"><%= item.title %></a>&nbsp;&nbsp;
                 <% } %>
               </p>
             <% } %>
             <% if works.len() > 0 { %>
               <p class="small"><%= __works %>:&nbsp;&nbsp;
                 <% for item in works.iter() { %>
-                  <a href="/service/all-works/<%= item.slug %>/"><%= item.name %></a>&nbsp;&nbsp;
+                  <a href="/service/all-works/<%= item.slug %>/"><%= item.title %></a>&nbsp;&nbsp;
                 <% } %>
               </p>
             <% } %>
