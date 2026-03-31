@@ -44,7 +44,7 @@
               let stores = web_service.get_stores();
               let works = web_service.get_works();
             %>
-            <% if services.len() > 0 %>
+            <% if services.len() > 0 { %>
               <p class="small">
                 <%= __services %>:&nbsp;&nbsp;
                 <% for item in services.iter() { %>
@@ -52,14 +52,14 @@
                 <% } %>
               </p>
             <% } %>
-            <% if stores.len() > 0 %>
+            <% if stores.len() > 0 { %>
               <p class="small"><%= __stores %>:&nbsp;&nbsp;
                 <% for item in stores.iter() { %>
                   <a href="/service/all-stores/<%= item.slug %>/"><%= item.get_name() %></a>&nbsp;&nbsp;
                 <% } %>
               </p>
             <% } %>
-            <% if works.len() > 0 %>
+            <% if works.len() > 0 { %>
               <p class="small"><%= __works %>:&nbsp;&nbsp;
                 <% for item in works.iter() { %>
                   <a href="/service/all-works/<%= item.slug %>/"><%= item.get_name() %></a>&nbsp;&nbsp;
