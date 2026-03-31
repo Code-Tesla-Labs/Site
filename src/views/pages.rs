@@ -61,6 +61,7 @@ pub fn pages_routes(config: &mut web::ServiceConfig) {
 
     config.route("/edit_file/{id}/", web::get().to(edit_file_page));
     config.route("/image/{id}/", web::get().to(image_page));
+    config.route("/unshift/", web::get().to(unshift_page));
 }
 
 
@@ -2336,6 +2337,16 @@ pub async fn image_page(req: HttpRequest, conn: ConnectionInfo, _id: web::Path<i
         link:           link,
         image:          image,
     }
+    .render_once()
+    .map_err(|e| InternalError::new(e, StatusCode::INTERNAL_SERVER_ERROR))?;
+    Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(body))
+}
+
+pub async fn unshift_page(conn: ConnectionInfo, req: HttpRequest, session: Session) -> actix_web::Result<HttpResponse> {
+    #[derive(TemplateOnce)]
+    #[template(path = "desctop/pages/unshift.stpl")]
+    struct Template {}
+    let body = Template {}
     .render_once()
     .map_err(|e| InternalError::new(e, StatusCode::INTERNAL_SERVER_ERROR))?;
     Ok(HttpResponse::Ok().content_type("text/html; charset=utf-8").body(body))

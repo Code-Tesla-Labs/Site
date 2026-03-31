@@ -7,10 +7,10 @@
   padding: 0px 2px;
 }
 .alt-features-icon {
-    color: #00000 !important;
+    color: #000000 !important;
 }
  .reveal {
-   background: rgb(255, 255, 255, 0.7);
+   background: rgb(0, 0, 0, 0.7);
  }
 .desctop_version .team-item:hover .team-item-image:after {
   background: #e6e3df !important;
