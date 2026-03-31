@@ -45,27 +45,28 @@
               let works = web_service.get_works(linguage);
             %>
             <% if services.len() > 0 { %>
-              <p class="small">
+              <p class="small" style="margin:0">
                 <%= __services %>:&nbsp;&nbsp;
                 <% for item in services.iter() { %>
-                  <a href="/service/all-services/<%= item.slug %>/"><%= item.title %></a>&nbsp;&nbsp;
+                  <a href="/service/all-services/<%= item.slug %>/" target="_blank" style="text-decoration: underline"><%= item.title %></a>&nbsp;&nbsp;
                 <% } %>
               </p>
             <% } %>
             <% if stores.len() > 0 { %>
-              <p class="small"><%= __stores %>:&nbsp;&nbsp;
+              <p class="small" style="margin:0"><%= __stores %>:&nbsp;&nbsp;
                 <% for item in stores.iter() { %>
-                  <a href="/service/all-stores/<%= item.slug %>/"><%= item.title %></a>&nbsp;&nbsp;
+                  <a href="/service/all-stores/<%= item.slug %>/" target="_blank" style="text-decoration: underline"><%= item.title %></a>&nbsp;&nbsp;
                 <% } %>
               </p>
             <% } %>
             <% if works.len() > 0 { %>
-              <p class="small"><%= __works %>:&nbsp;&nbsp;
+              <p class="small" style="margin:0"><%= __works %>:&nbsp;&nbsp;
                 <% for item in works.iter() { %>
-                  <a href="/service/all-works/<%= item.slug %>/"><%= item.title %></a>&nbsp;&nbsp;
+                  <a href="/service/all-works/<%= item.slug %>/" target="_blank" style="text-decoration: underline"><%= item.title %></a>&nbsp;&nbsp;
                 <% } %>
               </p>
             <% } %>
+            <br>
             <ul class="loader_ul <% if i % 2 == 0 { %>hover<% } %>" style="margin-left: 2%"></ul>
           </li>
         <% } %>
