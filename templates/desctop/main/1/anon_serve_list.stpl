@@ -1,6 +1,12 @@
-<% let (__home, __list, __level_list) = match linguage {
-        2 => ("Home", "List of options", vec![(0, "Budget-friendly"), (1, "Normally"), (2, "Medium"), (3, "Difficult"), (4, "Expertly")]), 
-        1 | _ => ("Главная", "Список опций", vec![(0, "Бюджетно"), (1, "Обычно"), (2, "Средне"), (3, "Сложно"), (4, "Экспертно")]),
+<% let (__home, __list, __level_list, __services, __stores, __works) = match linguage {
+        2 => (
+          "Home", "List of options", vec![(0, "Budget-friendly"), (1, "Normally"), (2, "Medium"), (3, "Difficult"), (4, "Expertly")],
+          "Services", "Stores", "Works"
+        ), 
+        1 | _ => (
+          "Главная", "Список опций", vec![(0, "Бюджетно"), (1, "Обычно"), (2, "Средне"), (3, "Сложно"), (4, "Экспертно")],
+          "Услуги", "Товары", "Работы"
+        ),
     };
 %>
 
@@ -33,6 +39,33 @@
                 <path d="M0 0h24v24H0V0z" fill="none"/><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
               </svg>
             </a>
+            <% 
+              let services = web_service.get_services(); 
+              let stores = web_service.get_stores();
+              let works = web_service.get_works();
+            %>
+            <% if services.len() > 0 %>
+              <p class="small">
+                <%= __services %>:&nbsp;&nbsp;
+                <% for item in services.iter() { %>
+                  <a href="/service/all-services/<%= item.slug %>/"><%= item.get_name() %></a>&nbsp;&nbsp;
+                <% } %>
+              </p>
+            <% } %>
+            <% if stores.len() > 0 %>
+              <p class="small"><%= __stores %>:&nbsp;&nbsp;
+                <% for item in stores.iter() { %>
+                  <a href="/service/all-stores/<%= item.slug %>/"><%= item.get_name() %></a>&nbsp;&nbsp;
+                <% } %>
+              </p>
+            <% } %>
+            <% if works.len() > 0 %>
+              <p class="small"><%= __works %>:&nbsp;&nbsp;
+                <% for item in works.iter() { %>
+                  <a href="/service/all-works/<%= item.slug %>/"><%= item.get_name() %></a>&nbsp;&nbsp;
+                <% } %>
+              </p>
+            <% } %>
             <ul class="loader_ul <% if i % 2 == 0 { %>hover<% } %>" style="margin-left: 2%"></ul>
           </li>
         <% } %>

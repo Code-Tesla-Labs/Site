@@ -193,6 +193,16 @@ INSERT INTO categories (name,name_en,description,description_en,position,image,c
 VALUES ('Все товары','All stores','','',1,'',0,0,0.0,0,3,'all-stores') ON CONFLICT DO NOTHING;
 
 
+/*
+// types:
+// 1. блог
+// 2. услуга
+// 3. товар
+// 4. wiki
+// 5. работа 
+// 6. помощь
+// 7. заказ
+*/
 CREATE TABLE items (
     id             SERIAL PRIMARY KEY,
     title          VARCHAR(100) NOT NULL,
