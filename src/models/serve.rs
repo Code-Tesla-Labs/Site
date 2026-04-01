@@ -111,7 +111,7 @@ impl WebService {
                 }
         }
     }
-    pub fn get_stores(&self, l: i16, is_admin: bool)) -> Vec<crate::models::Store> {
+    pub fn get_stores(&self, l: i16, is_admin: bool) -> Vec<crate::models::Store> {
         let _connection = establish_connection();
         let ids = schema::web_services_items::table
             .filter(schema::web_services_items::category_id.eq(&self.id))
@@ -181,7 +181,7 @@ impl WebService {
                 }
         }
     }
-    pub fn get_works(&self, l: i16, is_admin: bool)) -> Vec<crate::models::Work> {
+    pub fn get_works(&self, l: i16, is_admin: bool) -> Vec<crate::models::Work> {
         let _connection = establish_connection();
         let ids = schema::web_services_items::table
             .filter(schema::web_services_items::category_id.eq(&self.id))
