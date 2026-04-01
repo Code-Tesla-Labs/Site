@@ -131,7 +131,7 @@ impl WebService {
                         schema::items::title,
                         schema::items::description.nullable(),
                     ))
-                    .load::<crate::models::Service>(&_connection)
+                    .load::<crate::models::Store>(&_connection)
                     .expect("E");
                 }
                 else {
@@ -145,7 +145,7 @@ impl WebService {
                             schema::items::title_en,
                             schema::items::description_en.nullable(),
                         ))
-                        .load::<crate::models::Service>(&_connection)
+                        .load::<crate::models::Store>(&_connection)
                         .expect("E");
                 }
         } else {
@@ -161,7 +161,7 @@ impl WebService {
                         schema::items::title,
                         schema::items::description.nullable(),
                     ))
-                    .load::<crate::models::Service>(&_connection)
+                    .load::<crate::models::Store>(&_connection)
                     .expect("E");
                 }
                 else {
@@ -176,7 +176,7 @@ impl WebService {
                             schema::items::title_en,
                             schema::items::description_en.nullable(),
                         ))
-                        .load::<crate::models::Service>(&_connection)
+                        .load::<crate::models::Store>(&_connection)
                         .expect("E");
                 }
         }
@@ -201,7 +201,7 @@ impl WebService {
                         schema::items::title,
                         schema::items::description.nullable(),
                     ))
-                    .load::<crate::models::Service>(&_connection)
+                    .load::<crate::models::Work>(&_connection)
                     .expect("E");
                 }
                 else {
@@ -215,7 +215,7 @@ impl WebService {
                             schema::items::title_en,
                             schema::items::description_en.nullable(),
                         ))
-                        .load::<crate::models::Service>(&_connection)
+                        .load::<crate::models::Work>(&_connection)
                         .expect("E");
                 }
         } else {
@@ -231,7 +231,7 @@ impl WebService {
                         schema::items::title,
                         schema::items::description.nullable(),
                     ))
-                    .load::<crate::models::Service>(&_connection)
+                    .load::<crate::models::Work>(&_connection)
                     .expect("E");
                 }
                 else {
@@ -246,7 +246,7 @@ impl WebService {
                             schema::items::title_en,
                             schema::items::description_en.nullable(),
                         ))
-                        .load::<crate::models::Service>(&_connection)
+                        .load::<crate::models::Work>(&_connection)
                         .expect("E");
                 }
         }
