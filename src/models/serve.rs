@@ -49,7 +49,7 @@ impl WebService {
             .select(schema::web_services_items::item_id)
             .load::<i32>(&_connection)
             .expect("E");
-        if admin {
+        if is_admin {
             if l == 1 {
                 return schema::items::table
                     .filter(schema::items::id.eq_any(ids))
@@ -111,7 +111,7 @@ impl WebService {
                 }
         }
     }
-    pub fn get_stores(&self, l: i16) -> Vec<crate::models::Store> {
+    pub fn get_stores(&self, l: i16, is_admin: bool)) -> Vec<crate::models::Store> {
         let _connection = establish_connection();
         let ids = schema::web_services_items::table
             .filter(schema::web_services_items::category_id.eq(&self.id))
@@ -119,7 +119,7 @@ impl WebService {
             .select(schema::web_services_items::item_id)
             .load::<i32>(&_connection)
             .expect("E");
-        if admin {
+        if is_admin {
             if l == 1 {
                 return schema::items::table
                     .filter(schema::items::id.eq_any(ids))
@@ -181,7 +181,7 @@ impl WebService {
                 }
         }
     }
-    pub fn get_works(&self, l: i16) -> Vec<crate::models::Work> {
+    pub fn get_works(&self, l: i16, is_admin: bool)) -> Vec<crate::models::Work> {
         let _connection = establish_connection();
         let ids = schema::web_services_items::table
             .filter(schema::web_services_items::category_id.eq(&self.id))
@@ -189,7 +189,7 @@ impl WebService {
             .select(schema::web_services_items::item_id)
             .load::<i32>(&_connection)
             .expect("E");
-        if admin {
+        if is_admin {
             if l == 1 {
                 return schema::items::table
                     .filter(schema::items::id.eq_any(ids))
