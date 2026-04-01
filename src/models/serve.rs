@@ -130,9 +130,9 @@ impl WebService {
                         schema::items::is_active,
                         schema::items::title,
                         schema::items::description.nullable(),
+                        schema::items::price,
+                        schema::items::price_acc.nullable(),
                     ))
-                    .load::<crate::models::Store>(&_connection)
-                    .expect("E");
                 }
                 else {
                     return schema::items::table
@@ -142,8 +142,10 @@ impl WebService {
                             schema::items::slug,
                             schema::items::image.nullable(),
                             schema::items::is_active,
-                            schema::items::title_en,
-                            schema::items::description_en.nullable(),
+                            schema::items::title,
+                            schema::items::description.nullable(),
+                            schema::items::price,
+                            schema::items::price_acc.nullable(),
                         ))
                         .load::<crate::models::Store>(&_connection)
                         .expect("E");
@@ -160,6 +162,8 @@ impl WebService {
                         schema::items::is_active,
                         schema::items::title,
                         schema::items::description.nullable(),
+                        schema::items::price,
+                        schema::items::price_acc.nullable(),
                     ))
                     .load::<crate::models::Store>(&_connection)
                     .expect("E");
@@ -173,8 +177,10 @@ impl WebService {
                             schema::items::slug,
                             schema::items::image.nullable(),
                             schema::items::is_active,
-                            schema::items::title_en,
-                            schema::items::description_en.nullable(),
+                            schema::items::title,
+                            schema::items::description.nullable(),
+                            schema::items::price,
+                            schema::items::price_acc.nullable(),
                         ))
                         .load::<crate::models::Store>(&_connection)
                         .expect("E");
