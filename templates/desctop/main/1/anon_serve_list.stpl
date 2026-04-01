@@ -40,9 +40,9 @@
               </svg>
             </a>
             <% 
-              let services = web_service.get_services(linguage); 
-              let stores = web_service.get_stores(linguage);
-              let works = web_service.get_works(linguage);
+              let services = web_service.get_services(linguage, false); 
+              let stores = web_service.get_stores(linguage, false);
+              let works = web_service.get_works(linguage, false);
             %>
             <% if services.len() > 0 { %>
               <p class="small" style="margin:0">

@@ -56,9 +56,9 @@
               </svg>
             </a>
             <% 
-              let services = web_service.get_services(linguage); 
-              let stores = web_service.get_stores(linguage);
-              let works = web_service.get_works(linguage);
+              let services = web_service.get_services(linguage, is_admin); 
+              let stores = web_service.get_stores(linguage, is_admin);
+              let works = web_service.get_works(linguage, is_admin);
             %>
             <% if services.len() > 0 { %>
               <p class="small" style="margin:0">
