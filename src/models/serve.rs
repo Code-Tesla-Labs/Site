@@ -133,6 +133,8 @@ impl WebService {
                         schema::items::price,
                         schema::items::price_acc.nullable(),
                     ))
+                    .load::<crate::models::Store>(&_connection)
+                    .expect("E");
                 }
                 else {
                     return schema::items::table
